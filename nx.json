@@ -14,6 +14,7 @@
   "projects": {
     "store": { "tags": [] },
     "store-e2e": { "tags": [], "implicitDependencies": ["store"] },
-    "store-ui-shared": { "tags": [] }
+    "store-ui-shared": { "tags": [] },
+    "store-util-formatters": { "tags": [] }
   }
 }
