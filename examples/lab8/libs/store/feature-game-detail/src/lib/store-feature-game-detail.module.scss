@@ -1,0 +1,41 @@
+.game-image {
+  width: 300px;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.content {
+  display: flex;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sell-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-button {
+  margin-right: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.game-rating {
+  padding-top: 10px;
+}
+
+.game-card-media {
+  height: 200px;
+  float: left;
+  width: 300px;
+  border-radius: 10px;
+  margin: 0 16px 20px;
+}
