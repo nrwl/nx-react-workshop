@@ -49,7 +49,7 @@ While the _mighty narwhal_ is away on secret missions, you will occasionally see
 
 If you get stuck running any Nx command, there is a `SOLUTION.md` file in each lab's folder.
 
-As mentioned, for anything Angular/styling or HTML template work we will provide the code you need as direct links to the files. Please use these as much as possible.
+As mentioned, for anything React/styling or HTML template work we will provide the code you need as direct links to the files. Please use these as much as possible.
 
 Finally, if you fall behind or join late, Git branches are provided for each lab, which will fast forward you to that lab - `git checkout lab-x` (where `x` is the number of the lab you want to start).
 
@@ -60,7 +60,7 @@ If you want to skip ahead to the end: `git checkout final-solution`
 Each lab will contain a link to the next one. Start from **"Lab 1"** and move through them as required:
 
 - 🔬 [Lab 1 - Generate an empty workspace](docs/lab1/LAB.md)
-- ⚗️ [Lab 2 - Generate an Angular app](docs/lab2/LAB.md)
+- ⚗️ [Lab 2 - Generate an React app](docs/lab2/LAB.md)
 - 🧪 [Lab 3 - Executors](docs/lab3/LAB.md)
 - 🔭 [Lab 4 - Generate a component lib](docs/lab4/LAB.md)
 - 🧬 [Lab 5 - Generate a utility lib](docs/lab5/LAB.md)
