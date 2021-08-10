@@ -1,3 +1,3 @@
-module.exports = {
-  projects: ['<rootDir>/apps/store', '<rootDir>/libs/store/ui-shared'],
-};
+const { getJestProjects } = require('@nrwl/jest');
+
+module.exports = { projects: getJestProjects() };
