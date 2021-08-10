@@ -3,7 +3,7 @@
   "cli": {
     "defaultCollection": "@nrwl/react"
   },
-  "defaultProject": "store",
+  "defaultProject": "api",
   "generators": {
     "@nrwl/react": {
       "application": {

@@ -20,12 +20,12 @@
         "type": "list",
         "items": [
           {
-            "value": "store",
-            "label": "store"
-          },
-          {
             "value": "api",
             "label": "api"
+          },
+          {
+            "value": "store",
+            "label": "store"
           },
           {
             "value": "shared",
