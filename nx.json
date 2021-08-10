@@ -28,6 +28,9 @@
     "api": {
       "tags": ["scope:api", "type:app"]
     },
+    "api-util-notifications": {
+      "tags": ["type:util", "scope:api"]
+    },
     "store": {
       "tags": ["scope:store", "type:app"]
     },
