@@ -1,9 +1,14 @@
 {
   "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     ".eslintrc.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "bg-hoard",
   "tasksRunnerOptions": {
     "default": {
@@ -20,16 +25,39 @@
     }
   },
   "projects": {
-    "store": { "tags": [] },
-    "store-e2e": { "tags": [], "implicitDependencies": ["store"] },
-    "store-ui-shared": { "tags": [] },
-    "store-util-formatters": { "tags": [] },
-    "store-feature-game-detail": { "tags": [] },
-    "api": { "tags": [] },
-    "util-interface": { "tags": [] },
+    "api": {
+      "tags": []
+    },
+    "store": {
+      "tags": []
+    },
+    "store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["store"]
+    },
+    "store-feature-game-detail": {
+      "tags": []
+    },
+    "store-ui-shared": {
+      "tags": []
+    },
     "store-ui-shared-e2e": {
       "tags": [],
       "implicitDependencies": ["store-ui-shared"]
+    },
+    "store-util-formatters": {
+      "tags": []
+    },
+    "util-interface": {
+      "tags": []
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
