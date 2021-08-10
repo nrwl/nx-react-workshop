@@ -27,6 +27,13 @@
     }
   },
   "projects": {
+    "admin-ui": {
+      "tags": []
+    },
+    "admin-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin-ui"]
+    },
     "api": {
       "tags": ["scope:api", "type:app"]
     },

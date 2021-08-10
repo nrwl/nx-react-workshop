@@ -18,9 +18,99 @@
         "style": "scss",
         "linter": "eslint"
       }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
     }
   },
   "projects": {
+    "admin-ui": {
+      "root": "apps/admin-ui",
+      "sourceRoot": "apps/admin-ui",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/admin-ui",
+            "outputPath": "dist/apps/admin-ui"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "admin-ui:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "admin-ui:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "admin-ui:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/admin-ui"],
+          "options": {
+            "jestConfig": "apps/admin-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-ui/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "surge dist/apps/admin-ui/exported ${SURGE_DOMAIN_ADMIN_UI} --token ${SURGE_TOKEN}"
+          }
+        }
+      }
+    },
+    "admin-ui-e2e": {
+      "root": "apps/admin-ui-e2e",
+      "sourceRoot": "apps/admin-ui-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/admin-ui-e2e/cypress.json",
+            "tsConfig": "apps/admin-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "admin-ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
