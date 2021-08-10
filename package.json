@@ -23,12 +23,11 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "cherry-pick-all": "./tools/cherry-pick-all.sh"
   },
   "private": true,
-  "dependencies": {
-    "tslib": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@nrwl/tao": "12.5.8",
     "@nrwl/cli": "12.5.8",
