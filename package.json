@@ -54,7 +54,7 @@
     "@nrwl/storybook": "^12.0.6",
     "@nrwl/tao": "12.0.6",
     "@nrwl/web": "12.0.6",
-    "@nrwl/workspace": "12.0.6",
+    "@nrwl/workspace": "12.6.5",
     "@storybook/addon-knobs": "^6.1.11",
     "@storybook/react": "^6.1.11",
     "@svgr/webpack": "^5.4.0",
