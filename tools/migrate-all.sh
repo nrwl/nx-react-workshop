@@ -8,7 +8,9 @@ update_to_version() {
   yarn
   yarn nx migrate "$version"
   yarn
-  yarn nx migrate --run-migrations=migrations.json
+  if [[ -f "migrations.json" ]]; then
+    yarn nx migrate --run-migrations=migrations.json
+  fi
   git add -A && git commit -am "chore(deps): update nx to $version"
 }
 
