@@ -152,4 +152,4 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 ---
 
-[➡️ Next lab ➡️](../lab10%20-%20bonus/LAB.md)
+[➡️ Next lab ➡️](../lab10/LAB.md)
