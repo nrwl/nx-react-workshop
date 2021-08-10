@@ -32,7 +32,7 @@ export const App = () => {
       ...state,
       loadingState: 'loading',
     }));
-    fetch('/api/games')
+    fetch((process.env.NX_API_URL ?? '') + '/api/games')
       .then((x) => x.json())
       .then((res) => {
         setState((state) => ({

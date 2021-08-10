@@ -34,7 +34,7 @@ export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
       loadingState: 'loading',
     });
     const gameId = props.match.params.id;
-    fetch(`/api/games/${gameId}`)
+    fetch((process.env.NX_API_URL ?? '') + `/api/games/${gameId}`)
       .then((x) => x.json())
       .then((res) => {
         setState({
