@@ -31,6 +31,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
     "document-register-element": "1.13.1",
     "express": "4.17.1",
     "react": "17.0.2",
