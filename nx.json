@@ -26,5 +26,13 @@
       "tags": [],
       "implicitDependencies": ["store"]
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
