@@ -77,7 +77,7 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🤖&nbsp;&nbsp;[Lab 7 - Add an Express API](docs/lab7/LAB.md)
 - 📐&nbsp;&nbsp;[Lab 8 - Displaying a full game in the routed game-detail component](docs/lab8/LAB.md)
 - 💻&nbsp;&nbsp;[Lab 9 - Generate a type lib that the API and frontend can share](docs/lab9/LAB.md)
-- 👩‍💻&nbsp;&nbsp;[Lab 10 - Generate Storybook stories for the shared ui component](docs/lab10%20-%20bonus/LAB.md)
-- ⌨️&nbsp;&nbsp;[Lab 11 - E2E test the shared component](docs/lab11%20-%20bonus/LAB.md)
+- 👩‍💻&nbsp;&nbsp;[Lab 10 - Generate Storybook stories for the shared ui component](docs/lab10/LAB.md)
+- ⌨️&nbsp;&nbsp;[Lab 11 - E2E test the shared component](docs/lab11/LAB.md)
 
 ## Have fun learning! 🎉
