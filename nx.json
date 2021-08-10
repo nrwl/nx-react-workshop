@@ -19,6 +19,9 @@
     }
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
     "store": {
       "tags": []
     },
@@ -26,20 +29,25 @@
       "tags": [],
       "implicitDependencies": ["store"]
     },
+    "store-feature-game-detail": {
+      "tags": []
+    },
     "store-ui-shared": {
       "tags": []
     },
     "store-util-formatters": {
       "tags": []
     },
-    "store-feature-game-detail": {
-      "tags": []
-    },
-    "api": {
-      "tags": []
-    },
     "util-interface": {
       "tags": []
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
