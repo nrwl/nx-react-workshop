@@ -3,19 +3,19 @@ width="100%" alt="Nx - Smart, Extensible Build Framework"></p>
 
 <h1 align="center">React at Scale with Nx Workshop</h2>
 
-✨ In this workshop we'll be building a store for a fictional board game company called "The Board Game Hoard".
+> ✨ In this workshop we'll be building a store for a fictional board game company called [The Board Game Hoard](#the-board-game-hoard) ✨ 
 
 We're going to be using [Nx](https://nx.dev/) and some its plugins to accelerate the development of this app.
 
 Some of the things you'll learn:
 
-- Generating a pristine Nx workspace
-- Generating frontend React apps and backend APIs inside your workspace, with pre-configured proxies
-- Creating shared libs for re-using code
-- Generating new routed components with all the routes pre-configured by Nx and ready to go
-- How to organize code in a monorepo
-- Easily move libs around your folder structure
-- Creating Storybook stories and e2e Cypress tests for your components
+- Generating a pristine **Nx** workspace
+- Generating **frontend React apps and backend APIs** inside your workspace, with pre-configured proxies
+- Creating shared **libs** for re-using code
+- Generating new **routed components** with all the routes pre-configured by Nx and ready to go
+- How to **organize code** in a monorepo
+- Easily **move libs** around your folder structure
+- Creating **Storybook** stories and e2e **Cypress** tests for your components
 
 ## The Board Game Hoard
 
@@ -48,9 +48,10 @@ Each lab will have the following sections:
   - This will contain a screenshot of any changes to the app visuals after the lab  
 - 🏋️‍♀️&nbsp;&nbsp;**Steps**
   - All the lab steps you need to follow
+- 🎓&nbsp;&nbsp;**Solution**
+  - If you get stuck running any Nx command, there is a `SOLUTION.md` file in each lab's folder.
 
 The lab might also have this helpful sections:
-
 
 - 🐳&nbsp;&nbsp;**Hints and solutions feat. Ron the whale**
   - While the _mighty narwhal_ is away on secret missions, you will occasionally see his assistant, **Ron The Whale 🐳** offering helpful hints to the different exercises. Please use these if you get stuck.
@@ -58,8 +59,6 @@ The lab might also have this helpful sections:
   - Sometimes there are hidden gotchas or common mistakes. Read this before running the step
 - **Source files**
   - As mentioned, for anything React/styling or HTML template work we will provide the code you need as direct links to the files. Please use these as much as possible.
-- 🎓&nbsp;&nbsp;**Solution**
-  - If you get stuck running any Nx command, there is a `SOLUTION.md` file in each lab's folder.
 
 Finally, if you fall behind or join late, Git branches are provided for each lab, which will fast forward you to that lab - `git checkout starting-labx` (where `x` is the number of the lab you want to start).
 
@@ -75,8 +74,10 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🔭&nbsp;&nbsp;[Lab 4 - Generate a component lib](docs/lab4/LAB.md)
 - 🧬&nbsp;&nbsp;[Lab 5 - Generate a utility lib](docs/lab5/LAB.md)
 - 🧮&nbsp;&nbsp;[Lab 6 - Generate a route lib](docs/lab6/LAB.md)
-- 🤖&nbsp;&nbsp;[Lab 7 - Add a NestJS API](docs/lab7/LAB.md)
+- 🤖&nbsp;&nbsp;[Lab 7 - Add an Express API](docs/lab7/LAB.md)
 - 📐&nbsp;&nbsp;[Lab 8 - Displaying a full game in the routed game-detail component](docs/lab8/LAB.md)
 - 💻&nbsp;&nbsp;[Lab 9 - Generate a type lib that the API and frontend can share](docs/lab9/LAB.md)
 - 👩‍💻&nbsp;&nbsp;[Lab 10 - Generate Storybook stories for the shared ui component](docs/lab10%20-%20bonus/LAB.md)
 - ⌨️&nbsp;&nbsp;[Lab 11 - E2E test the shared component](docs/lab11%20-%20bonus/LAB.md)
+
+## Have fun learning! 🎉
