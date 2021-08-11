@@ -148,7 +148,7 @@
     <br /> <br />
 
 10. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
-    - `yarn add cors`
+    - `yarn add cors` or `npm i -S cors`
     - In `apps/api/src/main.ts`
     - Enable CORS:
       ```ts

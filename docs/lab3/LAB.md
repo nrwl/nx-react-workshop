@@ -34,6 +34,7 @@ We'll build the app we just created, and look at what executors are and how to c
 
 2. You should now have a `dist` folder - let's open it up!
    - This is your whole app's output! If we wanted we could push this now to a server and it would all work.
+   - Open one of the files, for example `main.js` and look at it's contents
 3. Open up `workspace.json` and look at the object under `projects/store/architect/build`
    - this is the **target**, and it has an **executor** option, that points to `@nrwl/web:build`
    - Remember how we copied some images into our `/assets` folder earlier? Look through the executor options and try to find how it knows to include them in the final build!
@@ -46,7 +47,7 @@ We'll build the app we just created, and look at what executors are and how to c
 
    </details>
 
-5. Open up the `dist` folder again - notice how we now generated a `3rdpartylicenses.txt` file, as per the "production" configuration in `workspace.json`
+5. Open up the `dist` folder again - notice how we now generated a `3rdpartylicenses.txt` file, as per the "production" configuration in `workspace.json`. Also notice how all filenames have hashed suffixes. Open one of the files, for example `main.{hash}.js`. Notice how its content is now different.
 6. The **serve** target (located a bit lower in `workspace.json`) also contains a executor, that _uses_ the output from the **build** target
 7. Inspect what changed from the last time you committed, then commit your changes
 
