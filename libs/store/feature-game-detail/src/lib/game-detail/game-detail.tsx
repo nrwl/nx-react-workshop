@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import styles from './store-feature-game-detail.module.scss';
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -17,7 +16,7 @@ type TParams = { id: string };
 
 /* eslint-disable-next-line */
 export interface StoreFeatureGameDetailProps
-  extends RouteComponentProps<TParams> {}
+  extends RouteComponentProps<TParams> { }
 
 export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
   const [state, setState] = useState<{
