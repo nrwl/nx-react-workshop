@@ -36,72 +36,40 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
     <summary>🐳 Hint</summary>
 
    ```ts
+   // add this to imports
    import { Route, useHistory } from 'react-router-dom';
    import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
-   export const App = () => {
-   const history = useHistory();
-   ```
-
-   ```tsx
-   <Card
-     key={x.id}
-     className={styles['game-card']}
-     onClick={() => history.push(`/game/${x.id}`)}
-   >
-   ```
-
-   ```tsx
+   // add this as a last element to container
    <Route path="/game/:id" component={StoreFeatureGameDetail} />
    ```
 
     </details>
 
-4. Populate your new component with the provided files: `store-feature-game-detail.`[tsx](../../examples/lab6/libs/store/feature-game-detail/src/lib/feature-game-detail/store-feature-game-detail.tsx) / [scss](../../examples/lab6/libs/store/feature-game-detail/src/lib/feature-game-detail/store-feature-game-detail.component.scss)
+4. Populate your new component with the provided files: `game-detail.`[tsx](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx) / [scss](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.module.scss)
 
-5. We now need to display your new routed component. Let's add a `<router-outlet>` below our list of cards:
-
-   <details>
-   <summary>🐳 Hint</summary>
-
-   `apps/store/src/app/app.component.html`:
-
-   ```html
-   <div class="container">
-     <div class="games-layout">
-       <mat-card class="game-card" *ngFor="let game of games"> ... </mat-card>
-     </div>
-     <router-outlet></router-outlet> <--- ADD IT HERE
-   </div>
-   ```
-
-    </details>
-
-6. Make clicking on each card route to the `feature-game-detail` module with the game's ID:
+5. Make clicking on each card route to the `game-detail` with the game's ID:
 
    <details>
    <summary>🐳 Hint</summary>
 
-   ```html
-   <div class="container">
-     <div class="games-layout">
-       <mat-card
-         class="game-card"
-         *ngFor="let game of games"
-         [routerLink]="['/game', game.id]"
-       >
-         <--- HERE ...
-       </mat-card>
-     </div>
-     <router-outlet></router-outlet>
-   </div>
+   ```ts
+     // initialize the history hook
+     const history = useHistory();
+
+     // add on click to card element
+     <Card
+       key={x.id}
+       className={styles['game-card']}
+       onClick={() => history.push(`/game/${x.id}`)}
+     >
    ```
 
     </details>
 
-7. Serve your app again, click on some games, and compare with the screenshot above
-8. Launch the dependency graph and see what's been added
-9. Inspect what changed from the last time you committed, then commit your changes
+6. Serve your app again, click on some games, and compare with the screenshot above
+7. Launch the dependency graph and see what's been added
+8. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 

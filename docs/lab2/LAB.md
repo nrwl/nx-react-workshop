@@ -27,16 +27,16 @@ In this lab we'll generate our first React application within the new monorepo.
 1. Make sure you can run Nx commands:
    - try out `nx --version` and see if it outputs a version number
    - install the CLI globally: `npm i -g @nrwl/cli`
-   - if you don't want to install it globally, use `yarn nx` instead of `nx` in all the commands below
+   - if you don't want to install it globally, use `yarn nx` (if you have yarn) or `npx nx` (otherwise) instead of `nx` in all the commands in the upcoming labs
 
 > Please make sure you are using the latest version of Nx (11.5+)
 
 2. Run `nx list` to see which plugins you have installed
-3. Add the React plugin: `yarn add @nrwl/react`
-4. Let's also add Material UI so we can use some of their components: `yarn add @material-ui/core`
+3. Add the React plugin: `yarn add @nrwl/react` or `npm i -S @nrwl/react`
+4. Let's also add Material UI so we can use some of their components: `yarn add @material-ui/core` or `npm i -S @material-ui/core`
 5. Use the [`@nrwl/react` plugin](https://nx.dev/react/api/react/generators/application) to generate an React app called `store` in your new workspace
 
-   ⚠️**Important:** Make sure you **add React Router** when asked!
+   ⚠️**Important:** Make sure you **add React Router** and select **SCSS** as a style when asked!
 
    <details>
    <summary>🐳 Hint</summary>
@@ -47,7 +47,7 @@ In this lab we'll generate our first React application within the new monorepo.
 
    ⏳**Reminder:** When you are given example files to copy, the folder they're in hints to the _folder_ and _filename_ you can place them in when you do the copying
 
-7. Add some basic styling to your new component and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.tsx](../../examples/lab2/apps/store/src/app/app.tsx) / [.scss](../../examples/lab2/apps/store/src/app/app.scss) - and replace the full contents of the files)
+7. Add some basic styling to your new component and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.tsx](../../examples/lab2/apps/store/src/app/app.tsx) / [.scss](../../examples/lab2/apps/store/src/app/app.modules.scss) - and replace the full contents of the files)
 8. You can get the example game images from [here](../../examples/lab2/apps/store/src/assets)
 
    ⚠️ Make sure you put them in the correct folder
