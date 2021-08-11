@@ -18,13 +18,15 @@
 
     ```bash
     yarn add surge
+    # or
+    npm i -S surge
     ```
     <br />
    
 4. Get the surge token (you'll need to create an account with an email and password):
 
     ```
-    yarn surge token
+    npx surge token
     ```
 
     ☝️ Copy the token you get
@@ -36,7 +38,7 @@
    # make sure the project is built first - and we have something in dist
    nx build store
    # use surge to deploy whatever assets are in dist/apps/store
-   yarn surge dist/apps/store https://<chose-some-unique-url-123>.surge.sh --token <your-surge-token>
+   npx surge dist/apps/store https://<chose-some-unique-url-123>.surge.sh --token <your-surge-token>
    ```
    
     ⚠️ Make sure you chose a **unique value** for your domain above, otherwise
