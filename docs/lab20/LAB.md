@@ -1,20 +1,11 @@
 # 🎸 Lab 20 - Connecting the frontend and backend
 
-###### ⏰ Estimated time: 5 minutes
-<<<<<<< HEAD
-=======
-
->>>>>>> ebb6ada (feat: add day 2 labs (#6))
-<br />
+###### ⏰ &nbsp;Estimated time: 5 minutes
 
 ## 📚 Learning outcomes:
 
 - **Configure the Angular app for production**
-<<<<<<< HEAD
-<br /><br /><br />
-=======
-  <br /><br /><br />
->>>>>>> ebb6ada (feat: add day 2 labs (#6))
+  <br />
 
 ## 🏋️‍♀️ Steps:
 
@@ -24,64 +15,6 @@ proxy discussed in previous labs. The Store will think the API lives at the same
 When deployed separately however, they do not yet know about each other. Let's configure
 a production URL for the API.
 
-<<<<<<< HEAD
-1. In `apps/store/src/environments/environment.prod.ts` change it to:
-
-    ```ts
-    export const environment = {
-      production: true,
-      apiUrl: 'https://<your-heroku-app-name>.herokuapp.com'
-    };
-    ```
-    <br />
-
-2. In `apps/store/src/environments/environment.ts`:
-
-    ```ts
-    export const environment = {
-      production: false,
-      apiUrl: ''
-    };
-    ```
-    <br />
-
-3. In `apps/store/src/app/app.module.ts`:
-    - `import { environment } from '../environments/environment';`
-    - Add a new provider:
-         ```ts
-        providers: [{
-            provide: 'baseUrl',
-            useValue: environment.apiUrl
-          }],
-        ```
-   <br /> <br />
-   
-4. In `apps/store/src/app/app.component.ts`, inject your new token:
-    
-   ```ts
-   constructor(private http: HttpClient, @Inject('baseUrl') private baseUrl: string) {}
-   ```
-   
-   Then use it:
-   
-    ```ts
-    games = this.http.get<Game[]>(`${this.baseUrl}/api/games`);
-    ```
-    <br />
-
-5. In `libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts`
-    - Inject it in the constructor: `@Inject('baseUrl') private baseUrl: string`
-    - Use it: 
-        ```typescript
-        this.http.get<Game>(`${this.baseUrl}/api/games/${id}`)
-        ```
-        <br />
-
-6. Build the Store for production and trigger a deployment
-   <br /> <br />
-
-7. Go to your Surge deployment URL - you should now see the full app with all the games.
-=======
 1. In `apps/store/src/app/app.tsx`, inject an API URL if it's available as an env variable:
 
    ```ts
@@ -105,12 +38,11 @@ a production URL for the API.
    3. You should see the games being loaded from Heroku
 
 4. Build the Store for production (make sure to make the `NX_API_URL` env var available when building) and trigger a deployment
-   <br /> <br />
+   <br />
 
 5. Go to your Surge deployment URL - you should now see the full app with all the games.
->>>>>>> ebb6ada (feat: add day 2 labs (#6))
-   <br /> <br />
+   <br />
 
 ---
 
-[➡️ Next lab ➡️](../lab21/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab21/LAB.md)
