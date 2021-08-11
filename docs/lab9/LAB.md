@@ -126,7 +126,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     ***
 
-    Routed game detail component: `libs/store/feature-game-detail/src/lib/store-feature-game-detail.tsx`
+    Routed game detail component: `libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx`
 
     ```typescript
     const [state, setState] = useState<{
