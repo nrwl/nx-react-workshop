@@ -38,29 +38,37 @@ git checkout starting-lab10
 update_to_version
 git checkout starting-lab11
 update_to_version
-# git checkout starting-lab12
-# update_to_version
-# git checkout starting-lab13
-# update_to_version
-# git checkout starting-lab14
-# update_to_version
-# git checkout starting-lab15
-# update_to_version
-# git checkout starting-lab16
-# update_to_version
-# git checkout starting-lab17
-# update_to_version
-# git checkout starting-lab18
-# update_to_version
-# git checkout starting-lab19
-# update_to_version
-# git checkout starting-lab20
-# update_to_version
-# git checkout starting-lab21
-# update_to_version
-# git checkout starting-lab22
-# update_to_version
-git checkout final
+git checkout starting-lab12
+update_to_version
+git checkout starting-lab13
+update_to_version
+git checkout starting-lab14
+update_to_version
+git checkout starting-lab15
+update_to_version
+git checkout starting-lab16
+update_to_version
+git checkout starting-lab17
+update_to_version
+git checkout starting-lab18
+update_to_version
+git checkout starting-lab19
+update_to_version
+git checkout starting-lab20-path1
+update_to_version
+git checkout starting-lab20-path2
+update_to_version
+git checkout starting-lab21-path1
+update_to_version
+git checkout starting-lab21-path2
+update_to_version
+git checkout starting-lab22-path1
+update_to_version
+git checkout starting-lab22-path2
+update_to_version
+git checkout final-path1
+update_to_version
+git checkout final-path2
 update_to_version
 
 # go back to main
