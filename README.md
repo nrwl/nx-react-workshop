@@ -3,7 +3,7 @@ width="100%" alt="Nx - Smart, Extensible Build Framework"></p>
 
 <h1 align="center">React at Scale with Nx Workshop</h2>
 
-> ✨ In this workshop we'll be building a store for a fictional board game company called [The Board Game Hoard](#the-board-game-hoard) ✨ 
+> ✨ In this workshop we'll be building a store for a fictional board game company called [The Board Game Hoard](#the-board-game-hoard) ✨
 
 We're going to be using [Nx](https://nx.dev/) and some its plugins to accelerate the development of this app.
 
@@ -31,10 +31,20 @@ Nx has support for a lot of platforms, but in this workshop we'll be using mainl
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/en/download/) version 12 and up
+- Node.js version 14 (recommended, but other versions might be okay as well)
   - `node --version`
-- [Yarn (optional)](https://classic.yarnpkg.com/en/docs/install/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/)
   - `yarn --version`
+- A Github account
+  - http://github.com
+
+Optional (these won't be necessary to follow the workshop, but might unlock some bonus/advanced labs for you):
+
+- A Heroku account
+  - https://heroku.com/
+  - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
+- [Docker](https://www.docker.com/get-started)
+  - `docker --version`
 
 ## How the labs work
 
@@ -45,7 +55,7 @@ Each lab will have the following sections:
 - 📚&nbsp;&nbsp;**Learning outcomes**
   - A summary of the most important things you'll learn in that lab
 - 📲&nbsp;&nbsp;**After this workshop, your app should look similar to this**
-  - This will contain a screenshot of any changes to the app visuals after the lab  
+  - This will contain a screenshot of any changes to the app visuals after the lab
 - 🏋️‍♀️&nbsp;&nbsp;**Steps**
   - All the lab steps you need to follow
 - 🎓&nbsp;&nbsp;**Solution**
@@ -79,5 +89,22 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 💻&nbsp;&nbsp;[Lab 9 - Generate a type lib that the API and frontend can share](docs/lab9/LAB.md)
 - 👩‍💻&nbsp;&nbsp;[Lab 10 - Generate Storybook stories for the shared ui component](docs/lab10/LAB.md)
 - ⌨️&nbsp;&nbsp;[Lab 11 - E2E test the shared component](docs/lab11/LAB.md)
+
+#### Day 2
+
+- 💡 [Lab 12 - Module boundaries](docs/lab12/LAB.md)
+- 🧸️ [Lab 13 - Workspace Generators - Intro](docs/lab13/LAB.md)
+- 🧵 [Lab 14 - Workspace Generators - Modifying files](docs/lab14/LAB.md)
+- 💎 [Lab 15 - Setting up CI](docs/lab15/LAB.md)
+- 🔌 [Lab 16 - Distributed caching](docs/lab16/LAB.md)
+- 🔍 [Lab 17 - NxCloud GitHub bot](docs/lab17/LAB.md)
+- 📎 [Lab 18 - Run-Commands and deploying the frontend](docs/lab18/LAB.md)
+
+| Option 1 - NextJS frontends and more custom generators practice             | Option 2 - Heroku API deployments with Docker                           |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md)  | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md)                      |
+| ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)                             | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)    |
+| 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md) | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |
+| 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)                | 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)            |
 
 ## Have fun learning! 🎉
