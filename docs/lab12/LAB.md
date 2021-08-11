@@ -55,7 +55,6 @@
 
 7. We also talked about the importance of setting boundaries between your workspace scopes. Let's try and **import a `store` lib** from an `api` scope. - In `apps/api/src/main.ts` - Try to `import { formatRating } from '@bg-hoard/store/util-formatters';`
    <br />
->>>>>>> 784b648 (chore: format labs)
 
 8. **Run linting** on all projects - you should see another expected error.
    <br />

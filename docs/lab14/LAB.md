@@ -39,6 +39,7 @@
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
+
    ```typescript
    function getScopes(nxJson: any) {
      const projects: any[] = Object.values(nxJson.projects);

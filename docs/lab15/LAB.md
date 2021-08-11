@@ -186,6 +186,7 @@ But now we're testing both projects - even though we only changed the store.
 16. For now, you can merge your PR into `master `
     <br />
 
+
 17. Switch to `master` locally and pull latest so all your new CI changes are up to date.
 
     ```shell
