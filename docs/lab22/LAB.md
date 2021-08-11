@@ -1,13 +1,12 @@
 # 💈 Lab 22 - Deploying only what changed
 
-###### ⏰ Estimated time: 20-25 minutes
-<br />
+###### ⏰ &nbsp;Estimated time: 20-25 minutes
 
 ## 📚 Learning outcomes:
 
 - **Explore an advanced example of `nx affected` by deploying only the affected apps on the master branch**
 - **Understand how to configure the `base` commit for `nx affected` in a CD scenario**
-<br /><br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps :
 
@@ -16,18 +15,18 @@ In the previous labs we set up automatic deployments. But everytime we push to m
 1. Update your `deploy.yml` file so that it builds only the affected apps, and it deploys only the affected apps
     
     ⚠️ You can compare against the previous commit for now: `--base=HEAD~1`
-    <br /> <br />
+    <br />
 
 2. If you haven't already, ensure you run your "affected" commands in parallel
-   <br /> <br />
+   <br />
 
 3. Commit everything
-   <br /> <br />
+   <br />
 4. Now make a change just to the `store`. Maybe update the title again
     - Commit and push
     - Inspect your workflow on the GitHub actions tab - it should only be building and deploying 
     whatever changed **in the last commit**: only the Store.
-    <br /> <br />
+    <br />
 
 ---
 
@@ -84,7 +83,7 @@ will never miss a deployment
     <br />
 
 8. Commit everything and push. Let it build. It should compare against the immediately previous commit (because your workflow ran against it, and it passed)
-   <br /> <br />
+   <br />
 
 9. Try to go through one of the problematic scenarios described above. It should now work, and it should build both the API (or AdminUI) and the Store (instead of just the Store)
 
@@ -94,4 +93,4 @@ will never miss a deployment
 
 ---
 
-🎓If you get stuck, check out [the solution](SOLUTION.md)
+🎓&nbsp;&nbsp;If you get stuck, check out [the solution](SOLUTION.md)
