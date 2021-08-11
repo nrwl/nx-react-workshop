@@ -1,20 +1,18 @@
 # 🧲 Lab 20 Alternative - Mock Store
 
-###### ⏰ Estimated time: 5 minutes
-
-<br />
+###### ⏰ &nbsp;Estimated time: 5 minutes
 
 ## 🏋️‍♀️ Steps :
 
 For now, our `store` project has no API when it is deployed. Hence, it is only displaying the header.
 
 1. If you removed your `fake-api/index.ts` from the `store`, let's [re-add it](https://github.com/nrwl/nx-workshop/blob/master/examples/lab2/apps/store/src/fake-api/index.ts)
-   <br /> <br />
+   <br />
 
 2. Import it in your `apps/store/src/app/app.tsx`
 
    <details>
-   <summary>🐳 Hint</summary>
+   <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    ```typescript
     import { getAllGames } from '../fake-api/index';
@@ -47,4 +45,4 @@ For now, our `store` project has no API when it is deployed. Hence, it is only d
 
 ---
 
-[➡️ Next lab ➡️](../lab21-alt/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab21-alt/LAB.md)
