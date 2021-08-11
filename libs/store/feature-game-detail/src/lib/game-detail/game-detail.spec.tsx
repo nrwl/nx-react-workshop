@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import StoreFeatureGameDetail from './store-feature-game-detail';
+import StoreFeatureGameDetail from './game-detail';
 
 describe('StoreFeatureGameDetail', () => {
   it('should render successfully', () => {
