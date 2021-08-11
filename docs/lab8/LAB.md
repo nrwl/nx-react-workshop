@@ -18,7 +18,7 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
 #### 🏋️‍♀️ Steps:
 
 1. We can now delete the `fake-api` from the `store` app
-2. Use `fetch` in a `useEffect` hook in the [app.tsx](../../examples/lab8/apps/store/src/app/app.tsx) component and call your new API as an _HTTP request_
+2. Use `fetch` in a `useEffect` hook in the [app.tsx](../../examples/lab8/apps/store/src/app/app.tsx) component and call your new API as an _HTTP request_. We also added a local state to track changes.
 
    ⚠️ _Notice how we assume it will be available at `/api` (more on that below)_
 
@@ -43,9 +43,9 @@ This helps you avoid CORS issues while developing locally.
 
 Now let's load the full game in our routed component!
 
-6. Inside the `libs/store/feature-game-detail/src/lib` folder, replace the following files:
+6. Inside the `libs/store/feature-game-detail/src/lib/game-detail` folder, replace the following files:
 
-   - `/store-feature-game-detail.` [tsx](../../examples/lab8/libs/store/feature-game-detail/src/lib/store-feature-game-detail.tsx) / [module.scss](../../examples/lab8/libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.scss)
+   - [tsx](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx) / [module.scss](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.module.scss)
 
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
 
