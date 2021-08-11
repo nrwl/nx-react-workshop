@@ -2,6 +2,7 @@
 
 ```shell
 <<<<<<< HEAD
+<<<<<<< HEAD
 yarn add @nrwl/react
 nx g @nrwl/react:app admin-ui
 nx serve admin-ui
@@ -19,6 +20,9 @@ nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/ad
 nx g workspace-generator add-deploy-target 
 =======
 yarn add @nrwl/next
+=======
+yarn add @nrwl/next # or "npm i -S @nrwl/next"
+>>>>>>> a91628b (chore(docs): fix typos in the labs)
 nx g @nrwl/next:app admin-ui
 nx serve admin-ui
 ```

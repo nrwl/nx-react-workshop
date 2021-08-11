@@ -92,7 +92,7 @@ a production URL for the API.
 
     <br />
 
-2. Do the same in `libs/store/feature-game-detail/src/lib/store-feature-game-detail.tsx`:
+2. Do the same in `libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx`:
 
    ```typescript
    fetch((process.env.NX_API_URL ?? '') + `/api/games/${gameId}`);
