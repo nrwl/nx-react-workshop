@@ -1,14 +1,12 @@
 # 🧲 Lab 19 - Deploying the API
 
-###### ⏰ Estimated time: 30 minutes
-
-<br />
+###### ⏰ &nbsp;Estimated time: 30 minutes
 
 ## 📚 Learning outcomes:
 
 - **Explore more advanced usages of the "run-commands" executor**
 - **Go through an example of how to deploy an API to Heroku through Nx**
-  <br /><br /><br />
+  <br />
 
 ## 🏋️‍♀️ Steps :
 
@@ -17,7 +15,7 @@
     - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
       - Verify installation via: `heroku --version`
     - [Docker](https://www.docker.com/get-started) - Verify via `docker --version`
-      <br /> <br />
+      <br />
 
 2.  Let's prepare Heroku to deploy our API:
 
@@ -36,7 +34,7 @@
     - The exact app name you used  
        👉 This will determine the address where the API will
       be deployed to: `https://<your-app-name>.herokuapp.com`
-      <br /> <br />
+      <br />
 
 3.  Let's setup our ENV variables from the beginning now
 
@@ -87,7 +85,7 @@
 
     💡 By default, dependencies of server projects are not bundled together, as opposed to your Angular apps.
     If curious why, you can [read more here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915).
-    <br /> <br />
+    <br />
 
 6.  Let's fix the above - In `workspace.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
     add this as an option:
@@ -118,7 +116,7 @@
     - Use the [`--cwd` option](https://nx.dev/latest/angular/workspace/run-commands-executor#cwd)
       to ensure all commands execute in the `dist/apps/api` folder
     - Leave the "command" blank for now
-      <br /> <br />
+      <br />
 
 8.  Let's customise the generated "deploy" config a bit
 
@@ -145,7 +143,7 @@
 9.  By default, if you give a list of commands to `run-commands`, it will run them in parallel.
     In our case, we want them to run one after another.
     **See if you can add a configuration option to make them run sequentially**
-    <br /> <br />
+    <br />
 
 10. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
     - `yarn add cors` or `npm i -S cors`
@@ -157,7 +155,7 @@
       ```
 
 ⚠️ Normally, you want to restrict this to just a few origins. But to keep things simple in this workshop we'll enable it for all origins.
-<br /> <br />
+<br />
 
 11. Heroku exposes a `PORT` env variable (capital letters), so we'll need to change our API to support this
 
@@ -177,15 +175,15 @@
     ```
 
     ⚠️ Note: On Apple M1 commputers the deployement will succeed, but running Docker image on heroku app will fail due to unsupported ARM architecture. Don't worry you will still deploy your api via `GitHub` in the [Lab 21](../lab21/LAB.md). You can head over there and then come back to lab 20.
-    <br /> <br />
+    <br />
 
 13. Go to `https://<your-app-name>.herokuapp.com/api/games` - it should return you a list of games.
-    <br /> <br />
+    <br />
 
 ---
 
-🎓If you get stuck, check out [the solution](SOLUTION.md)
+🎓&nbsp;&nbsp;If you get stuck, check out [the solution](SOLUTION.md)
 
 ---
 
-[➡️ Next lab ➡️](../lab20/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab20/LAB.md)

@@ -1,24 +1,23 @@
 # 🧵 Lab 14 - Workspace generators - Modifying files
 
-###### ⏰ Estimated time: 25-35 minutes
+###### ⏰ &nbsp;Estimated time: 25-35 minutes
 
-<br />
 
 ## 📚 Learning outcomes:
 
 - **Explore some more advanced, real-world usages of generators**
 - **Understand how to modify existing source code with generators**
-  <br /><br /><br />
+  <br />
 
 ## 🏋️‍♀️ Steps :
 
 1. Generate another generator called `update-scope-schema`
-   <br /> <br />
+   <br />
 
 2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json file:
 
    <details>
-   <summary>🐳 Hint</summary>
+   <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    - Refer to the [docs](https://nx.dev/latest/angular/core-concepts/nx-devkit#nx-devkit)
    - Use this utility:
@@ -28,7 +27,7 @@
 
    ⚠️ When you run the above, it might complain that you haven't supplied a `name`. Since
    we don't need this property in the generate, you can remove it from the schema.
-   <br /> <br />
+   <br />
 
 3. Now that we had some practice with the `updateJson` util - Let's build something even more useful:
 
@@ -41,7 +40,7 @@
    ⚠️ You can use the function provided in the Hint to extract the `scopes`
 
    <details>
-   <summary>🐳 Hint</summary>
+   <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    ```typescript
    function getScopes(nxJson: any) {
@@ -69,14 +68,14 @@
 
    - Use `import { formatFiles } from '@nrwl/devkit';`
    - `await` this at the end of your generator
-     <br /> <br />
+     <br />
 
 5. `index.ts` also has a `Schema` interface that should be updated. For modifying files that are not JSON we will use `host.read(path)` and `host.write(path, content)` methods.
 
    ⚠️ You can use the function provided in the Hint to replace the `scopes`
 
    <details>
-   <summary>🐳 Hint</summary>
+   <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    ```typescript
    function replaceScopes(content: string, scopes: string[]): string {
@@ -97,20 +96,20 @@
 
 6. So we can test our changes, create a new app and define a scope for it.
 7. Run your generator and notice the resulting changes. Commit them so you start fresh on your next lab.
-   <br /> <br />
+   <br />
 
 8. **BONUS** - As a bonus, if project doesn't have `scope` tag defined, we will assume it's the first segment of the name (e.g `admin-ui-lib` -> `scope:admin`) and we will go ahead and set one for it.
-   <br /> <br />
+   <br />
 
 9. **BONUS BONUS** - use a tool like [Husky](https://typicode.github.io/husky/#/) to run your
    generator automatically before each commit. This will ensure developers never forget to add
    their scope files.
-   <br /> <br />
+   <br />
 
 ---
 
-🎓If you get stuck, check out [the solution](SOLUTION.md)
+🎓&nbsp;&nbsp;If you get stuck, check out [the solution](SOLUTION.md)
 
 ---
 
-[➡️ Next lab ➡️](../lab15/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab15/LAB.md)
