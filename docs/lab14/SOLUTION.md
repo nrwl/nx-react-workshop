@@ -113,7 +113,7 @@ function addScopeIfMissing(host: Tree) {
 {
   "scripts": {
     "postinstall": "husky install",
-    "pre-commit": "yarn nx workspace-generator update-scope-schema"
+    "pre-commit": "run run nx workspace-generator update-scope-schema"
   }
 }
 ```
