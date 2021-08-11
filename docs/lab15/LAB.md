@@ -182,10 +182,9 @@ But now we're testing both projects - even though we only changed the store.
 
 15. You'll notice some new steps in the GitHub Actions UI. Some of them are failing. That is okay. We can fix them later.
     <br />
-
+    
 16. For now, you can merge your PR into `master `
     <br />
-
 
 17. Switch to `master` locally and pull latest so all your new CI changes are up to date.
 
@@ -193,6 +192,7 @@ But now we're testing both projects - even though we only changed the store.
     git checkout master
     git pull origin master
     ```
+
     <br />
 
 18. **BONUS:** Currently, if we create a PR with a change **only** to our `ci.yml` file, our `nx affected` commands won't run at all: as they'll think no project has been affected:
@@ -204,6 +204,7 @@ But now we're testing both projects - even though we only changed the store.
 
     <details>
     <summary>🐳 &nbsp;&nbsp;Hint</summary>
+
     [Configuring implicit dependencies](https://nx.dev/latest/angular/core-concepts/configuration#implicit-dependencies)
     </details>
     <br />

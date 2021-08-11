@@ -2,6 +2,7 @@
 
 ###### ⏰ &nbsp;Estimated time: 25-35 minutes
 
+
 ## 📚 Learning outcomes:
 
 - **Explore some more advanced, real-world usages of generators**
