@@ -1,13 +1,11 @@
 # 🎸 Lab 20 - Connecting the frontend and backend
 
-###### ⏰ Estimated time: 5 minutes
-
-<br />
+###### ⏰ &nbsp;Estimated time: 5 minutes
 
 ## 📚 Learning outcomes:
 
 - **Configure the Angular app for production**
-  <br /><br /><br />
+  <br />
 
 ## 🏋️‍♀️ Steps:
 
@@ -40,11 +38,11 @@ a production URL for the API.
    3. You should see the games being loaded from Heroku
 
 4. Build the Store for production (make sure to make the `NX_API_URL` env var available when building) and trigger a deployment
-   <br /> <br />
+   <br />
 
 5. Go to your Surge deployment URL - you should now see the full app with all the games.
-   <br /> <br />
+   <br />
 
 ---
 
-[➡️ Next lab ➡️](../lab21/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab21/LAB.md)

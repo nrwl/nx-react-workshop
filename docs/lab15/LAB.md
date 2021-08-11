@@ -1,8 +1,6 @@
 # 💎 Lab 15 - Setting up CI
 
-###### ⏰ Estimated time: 5-10 minutes
-
-<br />
+###### ⏰ &nbsp;Estimated time: 5-10 minutes
 
 ## 📚 Learning outcomes:
 
@@ -55,7 +53,7 @@ pushed to your GitHub repo.
           - run: npm run nx test api
     ```
 
-    <br /> <br />
+    <br />
 
 3.  Commit and then switch to a new branch:
 
@@ -67,10 +65,10 @@ pushed to your GitHub repo.
 
     ⚠️ I know we **just** switched to master above. But it was important we bring it
     up to date. Now we need to switch to a new branch so we can submit our PR.
-    <br /> <br />
+    <br />
 
 4.  Open `apps/store/src/app/app.tsx`
-    <br /> <br />
+    <br />
 
 5.  And make the title of the header dynamic:
 
@@ -79,7 +77,7 @@ pushed to your GitHub repo.
     ```
 
     <details>
-    <summary>🐳 Hint - set the props in the Header as well </summary>
+    <summary>🐳 &nbsp;&nbsp;Hint - set the props in the Header as well </summary>
 
     ```tsx
     export interface HeaderProps {
@@ -102,17 +100,17 @@ pushed to your GitHub repo.
     ```
 
     </details>
-    <br /> <br />
+    <br />
 
 6.  Commit all your changes and push your new branch.
-    <br /> <br />
+    <br />
 7.  Go to GitHub and make a Pull Request to `master`
-    <br /> <br />
+    <br />
 8.  After a few moments you'll see something like this:
     ![GitHub Actions example](./github_actions.png)
-    <br /> <br />
+    <br />
 9.  The unit tests will be failing - that's expected.
-    <br /> <br />
+    <br />
 
 ---
 
@@ -131,20 +129,20 @@ But now we're testing both projects - even though we only changed the store.
     that tests all affected projects.
 
     <details>
-    <summary>🐳 Hint 1</summary>
+    <summary>🐳 &nbsp;&nbsp;Hint 1</summary>
 
     Check-out this [handy tutorial](https://nx.dev/latest/angular/tutorial/11-test-affected-projects#step-11-test-affected-projects)
     Refer to the [docs](https://nx.dev/latest/angular/cli/affected#affected)
     </details>
 
     <details>
-    <summary>🐳 Hint 2</summary>
+    <summary>🐳 &nbsp;&nbsp;Hint 2</summary>
 
     Since it's a Pull Request, your base commit will always be `--base=origin/master`
     </details>
 
     <details>
-    <summary>🐳 Hint 3</summary>
+    <summary>🐳 &nbsp;&nbsp;Hint 3</summary>
 
     You should only need 1 job now:
 
@@ -163,7 +161,7 @@ But now we're testing both projects - even though we only changed the store.
 
     ⚠️ It's okay to work on this on your new branch. We'll merge everything to `master`
     eventually.
-    <br /> <br />
+    <br />
 
 11. Commit and push. On your Github Actions log you should see only the `store` tests running:
 
@@ -171,19 +169,19 @@ But now we're testing both projects - even though we only changed the store.
     <br />
 
 12. Our tests are now being ran sequentially for each project. See if you can run them in parallel (consult the Nx Affected [docs](https://nx.dev/latest/angular/cli/affected#affected) if unsure)
-    <br /> <br />
+    <br />
 
 13. Our CI only does testing now. But we also have targets for `lint`, `e2e` and `build`. Would really be handy if CI also told us if any of those failed.
 
     **Add more jobs under your CI workflow that run affected for each of the above targets**
-    <br /> <br />
+    <br />
 
 14. Commit and push your `ci.yml` changes.
-    <br /> <br />
+    <br />
 15. You'll notice some new steps in the GitHub Actions UI. Some of them are failing. That is okay. We can fix them later.
-    <br /> <br />
+    <br />
 16. For now, you can merge your PR into `master `
-    <br /> <br />
+    <br />
 17. Switch to `master` locally and pull latest so all your new CI changes are up to date.
 
     ```shell
@@ -191,7 +189,7 @@ But now we're testing both projects - even though we only changed the store.
     git pull origin master
     ```
 
-    <br /> <br />
+    <br />
 
 18. **BONUS:** Currently, if we create a PR with a change **only** to our `ci.yml` file, our `nx affected` commands won't run at all: as they'll think no project has been affected:
 
@@ -201,7 +199,7 @@ But now we're testing both projects - even though we only changed the store.
     Have a look through the docs in the hint and see if you can do this.
 
     <details>
-    <summary>🐳 Hint</summary>
+    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
     [Configuring implicit dependencies](https://nx.dev/latest/angular/core-concepts/configuration#implicit-dependencies)
     </details>
@@ -209,8 +207,8 @@ But now we're testing both projects - even though we only changed the store.
 
 ---
 
-🎓If you get stuck, check out [the solution](SOLUTION.md)
+🎓&nbsp;&nbsp;If you get stuck, check out [the solution](SOLUTION.md)
 
 ---
 
-[➡️ Next lab ➡️](../lab16/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab16/LAB.md)
