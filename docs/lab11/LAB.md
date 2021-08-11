@@ -16,7 +16,7 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
 
    ```ts
    it('should show the title', () => {
-     cy.get('bg-hoard-header').contains('Board Game Hoard');
+     cy.get('header').contains('Board Game Hoard');
    });
    ```
 
