@@ -29,7 +29,7 @@ All the Express specific code for serving the games is provided in the solution.
 #### 🏋️‍♀️ Steps:
 
 1. Stop any running `nx serve` instance
-2. `yarn add @nrwl/express`
+2. `yarn add @nrwl/express` or `npm i -S @nrwl/express`
 3. Generate a new Express app, called `api`
 
    ⚠️ Make sure you instruct the generator to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)
