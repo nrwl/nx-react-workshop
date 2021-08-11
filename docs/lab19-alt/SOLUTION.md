@@ -2,7 +2,7 @@
 
 ```shell
 yarn add @nrwl/next # or "npm i -S @nrwl/next"
-nx g @nrwl/react:app admin-ui
+nx g @nrwl/next:app admin-ui
 nx serve admin-ui
 ```
 
