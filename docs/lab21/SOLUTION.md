@@ -12,6 +12,10 @@ env:
   SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
   SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+<<<<<<< HEAD
+=======
+  NX_API_URL: https://<your-heroku-app>.herokuapp.com
+>>>>>>> ebb6ada (feat: add day 2 labs (#6))
 
 jobs:
   build:
