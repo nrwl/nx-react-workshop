@@ -7,5 +7,5 @@ nx generate @nrwl/react:library feature-game-detail --directory=store --appProje
 ##### Generate a React component in a specific project
 
 ```bash
-nx generate @nrwl/react:component game-detail --project=store-feature-game-detail
+nx generate @nrwl/react:component game-detail --project=store-feature-game-detail --export
 ```

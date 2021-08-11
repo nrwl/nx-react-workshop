@@ -23,7 +23,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 #### 🏋️‍♀️ Steps:
 
 1. Stop the `nx serve`
-2. Generate a new React library called `ui-shared` in the `libs/store` folder
+2. Generate a new empty React library called `ui-shared` in the `libs/store` folder
 
    <details>
    <summary>🐳 Hint</summary>
@@ -35,11 +35,11 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 3. Generate a new React component, called `header`, inside the lib you just created
 
-   ⚠️ Play around with the generator options so that the generated component is automatically **exported** from the lib's module
+   ⚠️ Play around with the generator options so that the generated component is automatically **exported** from the lib's module and that is **doesn't** create component
 
    <details><summary>🐳 Hint</summary>
 
-   use `--help` to figure out how to specify under which **project** you want to generate the new component and how to automatically have it **exported**
+   use `--help` to figure out how to specify under which **project** you want to generate the new component and how to automatically have it **exported** and skip the component generation
 
    </details>
 
@@ -57,7 +57,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    ```
 
    ```html
-   <header />
+   <Header />
    <!-- right at the top - above our container -->
    <div className="{styles.container}"></div>
    ```
