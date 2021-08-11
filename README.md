@@ -100,27 +100,11 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🔍&nbsp;&nbsp;[Lab 17 - NxCloud GitHub bot](docs/lab17/LAB.md)
 - 📎&nbsp;&nbsp;[Lab 18 - Run-Commands and deploying the frontend](docs/lab18/LAB.md)
 
-<<<<<<< HEAD
-| Option 1 - React frontends and more custom generators practice | Option 2 - Heroku API deployments with Docker |
-| ----------- | ----------- |
-| 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md) | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md) |
-| ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)     | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md) |  
-| 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md)     | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |  
-| 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) | 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) |
-=======
 | Option 1 - NextJS frontends and more custom generators practice             | Option 2 - Heroku API deployments with Docker                           |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-<<<<<<< HEAD
-| 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md)  | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md)                      |
-| ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)                             | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)    |
-| 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md) | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |
-| 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)                | 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)            |
->>>>>>> ebb6ada (feat: add day 2 labs (#6))
-=======
 | 🧭&nbsp;&nbsp;[Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md)  | 🧲&nbsp;&nbsp;[Lab 19 - Deploying the API](docs/lab19/LAB.md)                      |
 | ⛱️&nbsp;&nbsp;[Lab 20 - Mock Store](docs/lab20-alt/LAB.md)                             | 🎸&nbsp;&nbsp;[Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)    |
 | 🪁&nbsp;&nbsp;[Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md) | 🎈&nbsp;&nbsp;[Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |
 | 💈&nbsp;&nbsp;[Lab 22 - Deploying only what changed](docs/lab22/LAB.md)                | 💈&nbsp;&nbsp;[Lab 22 - Deploying only what changed](docs/lab22/LAB.md)            |
->>>>>>> a91628b (chore(docs): fix typos in the labs)
 
 ## Have fun learning! 🎉

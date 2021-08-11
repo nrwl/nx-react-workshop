@@ -1,29 +1,8 @@
 ##### Generate a React app
 
 ```shell
-<<<<<<< HEAD
-<<<<<<< HEAD
-yarn add @nrwl/react
-nx g @nrwl/react:app admin-ui
-nx serve admin-ui
-```
-
-##### Adding a deploy config
-
-```shell
-nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
-```
-
-##### Bonus 
-
-```shell
-nx g workspace-generator add-deploy-target 
-=======
-yarn add @nrwl/next
-=======
 yarn add @nrwl/next # or "npm i -S @nrwl/next"
->>>>>>> a91628b (chore(docs): fix typos in the labs)
-nx g @nrwl/next:app admin-ui
+nx g @nrwl/react:app admin-ui
 nx serve admin-ui
 ```
 
@@ -36,16 +15,14 @@ nx export admin-ui
 ##### Adding a deploy config
 
 ```shell
-nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui/exported \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
+nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
 ```
 
-##### Bonus
+##### Bonus 
 
 ```shell
-nx g workspace-generator add-deploy-target
->>>>>>> ebb6ada (feat: add day 2 labs (#6))
+nx g workspace-generator add-deploy-target 
 ```
-
 ![Folder structure](./solution-structure.png)
 
 `./files/.local.env`:
@@ -128,7 +105,3 @@ export function underscoreWithCaps(value: string): string {
   "required": ["project", "subdomain"]
 }
 ```
-<<<<<<< HEAD
-
-=======
->>>>>>> ebb6ada (feat: add day 2 labs (#6))
