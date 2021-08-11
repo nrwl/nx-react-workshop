@@ -25,29 +25,37 @@ git checkout starting-lab10
 git cherry-pick "$hash"
 git checkout starting-lab11
 git cherry-pick "$hash"
-# git checkout starting-lab12
-# git cherry-pick "$hash"
-# git checkout starting-lab13
-# git cherry-pick "$hash"
-# git checkout starting-lab14
-# git cherry-pick "$hash"
-# git checkout starting-lab15
-# git cherry-pick "$hash"
-# git checkout starting-lab16
-# git cherry-pick "$hash"
-# git checkout starting-lab17
-# git cherry-pick "$hash"
-# git checkout starting-lab18
-# git cherry-pick "$hash"
-# git checkout starting-lab19
-# git cherry-pick "$hash"
-# git checkout starting-lab20
-# git cherry-pick "$hash"
-# git checkout starting-lab21
-# git cherry-pick "$hash"
-# git checkout starting-lab22
-# git cherry-pick "$hash"
-git checkout final
+git checkout starting-lab12
+git cherry-pick "$hash"
+git checkout starting-lab13
+git cherry-pick "$hash"
+git checkout starting-lab14
+git cherry-pick "$hash"
+git checkout starting-lab15
+git cherry-pick "$hash"
+git checkout starting-lab16
+git cherry-pick "$hash"
+git checkout starting-lab17
+git cherry-pick "$hash"
+git checkout starting-lab18
+git cherry-pick "$hash"
+git checkout starting-lab19
+git cherry-pick "$hash"
+git checkout starting-lab20-path1
+git cherry-pick "$hash"
+git checkout starting-lab20-path2
+git cherry-pick "$hash"
+git checkout starting-lab21-path1
+git cherry-pick "$hash"
+git checkout starting-lab21-path2
+git cherry-pick "$hash"
+git checkout starting-lab22-path1
+git cherry-pick "$hash"
+git checkout starting-lab22-path2
+git cherry-pick "$hash"
+git checkout final-path1
+git cherry-pick "$hash"
+git checkout final-path2
 git cherry-pick "$hash"
 git checkout main
 
