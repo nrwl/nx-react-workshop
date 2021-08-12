@@ -38,7 +38,8 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
    </details>
 
-4. Verify that storybook loads the header component
+4. Start typing in different titles and see how they appear in the header
+<img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
 <br/>
 
 5. Inspect what changed from the last time you committed, then commit your changes
