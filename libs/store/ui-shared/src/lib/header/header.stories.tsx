@@ -1,14 +1,12 @@
-import React from 'react';
+import { Story, Meta } from '@storybook/react';
 import { Header, HeaderProps } from './header';
 
 export default {
   component: Header,
   title: 'Header',
-};
+} as Meta;
 
-export const primary = () => {
-  /* eslint-disable-next-line */
-  const props: HeaderProps = {};
+const Template: Story<HeaderProps> = (args: HeaderProps) => <Header {...args} />;
 
-  return <Header />;
-};
+export const Primary = Template.bind({});
+Primary.args = {};
