@@ -57,7 +57,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    ```
 
    ```html
-   <Header />
+   <Header title="Board Game Hoard" />
    <!-- right at the top - above our container -->
    <div className="{styles.container}"></div>
    ```
