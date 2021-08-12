@@ -3,16 +3,16 @@
 
 hash=$1
 
-git checkout starting-lab2
-git cherry-pick "$hash"
-git checkout starting-lab3
-git cherry-pick "$hash"
-git checkout starting-lab3
-git cherry-pick "$hash"
-git checkout starting-lab4
-git cherry-pick "$hash"
-git checkout starting-lab5
-git cherry-pick "$hash"
+# git checkout starting-lab2
+# git cherry-pick "$hash"
+# git checkout starting-lab3
+# git cherry-pick "$hash"
+# git checkout starting-lab3
+# git cherry-pick "$hash"
+# git checkout starting-lab4
+# git cherry-pick "$hash"
+# git checkout starting-lab5
+# git cherry-pick "$hash"
 git checkout starting-lab6
 git cherry-pick "$hash"
 git checkout starting-lab7
