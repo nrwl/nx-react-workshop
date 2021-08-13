@@ -41,6 +41,7 @@
     "@nrwl/linter": "12.7.1",
     "@nrwl/node": "12.7.1",
     "@nrwl/react": "12.7.1",
+    "@nrwl/storybook": "12.7.1",
     "@nrwl/tao": "12.7.1",
     "@nrwl/workspace": "12.7.1",
     "@types/jest": "26.0.8",

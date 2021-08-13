@@ -13,6 +13,7 @@ export default async function update(tree: Tree) {
     'util-interface',
     'store-feature-game-detail',
     'store-ui-shared',
+    'store-ui-shared-e2e',
     'store-util-formatters',
   ].filter((removeProject) => projects.has(removeProject));
   projectsToRemove.forEach(
