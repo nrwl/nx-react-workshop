@@ -2,7 +2,7 @@
 
 ###### ⏰ &nbsp;Estimated time: 15-20 minutes
 
-Now that we have a proper API, we can remove the `fake-api` created earlier and make proper HTTP requests. We'll also look at how the Nrwl NestJS generators created a helpful proxy configuration for us.
+Now that we have a proper API, we can remove the `fake-api` created earlier and make proper HTTP requests. We'll also look at how the Nrwl Express generators created a helpful proxy configuration for us.
 
 ## 📚 Learning outcomes:
 
