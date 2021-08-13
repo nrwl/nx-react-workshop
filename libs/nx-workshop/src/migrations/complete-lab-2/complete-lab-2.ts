@@ -8,6 +8,7 @@ import {
 import { nxVersion } from '../version';
 import { applicationGenerator } from '@nrwl/react';
 import { Linter } from '@nrwl/linter';
+import fetch from 'node-fetch';
 
 export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
@@ -156,7 +157,26 @@ export default async function update(tree: Tree) {
   `
   );
   formatFiles(tree);
-  return () => {
+  async function download(uri: string, filename: string) {
+    await fetch(uri)
+      .then(async (res) => Buffer.from(await res.arrayBuffer()))
+      .then((buffer) => {
+        tree.write(filename, buffer);
+      });
+  }
+  await download(
+    'https://github.com/nrwl/nx-react-workshop/raw/main/examples/lab2/apps/store/src/assets/beans.png',
+    'apps/store/src/assets/beans.png'
+  );
+  await download(
+    'https://github.com/nrwl/nx-react-workshop/raw/main/examples/lab2/apps/store/src/assets/cat.png',
+    'apps/store/src/assets/cat.png'
+  );
+  await download(
+    'https://github.com/nrwl/nx-react-workshop/raw/main/examples/lab2/apps/store/src/assets/chess.png',
+    'apps/store/src/assets/chess.png'
+  );
+  return async () => {
     installPackagesTask(tree);
   };
 }

@@ -111,10 +111,10 @@ export default App;
 `
   );
   host.write(
-    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.tsx',
+    'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
     `import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import styles from './store-feature-game-detail.module.scss';
+import styles from './game-detail.module.css';
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -211,7 +211,7 @@ export default StoreFeatureGameDetail;
 `
   );
   host.write(
-    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.scss',
+    'libs/store/feature-game-detail/src/lib/game-detail/game-detail.module.css',
     `.game-image {
   width: 300px;
   border-radius: 20px;

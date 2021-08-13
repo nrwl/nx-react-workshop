@@ -9,16 +9,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/nx-workshop/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/nx-workshop/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/nx-workshop"
-          ],
+          "outputs": ["coverage/libs/nx-workshop"],
           "options": {
             "jestConfig": "libs/nx-workshop/jest.config.js",
             "passWithNoTests": true
@@ -26,9 +22,7 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/nx-workshop",
             "tsConfig": "libs/nx-workshop/tsconfig.lib.json",
@@ -75,8 +69,6 @@
           "executor": "@nrwl/nx-plugin:e2e",
           "options": {
             "target": "nx-workshop:build",
-            "npmPackageName": "@nx-workshop-react/nx-workshop",
-            "pluginOutputPath": "dist/libs/nx-workshop",
             "jestConfig": "apps/nx-workshop-e2e/jest.config.js"
           }
         }
