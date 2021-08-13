@@ -18,7 +18,6 @@ For now, our `store` project has no API when it is deployed. Hence, it is only d
     import { getAllGames } from '../fake-api/index';
 
     export const App = () => {
-    const history = useHistory();
 
     return (
       <>
@@ -26,11 +25,8 @@ For now, our `store` project has no API when it is deployed. Hence, it is only d
           <div className={styles.container}>
             <div className={styles['games-layout']}>
               {getAllGames().map((x) => (
-                <Card
-                  key={x.id}
-                  className={styles['game-card']}
-                  onClick={() => history.push(`/game/${x.id}`)}
-                >
+                <Link to={`/game/${x.id}`} key={x.id}>
+                  <Card className={styles['game-card']}>
    ```
 
    </details>
