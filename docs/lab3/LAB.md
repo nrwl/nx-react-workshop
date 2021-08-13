@@ -37,7 +37,7 @@ We'll build the app we just created, and look at what executors are and how to c
    - Open one of the files, for example `main.js` and look at it's contents
 <br/>
 
-3. Open up `workspace.json` and look at the object under `projects/store/architect/build`
+3. Open up `workspace.json` and look at the object under `projects/store/targets/build`
    - this is the **target**, and it has an **executor** option, that points to `@nrwl/web:build`
    - Remember how we copied some images into our `/assets` folder earlier? Look through the executor options and try to find how it knows to include them in the final build!
 <br/>
