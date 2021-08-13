@@ -29,7 +29,7 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/nx-plugin": "^12.5.8",
+    "@nrwl/nx-plugin": "12.7.1",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
@@ -39,11 +39,16 @@
     "@nrwl/express": "12.7.1",
     "@nrwl/jest": "12.7.1",
     "@nrwl/linter": "12.7.1",
+<<<<<<< HEAD
     "@nrwl/nest": "12.7.1",
     "@nrwl/node": "12.7.1",
     "@nrwl/nx-plugin": "12.7.1",
     "@nrwl/react": "12.7.1",
     "@nrwl/storybook": "12.7.1",
+=======
+    "@nrwl/node": "12.7.1",
+    "@nrwl/react": "12.7.1",
+>>>>>>> df2e8ce (chore: update to nx 12.7.1)
     "@nrwl/tao": "12.7.1",
     "@nrwl/workspace": "12.7.1",
     "@types/jest": "26.0.8",
