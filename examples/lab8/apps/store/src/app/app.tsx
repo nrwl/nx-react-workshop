@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './app.module.scss';
 
@@ -12,12 +12,11 @@ import Typography from '@material-ui/core/Typography';
 
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-import { Route, useHistory } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
-  const history = useHistory();
   const [state, setState] = useState<{
     data: any[];
     loadingState: 'success' | 'error' | 'loading';
@@ -58,10 +57,9 @@ export const App = () => {
             : state.loadingState === 'error'
             ? '<div>Error retrieving data</div>'
             : state.data.map((x) => (
+              <Link to={`/game/${x.id}`} key={x.id}>
                 <Card
-                  key={x.id}
                   className={styles['game-card']}
-                  onClick={() => history.push(`/game/${x.id}`)}
                 >
                   <CardActionArea>
                     <CardMedia
@@ -91,6 +89,7 @@ export const App = () => {
                     </CardContent>
                   </CardActionArea>
                 </Card>
+              </Link>
               ))}
         </div>
         <Route path="/game/:id" component={StoreFeatureGameDetail} />
