@@ -39,7 +39,7 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
 
    ```ts
    // add this to imports
-   import { Route, useHistory } from 'react-router-dom';
+   import { Route, Link } from 'react-router-dom';
    import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
    // add this as a last element to container
@@ -56,16 +56,11 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
-   ```ts
-     // initialize the history hook
-     const history = useHistory();
-
-     // add on click to card element
-     <Card
-       key={x.id}
-       className={styles['game-card']}
-       onClick={() => history.push(`/game/${x.id}`)}
-     >
+   ```tss
+     // add a Link around the card element
+     <Link to={`/game/${x.id}`} key={x.id}>
+      <Card ...>
+     </Link>
    ```
 
     </details>

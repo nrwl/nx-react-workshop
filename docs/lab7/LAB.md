@@ -1,4 +1,4 @@
-### 💻 Lab 7 - Add a NestJS API
+### 💻 Lab 7 - Add an Express API
 
 ###### ⏰ &nbsp;Estimated time: 10-15 minutes
 

@@ -17,18 +17,18 @@ pushed to your GitHub repo.
 1.  Let's make sure the master branch is up to date (it's important your latest changes are on `master` for the follow-up steps): - If you already are on `master` - commit everything:
     `git add . && git commit -m "finished lab 14" git push origin master`
 
-        - If you are on a different branch, commit everything, switch to master
+    > If you are on a different branch, commit everything, switch to master
 
     and bring it up to date:
 
-            ```
-            git add . && git commit "finish lab 14"
-            git checkout master
-            git merge previous-branch-you-were-on
-            git push origin master
-            ```
+    ```shell
+    git add . && git commit "finish lab 14"
+    git checkout master
+    git merge previous-branch-you-were-on
+    git push origin master
+    ```
 
-       <br />
+    <br />
 
 2.  Create a new file `.github/workflows/ci.yml`
 
