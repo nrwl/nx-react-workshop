@@ -100,15 +100,11 @@ with a correct scope and type tag.
     - In `libs/api/util-notifications/src/lib/api-util-notifications.ts`
     - Add:
 
-          ```
-
+    ```ts
       export function sendNotification(clientId: string) {
-      console.log("sending notification to client: ", clientId);
+        console.log("sending notification to client: ", clientId);
       }
-
-      ```
-      <br />
-      ```
+    ```
 
 14. Now try to import the above function in `apps/api/src/main.ts`
     - Try to lint all the apps
