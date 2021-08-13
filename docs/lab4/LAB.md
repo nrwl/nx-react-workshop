@@ -31,13 +31,13 @@ Let's add a header to our app! Because headers can be shared with other componen
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    - it's a generator! you've used it before in the second lab, but instead of an `app`, we now want to generate a `lib`
-   - use the `--help` command to figure out how to generate it in a **directory**
+   - use the `--help` command to figure out how to generate it in a **directory** and that it doesn’t create default component
 
    </details>
 
 3. Generate a new React component, called `header`, inside the lib you just created
 
-   ⚠️ Play around with the generator options so that the generated component is automatically **exported** from the lib's module and that is **doesn't** create component
+   ⚠️ Play around with the generator options so that the generated component is automatically **exported** from the lib's module
 
    <details><summary>🐳 &nbsp;&nbsp;Hint</summary>
 
