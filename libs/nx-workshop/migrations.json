@@ -1,0 +1,80 @@
+{
+  "generators": {
+    "complete-lab-1": {
+      "version": "1.0.0",
+      "description": "Complete Lab 1",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-1/complete-lab-1"
+    },
+    "complete-lab-2": {
+      "version": "2.0.0",
+      "description": "Complete Lab 2",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-2/complete-lab-2"
+    },
+    "complete-lab-3": {
+      "version": "3.0.0",
+      "description": "Complete Lab 3",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-3/complete-lab-3"
+    },
+    "complete-lab-4": {
+      "version": "4.0.0",
+      "description": "Complete Lab 4",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-4/complete-lab-4"
+    },
+    "complete-lab-5": {
+      "version": "5.0.0",
+      "description": "Complete Lab 5",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-5/complete-lab-5"
+    },
+    "complete-lab-6": {
+      "version": "6.0.0",
+      "description": "Complete Lab 6",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-6/complete-lab-6"
+    },
+    "complete-lab-7": {
+      "version": "7.0.0",
+      "description": "Complete Lab 7",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-7/complete-lab-7"
+    },
+    "complete-lab-8": {
+      "version": "8.0.0",
+      "description": "Complete Lab 8",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-8/complete-lab-8"
+    },
+    "complete-lab-9": {
+      "version": "9.0.0",
+      "description": "Complete Lab 9",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-9/complete-lab-9"
+    },
+    "complete-lab-10": {
+      "version": "10.0.0",
+      "description": "Complete Lab 10",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-10/complete-lab-10"
+    },
+    "complete-lab-11": {
+      "version": "11.0.0",
+      "description": "Complete Lab 11",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-11/complete-lab-11"
+    }
+  },
+  "packageJsonUpdates": {
+    "1.0.0": {
+      "version": "1.0.0",
+      "packages": {}
+    },
+    "2.0.0": {
+      "version": "2.0.0",
+      "packages": {}
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-workshop",
+  "version": "0.0.1",
+  "generators": {
+    "nx-workshop": {
+      "factory": "./src/generators/nx-workshop/generator",
+      "schema": "./src/generators/nx-workshop/schema.json",
+      "description": "nx-workshop generator"
+    }
+  }
+}
