@@ -1,3 +1,5 @@
+const { getJestProjects } = require('@nrwl/jest');
+
 module.exports = {
-  projects: ['<rootDir>/libs/nx-workshop', '<rootDir>/apps/nx-workshop-e2e'],
+  projects: [...getJestProjects(), '<rootDir>/apps/nx-workshop-e2e'],
 };

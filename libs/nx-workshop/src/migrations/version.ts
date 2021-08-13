@@ -1,1 +1,1 @@
-export const nxVersion = '12.5.8';
+export const nxVersion = '12.7.1';
