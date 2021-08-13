@@ -1,4 +1,3 @@
-import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import styles from './game-detail.module.scss';
 
