@@ -29,6 +29,7 @@
   },
   "private": true,
   "dependencies": {
+    "@nrwl/nx-plugin": "^12.5.8",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
