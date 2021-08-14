@@ -23,7 +23,7 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
 ## 🏋️‍♀️ Steps:
 
 1. Stop `nx serve`
-<br/>
+   <br/>
 
 2. Use the `@nrwl/react:lib` generator to generate a new routing library called `feature-game-detail` that:
 
@@ -43,13 +43,13 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
    import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
    // add this as a last element to container
-   <Route path="/game/:id" component={StoreFeatureGameDetail} />
+   <Route path="/game/:id" component={StoreFeatureGameDetail} />;
    ```
 
     </details>
 
-4. Populate your new component with the provided files: `game-detail.`[tsx](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx) / [scss](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.module.scss)
-<br/>
+4. Populate your new component with the provided files: `game-detail.`[tsx](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/store-feature-game-detail.tsx) / [scss](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/store-feature-game-detail.module.scss)
+   <br/>
 
 5. Make clicking on each card route to the `game-detail` with the game's ID:
 
@@ -65,15 +65,16 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
 
     </details>
 
-6. Serve your app again, click on some games, and compare with the screenshot above
-<br/>
+6. Serve your app again, click on some games, and compare with this screenshot:
+
+<img src="../assets/lab6_screenshot.png" width="500" alt="screenshot of lab6 result">
+   <br/>
 
 7. Launch the dependency graph and see what's been added
-<br/>
+   <br/>
 
 8. Inspect what changed from the last time you committed, then commit your changes
-<br/>
-
+   <br/>
 
 ---
 
