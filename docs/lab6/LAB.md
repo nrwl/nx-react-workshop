@@ -40,7 +40,7 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
    ```ts
    // add this to imports
    import { Route, Link } from 'react-router-dom';
-   import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
+   import { StoreFeatureGameDetail } from '@bg-hoard/store/store-feature-game-detail';
 
    // add this as a last element to container
    <Route path="/game/:id" component={StoreFeatureGameDetail} />;
@@ -48,7 +48,7 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
 
     </details>
 
-4. Populate your new component with the provided files: `game-detail.`[tsx](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/store-feature-game-detail.tsx) / [scss](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/store-feature-game-detail.module.scss)
+4. Populate your new component with the provided files: `store-feature-game-detail.`[tsx](../../examples/lab6/libs/store/feature-game-detail/src/lib/store-feature-game-detail/store-feature-game-detail.tsx) / [scss](../../examples/lab6/libs/store/feature-game-detail/src/lib/store-feature-game-detail/store-feature-game-detail.module.scss)
    <br/>
 
 5. Make clicking on each card route to the `game-detail` with the game's ID:
