@@ -30,16 +30,16 @@ In this lab we'll generate our first React application within the new monorepo.
    - if you don't want to install it globally, use `yarn nx` (if you have yarn) or `npx nx` (otherwise) instead of `nx` in all the commands in the upcoming labs
 
 > Please make sure you are using the latest version of Nx (12.6+)
-<br/>
+> <br/>
 
 2. Run `nx list` to see which plugins you have installed
-<br/>
+   <br/>
 
 3. Add the React plugin: `yarn add @nrwl/react` or `npm i -S @nrwl/react`
-<br/>
+   <br/>
 
 4. Let's also add Material UI so we can use some of their components: `yarn add @material-ui/core` or `npm i -S @material-ui/core`
-<br/>
+   <br/>
 
 5. Use the [`@nrwl/react` plugin](https://nx.dev/react/api/react/generators/application) to generate an React app called `store` in your new workspace
 
@@ -50,31 +50,29 @@ In this lab we'll generate our first React application within the new monorepo.
    <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
    </details>
 
-
-
 6. Create a `fake-api.ts` file in your new app that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api/index.ts))
 
    ⏳**Reminder:** When you are given example files to copy, the folder they're in hints to the _folder_ and _filename_ you can place them in when you do the copying
-<br/>
+   <br/>
 
-
-7. Add some basic styling to your new component and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.tsx](../../examples/lab2/apps/store/src/app/app.tsx) / [.scss](../../examples/lab2/apps/store/src/app/app.modules.scss) - and replace the full contents of the files)
+7. Add some basic styling to your new component and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.tsx](../../examples/lab2/apps/store/src/app/app.tsx) / [.scss](../../examples/lab2/apps/store/src/app/app.module.scss) - and replace the full contents of the files)
 8. You can get the example game images from [here](../../examples/lab2/apps/store/src/assets)
 
    ⚠️ Make sure you put them in the correct folder
-<br/>
+   <br/>
 
 9. Serve the app: `nx serve store`
-<br/>
+   <br/>
 
 10. See your app live at [http://localhost:4200/](http://localhost:4200/)
-<br/>
+    <br/>
 
 11. Inspect what changed from the last time you committed, then commit your changes
-<br/>
-
+    <br/>
 
 ---
+
+<img src="../assets/lab2_result.png" width="500" alt="screenshot of lab2 result">
 
 Your app should look similar to the screenshot above!
 

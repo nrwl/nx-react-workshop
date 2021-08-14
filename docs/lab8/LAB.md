@@ -18,7 +18,7 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
 ## 🏋️‍♀️ Steps:
 
 1. We can now delete the `fake-api` from the `store` app
-<br/>
+   <br/>
 
 2. Use `fetch` in a `useEffect` hook in the [app.tsx](../../examples/lab8/apps/store/src/app/app.tsx) component and call your new API as an _HTTP request_. We also added a local state to track changes.
 
@@ -47,16 +47,15 @@ Now let's load the full game in our routed component!
 
 6. Inside the `libs/store/feature-game-detail/src/lib/game-detail` folder, replace the following files:
 
-   - [tsx](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx) / [module.scss](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.module.scss)
+   - [tsx](../../examples/lab8/libs/store/feature-game-detail/src/lib/store-feature-game-detail/store-feature-game-detail.tsx) / [module.scss](../../examples/lab8/libs/store/feature-game-detail/src/lib/store-feature-game-detail/store-feature-game-detail.module.scss)
 
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
 
 7. Your component should look similar to the provided screenshot! (you might need to restart your `nx serve store` so the new button styles can be copied over)
-<br/>
+   <br/>
 
 8. Inspect what changed from the last time you committed, then commit your changes
-<br/>
-
+   <br/>
 
 ---
 
