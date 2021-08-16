@@ -1,28 +1,44 @@
 ### 💻 Lab 11 - e2e test the shared component
 
-###### ⏰ Estimated time: 5 minutes
+###### ⏰ &nbsp;Estimated time: 5 minutes
 
 The storybook generator we invoked earlier also generated some e2e tests. Let's try them out!
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
-- Take advantage of the e2e tests Nx generated earlier to test your app
+- **Take advantage of the e2e tests Nx generated earlier to test your app**
+<br />
 
-#### 🏋️‍♀️ Steps:
+## 🏋️‍♀️ Steps:
 
 1. Our previous command generated a new `apps/store-ui-shared-e2e` folder. Let's run them: `nx e2e store-ui-shared-e2e`
    - The tests should fail
-2. Open `apps/store-ui-shared-e2e/src/integration/header/header.spec.ts` and change the test:
+<br/>
+
+2. Open `apps/store-ui-shared-e2e/src/integration/header/header.spec.ts` and **give the title a value**:
+
+   ```ts
+   cy.visit(
+     '/iframe.html?id=header--primary&args=title:BoardGameHoard'
+   )
+   ```
+<br />
+
+3. Now **add a test** to check if it contains that value
 
    ```ts
    it('should show the title', () => {
-     cy.get('header').contains('Board Game Hoard');
+     cy.get('header').contains('BoardGameHoard');
    });
    ```
+<br />
 
-3. Re-run the tests
-4. Inspect what changed from the last time you committed, then commit your changes
+4. **Re-run the tests**
+<br/>
+
+5. **Inspect what changed** from the last time you committed, then **commit your changes**
+<br/>
 
 ---
 
-[➡️ Next lab ➡️](../lab12/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab12/LAB.md)
