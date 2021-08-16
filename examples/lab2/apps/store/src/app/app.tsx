@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
