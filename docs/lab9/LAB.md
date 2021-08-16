@@ -26,18 +26,19 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 ## 🏋️‍♀️ Steps:
 
 1. Stop serving both the API and the frontend
-<br/>
+<br />
 
 2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder.
 
-   ⚠️ It's **important** that we create it in the `/api` folder for now
+   ⚠️&nbsp;&nbsp;It's **important** that we create it in the `/api` folder for now
+<br />   
 
 3. Create your `Game` interface: see `libs/api/util-interface/src/lib/`[api-util-interface.ts](../../examples/lab9/libs/api/util-interface/src/lib/api-util-interface.ts)
-<br/>
+<br />
 
 4. Import it in the API service: `apps/api/src/app/games.repository.ts`
 
-   ⚠️ You might need to restart the Typescript compiler in your editor
+   ⚠️&nbsp;&nbsp;You might need to restart the Typescript compiler in your editor
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
@@ -47,7 +48,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    const games: Game[] = [...];
    ```
 
-   </details>
+   </details><br />
 
 5. Build the API and make sure there are no errors
 
@@ -58,14 +59,13 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    nx build api
    ```
 
-   </details>
+   </details><br />
 
 6. Inspect the dependency graph
-<br/>
+<br />
 
 7. Make sure to commit everything before proceeding!
-<br/>
-
+<br />
 
 ---
 
@@ -87,9 +87,9 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 ---
 
-8.  Use the `@nrwl/workspace:move` generator to move the interface lib created above into the root `/libs` folder
+8. Use the `@nrwl/workspace:move` generator to move the interface lib created above into the root `/libs` folder
 
-    ⚠️ Make sure you use the `--dry-run` flag until you're confident your command is correct
+    ⚠️&nbsp;&nbsp;Make sure you use the `--dry-run` flag until you're confident your command is correct
 
     <details>
     <summary>🐳 &nbsp;&nbsp;Hint 1</summary>
@@ -110,9 +110,9 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     Your library name is `api-util-interface` - to move it to root, its new name needs to be `util-interface`
 
-    </details>
+    </details><br />
 
-9.  We can now import it in the frontend components and use it when making the `http` request:
+9. We can now import it in the frontend components and use it when making the `http` request:
 
     <details>
     <summary>🐳 &nbsp;&nbsp;Hint</summary>
@@ -147,18 +147,17 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     </details>
 
-    ⚠️ Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
-<br/>
-
+    ⚠️&nbsp;&nbsp;Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
+<br />
 
 10. Trigger a build of both the store and the API projects and make sure it passes
-<br/>
+<br />
 
 11. Inspect the dependency graph
-<br/>
+<br />
 
 12. Inspect what changed from the last time you committed, then commit your changes
-<br/>
+<br />
 
 ---
 
