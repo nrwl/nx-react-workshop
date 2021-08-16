@@ -7,12 +7,12 @@
 
 - **Explore some more advanced, real-world usages of generators**
 - **Understand how to modify existing source code with generators**
-  <br />
+<br />
 
 ## 🏋️‍♀️ Steps :
 
 1. Generate another generator called `update-scope-schema`
-   <br />
+<br />
 
 2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json file:
 
@@ -25,9 +25,9 @@
    - As always, the answer is in the [the solution](INC-VERSION-SOLUTION.md). Try a few different approaches on your own first.
    </details>
 
-   ⚠️ When you run the above, it might complain that you haven't supplied a `name`. Since
+   ⚠️&nbsp;&nbsp;When you run the above, it might complain that you haven't supplied a `name`. Since
    we don't need this property in the generate, you can remove it from the schema.
-   <br />
+<br />
 
 3. Now that we had some practice with the `updateJson` util - Let's build something even more useful:
 
@@ -37,7 +37,7 @@
    - We can use `readJson` util for reading the file (we don't need to update it)
    - **BONUS:** Modify your generator so it fetches list of scopes from `projects` in `nx.json` and updates the schema in util-lib
 
-   ⚠️ You can use the function provided in the Hint to extract the `scopes`
+   ⚠️&nbsp;&nbsp;You can use the function provided in the Hint to extract the `scopes`
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
@@ -60,19 +60,17 @@
    }
    ```
 
-   </details>
-
-   <br />
+   </details><br />
 
 4. It's good practice to have your generator run your modified files through Prettier after modifying them. You might already have this, but just in case you removed it:
 
    - Use `import { formatFiles } from '@nrwl/devkit';`
    - `await` this at the end of your generator
-     <br />
+<br />
 
 5. `index.ts` also has a `Schema` interface that should be updated. For modifying files that are not JSON we will use `host.read(path)` and `host.write(path, content)` methods.
 
-   ⚠️ You can use the function provided in the Hint to replace the `scopes`
+   ⚠️&nbsp;&nbsp;You can use the function provided in the Hint to replace the `scopes`
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
@@ -91,20 +89,21 @@
    }
    ```
 
-   </details>
-   <br />
+   </details><br />
 
 6. So we can test our changes, create a new app and define a scope for it.
+<br />
+
 7. Run your generator and notice the resulting changes. Commit them so you start fresh on your next lab.
-   <br />
+<br />
 
 8. **BONUS** - As a bonus, if project doesn't have `scope` tag defined, we will assume it's the first segment of the name (e.g `admin-ui-lib` -> `scope:admin`) and we will go ahead and set one for it.
-   <br />
+<br />
 
 9. **BONUS BONUS** - use a tool like [Husky](https://typicode.github.io/husky/#/) to run your
    generator automatically before each commit. This will ensure developers never forget to add
    their scope files.
-   <br />
+<br />
 
 ---
 
