@@ -22,7 +22,7 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
      '/iframe.html?id=header--primary&args=title:BoardGameHoard'
    )
    ```
-   <br />   
+<br />
 
 3. Now **add a test** to check if it contains that value
 
@@ -31,12 +31,12 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
      cy.get('header').contains('BoardGameHoard');
    });
    ```
-   <br />
+<br />
 
 4. **Re-run the tests**
 <br/>
 
-4. **Inspect what changed** from the last time you committed, then **commit your changes**
+5. **Inspect what changed** from the last time you committed, then **commit your changes**
 <br/>
 
 ---
