@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import styles from './game-detail.module.scss';
+import styles from './store-feature-game-detail.module.scss';
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
