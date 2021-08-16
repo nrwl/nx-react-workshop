@@ -56,10 +56,7 @@ export const App = () => {
               ? '<div>Error retrieving data</div>'
               : state.data.map((x) => (
                 <Link to={`/game/${x.id}`} key={x.id}>
-                  <Card
-                    key={x.id}
-                    className={styles['game-card']}
-                  >
+                  <Card className={styles['game-card']}>
                     <CardActionArea>
                       <CardMedia
                         className={styles['game-card-media']}
