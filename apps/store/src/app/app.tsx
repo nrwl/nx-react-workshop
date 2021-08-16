@@ -13,12 +13,10 @@ import Typography from '@material-ui/core/Typography';
 
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-import { Route, useHistory } from 'react-router-dom';
-
+import { Route, Link } from 'react-router-dom';
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
-  const history = useHistory();
   const [state, setState] = useState<{
     data: Game[];
     loadingState: 'success' | 'error' | 'loading';
@@ -57,41 +55,39 @@ export const App = () => {
           {state.loadingState === 'loading'
             ? 'Loading...'
             : state.loadingState === 'error'
-            ? '<div>Error retrieving data</div>'
-            : state.data.map((x) => (
-                <Card
-                  key={x.id}
-                  className={styles['game-card']}
-                  onClick={() => history.push(`/game/${x.id}`)}
-                >
-                  <CardActionArea>
-                    <CardMedia
-                      className={styles['game-card-media']}
-                      image={x.image}
-                      title={x.name}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {x.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        {x.description}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                        className={styles['game-rating']}
-                      >
-                        <strong>Rating:</strong> {formatRating(x.rating)}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
+              ? '<div>Error retrieving data</div>'
+              : state.data.map((x) => (
+                <Link to={`/game/${x.id}`} key={x.id}>
+                  <Card className={styles['game-card']}>
+                    <CardActionArea>
+                      <CardMedia
+                        className={styles['game-card-media']}
+                        image={x.image}
+                        title={x.name}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {x.name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          {x.description}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                          className={styles['game-rating']}
+                        >
+                          <strong>Rating:</strong> {formatRating(x.rating)}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Link>
               ))}
         </div>
         <Route path="/game/:id" component={StoreFeatureGameDetail} />
