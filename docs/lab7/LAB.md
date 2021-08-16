@@ -1,6 +1,6 @@
-### 💻 Lab 7 - Add a NestJS API
+### 💻 Lab 7 - Add an Express API
 
-###### ⏰ Estimated time: 10-15 minutes
+###### ⏰ &nbsp;Estimated time: 10-15 minutes
 
 Up until now we've had a single app in our repository, and a few other libs that it uses.
 
@@ -10,9 +10,9 @@ Our new routed component suddenly needs access to the games as well, so in this 
 
 All the Express specific code for serving the games is provided in the solution.
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
-- Explore other plugins in the Nx ecosystem
+- **Explore other plugins in the Nx ecosystem**
 
 #### 📲 After this workshop, you should have:
 
@@ -26,25 +26,34 @@ All the Express specific code for serving the games is provided in the solution.
   <img src="../assets/lab7_directory-structure.png" height="700" alt="lab7 file structure">
 </details>
 
-#### 🏋️‍♀️ Steps:
+## 🏋️‍♀️ Steps:
 
 1. Stop any running `nx serve` instance
+<br/>
+
 2. `yarn add @nrwl/express` or `npm i -S @nrwl/express`
+<br/>
+
 3. Generate a new Express app, called `api`
 
-   ⚠️ Make sure you instruct the generator to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)
+   ⚠️&nbsp;&nbsp;Make sure you instruct the generator to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)<br />
 
 4. Copy the code from the `fake api` to the new file `apps/api/src/app/`[games.repository.ts](../../examples/lab7/apps/api/src/app/games.repository.ts)
+<br/>
 
 5. Update the Express [main.ts](../../examples/lab7/apps/api/src/main.ts) to use the repository data
+<br/>
 
 6. Let's now inspect the dependency graph!
+<br/>
+
 7. Inspect what changed from the last time you committed, then commit your changes
+<br/>
 
 ---
 
-🎓If you get stuck, check out [the solution](SOLUTION.md)
+🎓&nbsp;&nbsp;If you get stuck, check out [the solution](SOLUTION.md)
 
 ---
 
-[➡️ Next lab ➡️](../lab8/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab8/LAB.md)
