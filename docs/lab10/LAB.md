@@ -27,7 +27,8 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
 2. Use the `@nrwl/react:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
 
-   ⚠️ Answer **YES** to all questions
+   ⚠️&nbsp;&nbsp;Answer **YES** to all questions
+<br />   
 
 3. Serve storybook!
 
@@ -36,14 +37,15 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
    `nx storybook store-ui-shared`
 
-   </details>
+   </details><br />
 
 4. Start typing in different titles and see how they appear in the header
-<img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
+
+    <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
 <br/>
 
 5. Inspect what changed from the last time you committed, then commit your changes
-<br/>
+<br />
 
 
 ---
