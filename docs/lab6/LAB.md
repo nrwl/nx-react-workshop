@@ -52,7 +52,7 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
 4. Populate your new component with the provided files: `store-feature-game-detail.`[tsx](../../examples/lab6/libs/store/feature-game-detail/src/lib/store-feature-game-detail/store-feature-game-detail.tsx) / [scss](../../examples/lab6/libs/store/feature-game-detail/src/lib/store-feature-game-detail/store-feature-game-detail.module.scss)
 <br />
 
-5. Make clicking on each card route to the `game-detail` with the game's ID:
+5. Make clicking on each card in the `apps/store/src/app/app.tsx` route to the `store-feature-game-detail` with the game's ID:
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
