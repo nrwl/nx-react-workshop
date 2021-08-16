@@ -49,7 +49,7 @@ export const App = () => {
 
   return (
     <>
-      <Header />
+      <Header title="Board Game Hoard" />
       <div className={styles.container}>
         <div className={styles['games-layout']}>
           {state.loadingState === 'loading'
@@ -57,39 +57,37 @@ export const App = () => {
             : state.loadingState === 'error'
             ? '<div>Error retrieving data</div>'
             : state.data.map((x) => (
-              <Link to={`/game/${x.id}`} key={x.id}>
-                <Card
-                  className={styles['game-card']}
-                >
-                  <CardActionArea>
-                    <CardMedia
-                      className={styles['game-card-media']}
-                      image={x.image}
-                      title={x.name}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {x.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        {x.description}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                        className={styles['game-rating']}
-                      >
-                        <strong>Rating:</strong> {formatRating(x.rating)}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Link>
+                <Link to={`/game/${x.id}`} key={x.id}>
+                  <Card className={styles['game-card']}>
+                    <CardActionArea>
+                      <CardMedia
+                        className={styles['game-card-media']}
+                        image={x.image}
+                        title={x.name}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {x.name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          {x.description}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                          className={styles['game-rating']}
+                        >
+                          <strong>Rating:</strong> {formatRating(x.rating)}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Link>
               ))}
         </div>
         <Route path="/game/:id" component={StoreFeatureGameDetail} />
