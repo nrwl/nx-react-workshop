@@ -20,11 +20,8 @@ export const App = () => {
       <div className={styles.container}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
-            <Link to={`/game/${x.id}`} key={x.id}>
-              <Card
-                key={x.id}
-                className={styles['game-card']}
-              >
+            <Link to={`/game/${x.id}`} key={x.id} >
+              <Card className={styles['game-card']}>
                 <CardActionArea>
                   <CardMedia
                     className={styles['game-card-media']}
