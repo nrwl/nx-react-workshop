@@ -21,6 +21,7 @@
        .... <-- fill in the rest of the tags
      }
    ```
+<br />   
 
 2. Open the root `.eslintrc.json`, find the `"@nrwl/nx/enforce-module-boundaries"` rule and **set the `depConstraints`**:
 
@@ -33,6 +34,7 @@
        .... <-- finish adding constraints for the tags we defined in the previous step
    ]
    ```
+<br />   
 
 3. **Run `nx run-many --target=lint --all --parallel`**
 
@@ -41,34 +43,34 @@
    to run that target against all projects in your workspace.
 
    💡 `--parallel` launches all the `lint` processes in parallel
-   <br />
+<br />
 
 4. We talked about how importing a **Feature** lib should not be allowed from a
    **UI** lib. Let's **test our lint rules** by doing just that: - In `libs/store/ui-shared/src/lib/header/header.tsx` - Try to `import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';`
-   <br />
+<br />
 
 5. **Run linting** against all the projects again.
-   <br />
+<br />
 
 6. You should see the expected error. Great! You can now **delete the import** above.
-   <br />
+<br />
 
 7. We also talked about the importance of setting boundaries between your workspace scopes. Let's try and **import a `store` lib** from an `api` scope. - In `apps/api/src/main.ts` - Try to `import { formatRating } from '@bg-hoard/store/util-formatters';`
-   <br />
+<br />
 
 8. **Run linting** on all projects - you should see another expected error.
-   <br />
+<br />
 
 9. You can now **delete the import** above.
-   <br />
+<br />
 
 10. **Run linting** again and check if all the errors went away.
 
     💡&nbsp;&nbsp;Pass the suggested `--only-failed` option, so it doesn't relint everything.
-   <br />
+<br />
 
 11. **Commit everything** before moving on to the next lab
-  <br />
+<br />
 
 ---
 

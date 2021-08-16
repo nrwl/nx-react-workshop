@@ -63,7 +63,7 @@ The lab might also have this helpful sections:
 
 - 🐳&nbsp;&nbsp;**Hints and solutions feat. Ron the whale**
   - While the _mighty narwhal_ is away on secret missions, you will occasionally see his assistant, **Ron The Whale** offering helpful hints to the different exercises. Please use these if you get stuck.
-- ⚠️ &nbsp;&nbsp;**Important information**
+- ⚠️&nbsp;&nbsp;&nbsp;&nbsp;**Important information**
   - Sometimes there are hidden gotchas or common mistakes. Read this before running the step
 - **Source files**
   - As mentioned, for anything React/styling or HTML template work we will provide the code you need as direct links to the files. Please use these as much as possible.
