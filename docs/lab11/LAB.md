@@ -1,15 +1,15 @@
 ### 💻 Lab 11 - e2e test the shared component
 
-###### ⏰ Estimated time: 5 minutes
+###### ⏰ &nbsp;Estimated time: 5 minutes
 
 The storybook generator we invoked earlier also generated some e2e tests. Let's try them out!
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
 - **Take advantage of the e2e tests Nx generated earlier to test your app**
 <br />
 
-#### 🏋️‍♀️ Steps:
+## 🏋️‍♀️ Steps:
 
 1. Our previous command generated a new `apps/store-ui-shared-e2e` folder. Let's run them: `nx e2e store-ui-shared-e2e`
    - The tests should fail
@@ -22,7 +22,7 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
      '/iframe.html?id=header--primary&args=title:BoardGameHoard'
    )
    ```
-   <br />   
+<br />
 
 3. Now **add a test** to check if it contains that value
 
@@ -31,7 +31,7 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
      cy.get('header').contains('BoardGameHoard');
    });
    ```
-   <br />
+<br />
 
 4. **Re-run the tests**
 <br/>
@@ -41,4 +41,4 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
 
 ---
 
-[➡️ Next lab ➡️](../lab12/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab12/LAB.md)

@@ -1,12 +1,12 @@
 ### 💻 Lab 10 - Generate Storybook stories for the shared ui component
 
-###### ⏰ Estimated time: 10-15 minutes
+###### ⏰ &nbsp;Estimated time: 10-15 minutes
 
 Let's explore some more Nx plugins by generating and running a storybook configuration for our shared store header.
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
-- Explore other Nx plugins to create a storybook configuration
+- **Explore other Nx plugins to create a storybook configuration**
 
 #### 📲 After this workshop, you should have:
 
@@ -20,32 +20,38 @@ Let's explore some more Nx plugins by generating and running a storybook configu
   <img src="../assets/lab10_directory-structure.png" height="700" alt="lab10 file structure">
 </details>
 
-#### 🏋️‍♀️ Steps:
+## 🏋️‍♀️ Steps:
 
 1. `yarn add @nrwl/storybook` or `npm i -S @nrwl/storybook`
-2. Use the `nrwl/react:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
+<br/>
 
-   ⚠️ Answer **YES** to all questions
+2. Use the `@nrwl/react:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
+
+   ⚠️&nbsp;&nbsp;Answer **YES** to all questions
+<br />   
 
 3. Serve storybook!
 
    <details>
-   <summary>🐳 Hint</summary>
+   <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    `nx storybook store-ui-shared`
 
-   </details>
+   </details><br />
 
 4. Start typing in different titles and see how they appear in the header
-<img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
+
+    <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
 <br/>
 
 5. Inspect what changed from the last time you committed, then commit your changes
+<br />
+
 
 ---
 
-🎓If you get stuck, check out [the solution](SOLUTION.md)
+🎓&nbsp;&nbsp;If you get stuck, check out [the solution](SOLUTION.md)
 
 ---
 
-[➡️ Next lab ➡️](../lab11/LAB.md)
+[➡️ &nbsp;Next lab ➡️](../lab11/LAB.md)
