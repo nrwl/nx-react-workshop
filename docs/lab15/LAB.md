@@ -4,17 +4,16 @@
 
 ## 📚 Learning outcomes:
 
-- **Basics of GitHub actions**
-- **Use Nx to setup scalable checks on your PRs to ensure only passing code goes into master**
-- **Explore other practical uses of `nx affected`**
-<br />
+- Basics of GitHub actions
+- Use Nx to setup scalable checks on your PRs to ensure only passing code goes into master
+- Explore other practical uses of `nx affected`
 
 ## 🏋️‍♀️ Steps :
 
 Before starting on this lab, it's important that you have a version of your local workshop
 pushed to your GitHub repo.
 
-1.  Let's make sure the master branch is up to date (it's important your latest changes are on `master` for the follow-up steps): - If you already are on `master` - commit everything:
+1. Let's make sure the master branch is up to date (it's important your latest changes are on `master` for the follow-up steps): - If you already are on `master` - commit everything:
     `git add . && git commit -m "finished lab 14" git push origin master`
 
     > If you are on a different branch, commit everything, switch to master
@@ -27,10 +26,9 @@ pushed to your GitHub repo.
     git merge previous-branch-you-were-on
     git push origin master
     ```
+<br />
 
-    <br />
-
-2.  Create a new file `.github/workflows/ci.yml`
+2. Create a new file `.github/workflows/ci.yml`
 
     ```yml
     name: Run CI checks # The name will show up on the GitHub Actions dashboard
@@ -53,10 +51,9 @@ pushed to your GitHub repo.
           - uses: bahmutov/npm-install@v1
           - run: npm run nx test api
     ```
+<br />
 
-    <br />
-
-3.  Commit and then switch to a new branch:
+3. Commit and then switch to a new branch:
 
     ```
     git add . && git commit -m "add ci"
@@ -64,14 +61,14 @@ pushed to your GitHub repo.
     git checkout -b dynamic-title
     ```
 
-    ⚠️ I know we **just** switched to master above. But it was important we bring it
+    ⚠️&nbsp;&nbsp;I know we **just** switched to master above. But it was important we bring it
     up to date. Now we need to switch to a new branch so we can submit our PR.
-    <br />
+<br />
 
-4.  Open `apps/store/src/app/app.tsx`
-    <br />
+4. Open `apps/store/src/app/app.tsx`
+<br />
 
-5.  And make the title of the header dynamic:
+5. And make the title of the header dynamic:
 
     ```
     <Header title="Board Game Hoard" />
@@ -100,18 +97,20 @@ pushed to your GitHub repo.
     };
     ```
 
-    </details>
-    <br />
+    </details><br />
 
-6.  Commit all your changes and push your new branch.
-    <br />
-7.  Go to GitHub and make a Pull Request to `master`
-    <br />
-8.  After a few moments you'll see something like this:
+6. Commit all your changes and push your new branch.
+<br />
+
+7. Go to GitHub and make a Pull Request to `master`
+<br />
+
+8. After a few moments you'll see something like this:
     ![GitHub Actions example](./github_actions.png)
-    <br />
-9.  The unit tests will be failing - that's expected.
-    <br />
+<br />
+
+9. The unit tests will be failing - that's expected.
+<br />
 
 ---
 
@@ -160,31 +159,30 @@ But now we're testing both projects - even though we only changed the store.
 
     </details>
 
-    ⚠️ It's okay to work on this on your new branch. We'll merge everything to `master`
+    ⚠️&nbsp;&nbsp;It's okay to work on this on your new branch. We'll merge everything to `master`
     eventually.
-    <br />
+<br />
 
 11. Commit and push. On your Github Actions log you should see only the `store` tests running:
 
-    <img src="./store_affected.png" width="500" alt="Only store tests are running">
-    <br />
+    <img src="./store_affected.png" width="500" alt="Only store tests are running"><br />
 
 12. Our tests are now being ran sequentially for each project. See if you can run them in parallel (consult the Nx Affected [docs](https://nx.dev/latest/angular/cli/affected#affected) if unsure)
-    <br />
+<br />
 
 13. Our CI only does testing now. But we also have targets for `lint`, `e2e` and `build`. Would really be handy if CI also told us if any of those failed.
 
     **Add more jobs under your CI workflow that run affected for each of the above targets**
-    <br />
+<br />
 
 14. Commit and push your `ci.yml` changes.
-    <br />
+<br />
 
 15. You'll notice some new steps in the GitHub Actions UI. Some of them are failing. That is okay. We can fix them later.
-    <br />
-    
+<br />
+
 16. For now, you can merge your PR into `master `
-    <br />
+<br />
 
 17. Switch to `master` locally and pull latest so all your new CI changes are up to date.
 
@@ -192,8 +190,7 @@ But now we're testing both projects - even though we only changed the store.
     git checkout master
     git pull origin master
     ```
-
-    <br />
+<br />
 
 18. **BONUS:** Currently, if we create a PR with a change **only** to our `ci.yml` file, our `nx affected` commands won't run at all: as they'll think no project has been affected:
 
@@ -206,8 +203,7 @@ But now we're testing both projects - even though we only changed the store.
     <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
     [Configuring implicit dependencies](https://nx.dev/latest/angular/core-concepts/configuration#implicit-dependencies)
-    </details>
-    <br />
+    </details><br />
 
 ---
 

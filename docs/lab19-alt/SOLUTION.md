@@ -15,14 +15,15 @@ nx export admin-ui
 ##### Adding a deploy config
 
 ```shell
-nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
+nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui/exported \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
 ```
 
-##### Bonus 
+##### Bonus
 
 ```shell
-nx g workspace-generator add-deploy-target 
+nx g workspace-generator add-deploy-target
 ```
+
 ![Folder structure](./solution-structure.png)
 
 `./files/.local.env`:
