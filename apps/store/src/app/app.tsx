@@ -16,6 +16,7 @@ import { Route, Link } from 'react-router-dom';
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
+  console.log('...')
   const [state, setState] = useState<{
     data: Game[];
     loadingState: 'success' | 'error' | 'loading';
