@@ -1,12 +1,12 @@
-import { readJsonFile } from '@nrwl/devkit';
+import { logger, readJsonFile } from '@nrwl/devkit';
 import {
   checkFilesExist,
   ensureNxProject,
-  readJson,
+  runNxCommand,
   runNxCommandAsync,
-  uniq,
 } from '@nrwl/nx-plugin/testing';
 import { writeFileSync } from 'fs';
+import { stdout } from 'process';
 describe('nx-workshop e2e', () => {
   describe('migrations', () => {
     it('should run the migrations', async () => {
@@ -35,6 +35,9 @@ describe('nx-workshop e2e', () => {
       writeFileSync(
         'tmp/nx-e2e/proj/migrations.json',
         JSON.stringify({ migrations }, undefined, 2)
+      );
+      console.log(
+        'To complete the labs: `cd tmp/nx-e2e/proj && nx migrate --run-migrations=migrations.json`'
       );
       // await runNxCommandAsync('migrate --run-migrations=migrations.json');
     }, 120000);
