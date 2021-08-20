@@ -57,6 +57,15 @@
               }
             ]
           }
+        },
+        "publish": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build nx-workshop",
+              "cd dist/libs/nx-workshop && yarn publish"
+            ]
+          }
         }
       }
     },
@@ -65,6 +74,15 @@
       "projectType": "application",
       "sourceRoot": "apps/nx-workshop-e2e/src",
       "targets": {
+        "build-migrations": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build nx-workshop",
+              "cp -R dist/libs/nx-workshop/* tmp/nx-e2e/proj/node_modules/@nx-workshop-react/nx-workshop"
+            ]
+          }
+        },
         "e2e": {
           "executor": "@nrwl/nx-plugin:e2e",
           "options": {
