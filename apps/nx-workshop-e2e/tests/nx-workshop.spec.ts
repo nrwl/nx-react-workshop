@@ -1,4 +1,4 @@
-import { readJsonFile } from '@nrwl/devkit';
+import { logger, readJsonFile } from '@nrwl/devkit';
 import {
   checkFilesExist,
   ensureNxProject,
@@ -15,6 +15,9 @@ describe('nx-workshop e2e', () => {
 
       runNxCommand(
         'generate @nx-workshop-react/nx-workshop:complete-labs --from=1 --to=22'
+      );
+      console.log(
+        'To complete the labs: `cd tmp/nx-e2e/proj && nx migrate --run-migrations=migrations.json`'
       );
       console.log(
         'To complete the labs: `cd tmp/nx-e2e/proj && nx migrate --run-migrations=migrations.json`'
