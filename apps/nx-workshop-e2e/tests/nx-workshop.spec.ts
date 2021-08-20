@@ -1,9 +1,9 @@
+import { readJsonFile } from '@nrwl/devkit';
 import {
   checkFilesExist,
   ensureNxProject,
   runNxCommand,
 } from '@nrwl/nx-plugin/testing';
-
 describe('nx-workshop e2e', () => {
   describe('migrations', () => {
     it('should run the migrations', async () => {
