@@ -5,8 +5,7 @@ export default async function (
   tree: Tree,
   options: CompleteLabsGeneratorSchema
 ) {
-  const { lab } = options;
-  const [from, to] = lab.split('-');
+  const { lab, from, to } = options;
   const migrationDefinitions = readJsonFile(
     'node_modules/@nx-workshop-react/nx-workshop/migrations.json'
   ).generators;
@@ -26,9 +25,9 @@ export default async function (
   migrations = migrations.filter((migration) => {
     const versionParts = migration.version.split('.');
     const lastVersionPart = versionParts[versionParts.length - 1];
-    if (lastVersionPart === from) {
+    if (lastVersionPart === (from || lab) + '') {
       including = true;
-    } else if (lastVersionPart === (to || from)) {
+    } else if (lastVersionPart === (to || lab) + '') {
       including = false;
       return true;
     }

@@ -14,7 +14,7 @@ describe('nx-workshop e2e', () => {
       expect(() => checkFilesExist(`libs`)).not.toThrow();
 
       runNxCommand(
-        'generate @nx-workshop-react/nx-workshop:complete-labs 1-22'
+        'generate @nx-workshop-react/nx-workshop:complete-labs --from=1 --to=22'
       );
       console.log(
         'To complete the labs: `cd tmp/nx-e2e/proj && nx migrate --run-migrations=migrations.json`'

@@ -6,14 +6,21 @@
   "type": "object",
   "properties": {
     "lab": {
-      "type": "string",
+      "type": "number",
       "description": "",
       "$default": {
         "$source": "argv",
         "index": 0
-      },
-      "x-prompt": "What lab(s) would you like to complete? (i.e. 3 or 2-7)"
+      }
+    },
+    "from": {
+      "type": "number",
+      "description": ""
+    },
+    "to": {
+      "type": "number",
+      "description": ""
     }
   },
-  "required": ["lab"]
+  "required": []
 }

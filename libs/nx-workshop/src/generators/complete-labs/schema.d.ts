@@ -1,3 +1,5 @@
 export interface CompleteLabsGeneratorSchema {
-  lab: string;
+  lab?: number;
+  from?: number;
+  to?: number;
 }
