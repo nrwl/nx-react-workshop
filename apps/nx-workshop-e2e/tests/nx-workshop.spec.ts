@@ -1,4 +1,3 @@
-import { logger, readJsonFile } from '@nrwl/devkit';
 import {
   checkFilesExist,
   ensureNxProject,
