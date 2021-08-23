@@ -7,6 +7,11 @@
       "factory": "./src/generators/nx-workshop/generator",
       "schema": "./src/generators/nx-workshop/schema.json",
       "description": "nx-workshop generator"
+    },
+    "complete-labs": {
+      "factory": "./src/generators/complete-labs/generator",
+      "schema": "./src/generators/complete-labs/schema.json",
+      "description": "Completes the chosen labs"
     }
   }
 }

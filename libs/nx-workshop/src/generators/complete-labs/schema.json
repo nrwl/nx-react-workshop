@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "CompleteLabs",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "lab": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What lab(s) would you like to complete? (i.e. 3 or 2-7)"
+    }
+  },
+  "required": ["lab"]
+}
