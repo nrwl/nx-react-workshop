@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { readJsonInTree } from '@nrwl/workspace';
+import { readJsonFile, Tree } from '@nrwl/devkit';
 
 export default function update(host: Tree) {
-  const { herokuName } = readJsonInTree(host, '.nx-workshop.json');
+  const { herokuName } = readJsonFile('.nx-workshop.json');
 
   host.write(
     '.github/workflows/deploy.yml`',

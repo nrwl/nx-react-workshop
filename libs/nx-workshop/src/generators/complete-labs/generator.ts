@@ -27,7 +27,8 @@ export default async function (
     const lastVersionPart = versionParts[versionParts.length - 1];
     if (lastVersionPart === (from || lab) + '') {
       including = true;
-    } else if (lastVersionPart === (to || lab) + '') {
+    }
+    if (lastVersionPart === (to || lab) + '') {
       including = false;
       return true;
     }

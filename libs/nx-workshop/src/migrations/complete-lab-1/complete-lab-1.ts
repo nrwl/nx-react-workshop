@@ -16,6 +16,7 @@ export default async function update(tree: Tree) {
     'store-ui-shared-e2e',
     'store-util-formatters',
     'api-util-notifications',
+    'admin-ui',
   ].filter((removeProject) => projects.has(removeProject));
   projectsToRemove.forEach(
     async (projectName) =>
@@ -31,6 +32,8 @@ export default async function update(tree: Tree) {
   tree.delete('tools/generators/update-scope-schema');
   // Lab 15
   tree.delete('.github/workflows/ci.yml');
+  // Lab 19-alt
+  tree.delete('tools/generators/add-deploy-target');
   // Set npmScope to bg-hoard
   updateJson(tree, 'nx.json', (json) => {
     json.npmScope = 'bg-hoard';

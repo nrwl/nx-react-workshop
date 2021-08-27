@@ -1,18 +1,18 @@
 import {
   addDependenciesToPackageJson,
+  readJsonFile,
   readProjectConfiguration,
   Tree,
   updateJson,
   updateProjectConfiguration,
 } from '@nrwl/devkit';
 import { uniq } from '@nrwl/nx-plugin/testing';
-import { readJsonInTree } from '@nrwl/workspace';
 import { execSync } from 'child_process';
 
 export default function update(host: Tree) {
   let herokuToken, herokuName;
   if (host.exists('.nx-workshop.json')) {
-    const workshopConstants = readJsonInTree(host, '.nx-workshop.json');
+    const workshopConstants = readJsonFile('.nx-workshop.json');
     herokuToken = workshopConstants.herokuToken;
     herokuName = workshopConstants.surgeName;
   }

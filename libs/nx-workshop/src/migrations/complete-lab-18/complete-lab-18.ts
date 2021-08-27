@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { addDependenciesToPackageJson, Tree, updateJson } from '@nrwl/devkit';
 import { uniq } from '@nrwl/nx-plugin/testing';
-import { readJsonInTree, runCommandsGenerator } from '@nrwl/workspace';
+import { readJsonFile, runCommandsGenerator } from '@nrwl/workspace';
 import { execSync } from 'child_process';
 
 export default function update(host: Tree) {
@@ -15,7 +15,7 @@ export default function update(host: Tree) {
 
   let surgeToken, surgeName;
   if (host.exists('.nx-workshop.json')) {
-    const workshopConstants = readJsonInTree(host, '.nx-workshop.json');
+    const workshopConstants = readJsonFile('.nx-workshop.json');
     surgeToken = workshopConstants.surgeToken;
     surgeName = workshopConstants.surgeName;
   }
