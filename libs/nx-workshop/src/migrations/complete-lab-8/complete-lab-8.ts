@@ -6,7 +6,7 @@ export default function update(host: Tree) {
 
   host.write(
     'apps/store/src/app/app.tsx',
-    `import React, { useEffect, useState } from 'react';
+    `import { useEffect, useState } from 'react';
 
 import styles from './app.module.scss';
 
@@ -112,7 +112,7 @@ export default App;
   );
   host.write(
     'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
-    `import React, { useEffect, useState } from 'react';
+    `import { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import styles from './game-detail.module.css';
 

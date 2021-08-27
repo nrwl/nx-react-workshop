@@ -65,7 +65,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
   host.write(
     'apps/store/src/app/app.tsx',
     `
-  import React, { useEffect, useState } from 'react';
+  import { useEffect, useState } from 'react';
 
   import styles from './app.module.scss';
 
