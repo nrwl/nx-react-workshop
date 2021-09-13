@@ -106,3 +106,9 @@ export function underscoreWithCaps(value: string): string {
   "required": ["project", "subdomain"]
 }
 ```
+
+##### Deploy all projects in parallel
+
+```shell
+nx run-many --all --target=deploy --parallel
+```
