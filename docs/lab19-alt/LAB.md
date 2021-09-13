@@ -29,23 +29,22 @@ be deploying the two frontends independently in our GitHub Actions based Continu
 
 4. Following the same steps as [Lab 18](../lab18/LAB.md), add a `"deploy"` target to it.
 
+   ⚠️️&nbsp;&nbsp;**BONUS POINTS:** Create a custom workspace generator that adds a `"deploy"` target for a frontend project, so that we don't have to manually re-do the steps in [Lab 18](../lab18/LAB.md) each time.
+
    ⚠️&nbsp;&nbsp;Hint: You can have a `.local.env` at the root of your workspace as well, for any variables that need to be shared.
    You can move your `SURGE_TOKEN` variable to the root, so it can be shared among your projects. [READ MORE](https://nx.dev/latest/react/guides/environment-variables#loading-environment-variables)
 <br />
 
 5. Try to deploy both apps and check if they still work.
+
+    ⚠️️️&nbsp;&nbsp;**BONUS:** Use a single NX command to tell it to deploy all projects in parallel.
+
 <br />
 
 6. Commit everything before moving on to the next lab
 <br />
 
-7. **BONUS** - Create a custom workspace generator that adds a `"deploy"` target for a frontend project, so that we don't have to manually re-do the steps in [Lab 18](../lab18/LAB.md) each time.
-<br />
-
-8. **BONUS** - Create a new React or NextJS frontend app, and test your above schematic
-<br />
-
-9. **BONUS** - Add a proper scopes for your new apps in `nx.json` and run your `update-scope-schema` workspace generator you created a few labs ago.
+9. **BONUS** - Add proper scopes for your new apps in `nx.json` and run your `update-scope-schema` workspace generator you created a few labs ago.
 <br />
 
 ---
