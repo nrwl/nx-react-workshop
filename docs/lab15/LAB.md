@@ -68,10 +68,12 @@ pushed to your GitHub repo.
 4. Open `apps/store/src/app/app.tsx`
 <br />
 
-5. And make the title of the header dynamic:
+5. And make *any change at all to the component* (the title of the header dynamic):
 
     ```
-    <Header title="Board Game Hoard" />
+    const title = "Board Game Hoard";
+    // ...
+    <Header title={title} />
     ```
 
     <details>
