@@ -80,13 +80,6 @@
    surge dist/apps/store ${SURGE_DOMAIN_STORE} --token ${SURGE_TOKEN} 
    ```
     </details><br />
-
-8. Since we're deploying, it's a good idea to make sure the store is built for production - we did that in one of the initial labs.
-    <details>
-    <summary>🐳 &nbsp;&nbsp;Hint</summary>
-    
-    Consult the [the solution](SOLUTION.md) if you don't remember how.
-    </details><br />
  
 9. Now invoke the deploy target again, and check if it all still works.
  
@@ -113,4 +106,4 @@ and loads them into processes invoked for that specific app.
 
 ---
 
-[➡️ For the next lab, head over to our chapter list to chose your path ➡️](https://github.com/nrwl/nx-workshop#day-2)
+[➡️ For the next lab, head over to our chapter list to chose your path ➡️](https://github.com/nrwl/nx-react-workshop#day-2)
