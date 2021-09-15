@@ -17,6 +17,7 @@ import { Route, Link } from 'react-router-dom';
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
+  const title = 'Board Game Hoard';
   const [state, setState] = useState<{
     data: any[];
     loadingState: 'success' | 'error' | 'loading';
@@ -49,7 +50,7 @@ export const App = () => {
 
   return (
     <>
-      <Header title="Board Game Hoard" />
+      <Header title={title} />
       <div className={styles.container}>
         <div className={styles['games-layout']}>
           {state.loadingState === 'loading'
