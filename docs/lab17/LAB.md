@@ -54,6 +54,9 @@
     ```
 <br />
 
+11. **BONUS**: [Have a look at some of the docs](https://nx.app/docs/configuring-ci) for setting up NxCloud on CI to see how the set-up might apply to your CI provider.
+12. **BONUS**: Read this blog post on "Distributed Task Execution". We'll briefly talk about this after the lab.
+
 ---
 
 [➡️ &nbsp;Next lab ➡️](../lab18/LAB.md)
