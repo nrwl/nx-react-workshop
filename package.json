@@ -45,6 +45,7 @@
     "@nrwl/storybook": "12.7.1",
     "@nrwl/tao": "12.7.1",
     "@nrwl/workspace": "12.7.1",
+    "@phenomnomnominal/tsquery": "^4.1.1",
     "@types/jest": "26.0.8",
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "4.28.5",

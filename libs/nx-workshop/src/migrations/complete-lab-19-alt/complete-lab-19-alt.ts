@@ -11,11 +11,11 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      '@nrwl/nest': nxVersion,
+      '@nrwl/next': nxVersion,
     }
   );
   // nx g @nrwl/next:app admin-ui
-  applicationGenerator(host, {
+  await applicationGenerator(host, {
     name: 'admin-ui',
   });
   // nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui/exported \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
@@ -62,9 +62,9 @@ export default async function (host: Tree, schema: Schema) {
     project: schema.project,
     command: \`surge dist/apps/\${
       schema.project
-    } \${SURGE_DOMAIN_\${underscoreWithCaps(
+    } \\\${SURGE_DOMAIN_\${underscoreWithCaps(
       schema.project
-    )}} --token \${SURGE_TOKEN}\`,
+    )}} --token \\\${SURGE_TOKEN}\`,
   });
   await generateFiles(
     host,
