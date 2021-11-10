@@ -63,7 +63,7 @@ export default async function (host: Tree, options: NxWorkshopGeneratorSchema) {
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       build: {
-        executor: '@nrwl/nx-workshop:build',
+        executor: '@nrwl/nx-workshop-react:build',
       },
     },
     tags: normalizedOptions.parsedTags,

@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nrwl/nx-workshop": ["libs/nx-workshop/src/index.ts"]
+      "@nx-workshop-react/nx-workshop-react": [
+        "libs/nx-workshop-react/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

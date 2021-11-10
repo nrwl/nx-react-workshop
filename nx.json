@@ -14,24 +14,17 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
   "projects": {
-    "nx-workshop": {
-      "tags": []
-    },
     "nx-workshop-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "nx-workshop"
-      ]
+      "implicitDependencies": ["nx-workshop-react"]
+    },
+    "nx-workshop-react": {
+      "tags": []
     }
   },
   "targetDependencies": {
