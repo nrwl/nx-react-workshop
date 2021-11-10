@@ -1,20 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, formatFiles, Tree } from '@nrwl/devkit';
+import {
+  addDependenciesToPackageJson,
+  formatFiles,
+  installPackagesTask,
+  Tree,
+} from '@nrwl/devkit';
 import { applicationGenerator } from '@nrwl/nest';
 import { runCommandsGenerator } from '@nrwl/workspace';
 import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
 import { nxVersion } from '../version';
 
 export default async function update(host: Tree) {
-  // yarn add @nrwl/next # or "npm i -S @nrwl/next"
+  // yarn add @nrwl/nest # or "npm i -S @nrwl/nest"
   addDependenciesToPackageJson(
     host,
     {},
     {
-      '@nrwl/next': nxVersion,
+      '@nrwl/nest': nxVersion,
     }
   );
-  // nx g @nrwl/next:app admin-ui
+  // nx g @nrwl/nest:app admin-ui
   await applicationGenerator(host, {
     name: 'admin-ui',
   });
@@ -116,4 +121,7 @@ export function underscoreWithCaps(value: string): string {
 `
   );
   await formatFiles(host);
+  return async () => {
+    installPackagesTask(host);
+  };
 }

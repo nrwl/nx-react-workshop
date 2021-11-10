@@ -1,3 +1,3 @@
-export function formatRating(rating: number) {
+export function formatRating(rating = 0) {
   return `${Math.round(rating * 100) / 10} / 10`;
 }

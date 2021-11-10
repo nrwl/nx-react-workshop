@@ -11,7 +11,7 @@ export default async function update(host: Tree) {
 
   host.write(
     'libs/store/util-formatters/src/lib/store-util-formatters.ts',
-    `export function formatRating(rating: number) {
+    `export function formatRating(rating = 0) {
   return \`\${Math.round(rating * 100) / 10} / 10\`;
 }
 `

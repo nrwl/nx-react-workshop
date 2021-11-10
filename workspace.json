@@ -79,7 +79,7 @@
           "options": {
             "commands": [
               "npx nx build nx-workshop",
-              "cp -R dist/libs/nx-workshop/* tmp/nx-e2e/proj/node_modules/@nx-workshop-react/nx-workshop"
+              "cp -R dist/libs/nx-workshop/* tmp/nx-e2e/proj/node_modules/@nrwl/nx-workshop"
             ]
           }
         },

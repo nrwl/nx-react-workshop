@@ -40,10 +40,12 @@ export default function update(host: Tree) {
   `
   );
 
-  tsquery.replace(
-    host.read(`apps/store/src/app/app.tsx`).toString(),
-    'CallExpression:has(Identifier[name=useEffect])',
-    () => `
+  host.write(
+    `apps/store/src/app/app.tsx`,
+    tsquery.replace(
+      host.read(`apps/store/src/app/app.tsx`).toString(),
+      'CallExpression:has(Identifier[name=useEffect])',
+      () => `
     useEffect(() => {
       setState((state) => ({
         ...state,
@@ -52,6 +54,7 @@ export default function update(host: Tree) {
       }));
     }, []);
   `
+    )
   );
   insertImport(
     host,
