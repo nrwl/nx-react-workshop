@@ -15,7 +15,7 @@ type TParams = { id: string };
 
 /* eslint-disable-next-line */
 export interface StoreFeatureGameDetailProps
-  extends RouteComponentProps<TParams> { }
+  extends RouteComponentProps<TParams> {}
 
 export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
   const [state, setState] = useState<{

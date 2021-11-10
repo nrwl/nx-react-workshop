@@ -1,6 +1,98 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "nx-workshop": {
+      "root": "libs/nx-workshop",
+      "sourceRoot": "libs/nx-workshop/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/nx-workshop/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/nx-workshop"],
+          "options": {
+            "jestConfig": "libs/nx-workshop/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/nx-workshop",
+            "tsConfig": "libs/nx-workshop/tsconfig.lib.json",
+            "packageJson": "libs/nx-workshop/package.json",
+            "main": "libs/nx-workshop/src/index.ts",
+            "assets": [
+              "libs/nx-workshop/*.md",
+              {
+                "input": "./libs/nx-workshop/src",
+                "glob": "**/!(*.ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/nx-workshop/src",
+                "glob": "**/*.d.ts",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/nx-workshop",
+                "glob": "generators.json",
+                "output": "."
+              },
+              {
+                "input": "./libs/nx-workshop",
+                "glob": "executors.json",
+                "output": "."
+              },
+              {
+                "input": "./libs/nx-workshop",
+                "glob": "migrations.json",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "publish": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build nx-workshop",
+              "cd dist/libs/nx-workshop && yarn publish"
+            ]
+          }
+        }
+      }
+    },
+    "nx-workshop-e2e": {
+      "root": "apps/nx-workshop-e2e",
+      "projectType": "application",
+      "sourceRoot": "apps/nx-workshop-e2e/src",
+      "targets": {
+        "build-migrations": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build nx-workshop",
+              "cp -R dist/libs/nx-workshop/* tmp/nx-e2e/proj/node_modules/@nrwl/nx-workshop"
+            ]
+          }
+        },
+        "e2e": {
+          "executor": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "nx-workshop:build",
+            "jestConfig": "apps/nx-workshop-e2e/jest.config.js"
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }
