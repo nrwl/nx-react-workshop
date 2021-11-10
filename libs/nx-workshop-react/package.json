@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/nx-workshop",
+  "name": "@nx-workshop-react/nx-workshop-react",
   "version": "0.1.22",
   "main": "src/index.js",
   "generators": "./generators.json",
