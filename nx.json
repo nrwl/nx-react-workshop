@@ -1,5 +1,5 @@
 {
-  "npmScope": "nx-workshop-react",
+  "npmScope": "nx-react-workshop",
   "affected": {
     "defaultBase": "master"
   },
@@ -19,12 +19,12 @@
     }
   },
   "projects": {
+    "nx-react-workshop": {
+      "tags": []
+    },
     "nx-workshop-e2e": {
       "tags": [],
-      "implicitDependencies": ["nx-workshop-react"]
-    },
-    "nx-workshop-react": {
-      "tags": []
+      "implicitDependencies": ["nx-react-workshop"]
     }
   },
   "targetDependencies": {

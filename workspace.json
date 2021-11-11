@@ -1,45 +1,22 @@
 {
   "version": 2,
   "projects": {
-    "nx-workshop-e2e": {
-      "root": "apps/nx-workshop-e2e",
-      "projectType": "application",
-      "sourceRoot": "apps/nx-workshop-e2e/src",
-      "targets": {
-        "build-migrations": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "npx nx build nx-workshop-react",
-              "cp -R dist/libs/nx-workshop-react/* tmp/nx-e2e/proj/node_modules/@nrwl/nx-workshop-react"
-            ]
-          }
-        },
-        "e2e": {
-          "executor": "@nrwl/nx-plugin:e2e",
-          "options": {
-            "target": "nx-workshop-react:build",
-            "jestConfig": "apps/nx-workshop-e2e/jest.config.js"
-          }
-        }
-      }
-    },
-    "nx-workshop-react": {
-      "root": "libs/nx-workshop-react",
-      "sourceRoot": "libs/nx-workshop-react/src",
+    "nx-react-workshop": {
+      "root": "libs/nx-react-workshop",
+      "sourceRoot": "libs/nx-react-workshop/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/nx-workshop-react/**/*.ts"]
+            "lintFilePatterns": ["libs/nx-react-workshop/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/nx-workshop-react"],
+          "outputs": ["coverage/libs/nx-react-workshop"],
           "options": {
-            "jestConfig": "libs/nx-workshop-react/jest.config.js",
+            "jestConfig": "libs/nx-react-workshop/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -47,34 +24,34 @@
           "executor": "@nrwl/node:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/nx-workshop-react",
-            "tsConfig": "libs/nx-workshop-react/tsconfig.lib.json",
-            "packageJson": "libs/nx-workshop-react/package.json",
-            "main": "libs/nx-workshop-react/src/index.ts",
+            "outputPath": "dist/libs/nx-react-workshop",
+            "tsConfig": "libs/nx-react-workshop/tsconfig.lib.json",
+            "packageJson": "libs/nx-react-workshop/package.json",
+            "main": "libs/nx-react-workshop/src/index.ts",
             "assets": [
-              "libs/nx-workshop-react/*.md",
+              "libs/nx-react-workshop/*.md",
               {
-                "input": "./libs/nx-workshop-react/src",
+                "input": "./libs/nx-react-workshop/src",
                 "glob": "**/!(*.ts)",
                 "output": "./src"
               },
               {
-                "input": "./libs/nx-workshop-react/src",
+                "input": "./libs/nx-react-workshop/src",
                 "glob": "**/*.d.ts",
                 "output": "./src"
               },
               {
-                "input": "./libs/nx-workshop-react",
+                "input": "./libs/nx-react-workshop",
                 "glob": "generators.json",
                 "output": "."
               },
               {
-                "input": "./libs/nx-workshop-react",
+                "input": "./libs/nx-react-workshop",
                 "glob": "executors.json",
                 "output": "."
               },
               {
-                "input": "./libs/nx-workshop-react",
+                "input": "./libs/nx-react-workshop",
                 "glob": "migrations.json",
                 "output": "."
               }
@@ -85,9 +62,32 @@
           "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "npx nx build nx-workshop-react",
-              "cd dist/libs/nx-workshop-react && yarn publish"
+              "npx nx build nx-react-workshop",
+              "cd dist/libs/nx-react-workshop && yarn publish"
             ]
+          }
+        }
+      }
+    },
+    "nx-workshop-e2e": {
+      "root": "apps/nx-workshop-e2e",
+      "projectType": "application",
+      "sourceRoot": "apps/nx-workshop-e2e/src",
+      "targets": {
+        "build-migrations": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx build nx-react-workshop",
+              "cp -R dist/libs/nx-react-workshop/* tmp/nx-e2e/proj/node_modules/@nrwl/nx-react-workshop"
+            ]
+          }
+        },
+        "e2e": {
+          "executor": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "nx-react-workshop:build",
+            "jestConfig": "apps/nx-workshop-e2e/jest.config.js"
           }
         }
       }

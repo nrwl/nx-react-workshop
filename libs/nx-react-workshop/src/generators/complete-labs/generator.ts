@@ -7,7 +7,7 @@ export default async function (
 ) {
   const { lab, from, to, option } = options;
   const migrationDefinitions = readJsonFile(
-    'node_modules/@nrwl/nx-workshop-react/migrations.json'
+    'node_modules/@nrwl/nx-react-workshop/migrations.json'
   ).generators;
   let migrations = Object.keys(migrationDefinitions).map((name) => {
     const { version, description, implementation, cli } =
@@ -17,7 +17,7 @@ export default async function (
       description,
       factory: implementation,
       cli,
-      package: '@nrwl/nx-workshop-react',
+      package: '@nrwl/nx-react-workshop',
       name,
     };
   });
