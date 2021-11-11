@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "name": "nx-workshop-react",
+  "name": "nx-react-workshop",
   "version": "0.0.1",
   "generators": {
-    "nx-workshop-react": {
-      "factory": "./src/generators/nx-workshop-react/generator",
-      "schema": "./src/generators/nx-workshop-react/schema.json",
-      "description": "nx-workshop-react generator"
+    "nx-react-workshop": {
+      "factory": "./src/generators/nx-react-workshop/generator",
+      "schema": "./src/generators/nx-react-workshop/schema.json",
+      "description": "nx-react-workshop generator"
     },
     "complete-labs": {
       "factory": "./src/generators/complete-labs/generator",

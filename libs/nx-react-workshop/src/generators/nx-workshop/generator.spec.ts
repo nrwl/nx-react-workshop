@@ -4,7 +4,7 @@ import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 import generator from './generator';
 import { NxWorkshopGeneratorSchema } from './schema';
 
-describe('nx-workshop-react generator', () => {
+describe('nx-react-workshop generator', () => {
   let appTree: Tree;
   const options: NxWorkshopGeneratorSchema = { name: 'test' };
 
