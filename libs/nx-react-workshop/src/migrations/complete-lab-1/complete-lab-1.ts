@@ -1,6 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { formatFiles, Tree, updateJson, getProjects } from '@nrwl/devkit';
+import {
+  formatFiles,
+  Tree,
+  updateJson,
+  getProjects,
+  addDependenciesToPackageJson,
+  installPackagesTask,
+  readJson,
+} from '@nrwl/devkit';
 import { removeGenerator } from '@nrwl/workspace';
+import { execSync } from 'child_process';
+import { nxVersion } from '../version';
 
 export default async function update(tree: Tree) {
   // npx create-nx-workspace bg-hoard --preset=empty --no-nx-cloud
@@ -26,18 +36,50 @@ export default async function update(tree: Tree) {
         forceRemove: true,
       })
   );
+  await addDependenciesToPackageJson(
+    tree,
+    {
+      '@material-ui/core': 'latest',
+    },
+    {
+      '@nrwl/react': nxVersion,
+      '@nrwl/nest': nxVersion,
+      '@nrwl/express': nxVersion,
+      '@nrwl/nx-cloud': 'latest',
+      '@nrwl/nx-plugin': 'latest',
+      '@nrwl/storybook': nxVersion,
+      cors: '*',
+      'node-fetch': '^2.x',
+      surge: '*',
+    }
+  );
+
   // Lab 13
   tree.delete('tools/generators/util-lib');
   // Lab 14
   tree.delete('tools/generators/update-scope-schema');
   // Lab 15
   tree.delete('.github/workflows/ci.yml');
+  // Lab 19
+  if (tree.exists('.nx-workshop.json')) {
+    const { herokuName } = readJson(tree, '.nx-workshop.json');
+    const herokuApps = await execSync(`heroku apps`).toString();
+    if (herokuApps.includes(herokuName)) {
+      execSync(`heroku apps:destroy ${herokuName} --confirm=${herokuName}`);
+    }
+    tree.delete('.nx-workshop.json');
+  }
   // Lab 19-alt
   tree.delete('tools/generators/add-deploy-target');
+  // Lab 21
+  tree.delete('.github/workflows/deploy.yml');
   // Set npmScope to bg-hoard
   updateJson(tree, 'nx.json', (json) => {
     json.npmScope = 'bg-hoard';
     return json;
   });
   await formatFiles(tree);
+  return () => {
+    installPackagesTask(tree);
+  };
 }
