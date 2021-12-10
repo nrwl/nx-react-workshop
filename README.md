@@ -85,6 +85,7 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🔬&nbsp;&nbsp;[Lab 1 - Generate an empty workspace](docs/lab1/LAB.md)
 - ⚗️&nbsp;&nbsp;[Lab 2 - Generate an React app](docs/lab2/LAB.md)
 - 🧪&nbsp;&nbsp;[Lab 3 - Executors](docs/lab3/LAB.md)
+- 🚂&nbsp;&nbsp;[Lab 3.1 - Migrations](docs/lab3.1/LAB.md)
 - 🔭&nbsp;&nbsp;[Lab 4 - Generate a component lib](docs/lab4/LAB.md)
 - 🧬&nbsp;&nbsp;[Lab 5 - Generate a utility lib](docs/lab5/LAB.md)
 - 🧮&nbsp;&nbsp;[Lab 6 - Generate a route lib](docs/lab6/LAB.md)
@@ -104,8 +105,8 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🔍&nbsp;&nbsp;[Lab 17 - NxCloud GitHub bot](docs/lab17/LAB.md)
 - 📎&nbsp;&nbsp;[Lab 18 - Run-Commands and deploying the frontend](docs/lab18/LAB.md)
 
-| Option 1 - NextJS frontends and more custom generators practice             | Option 2 - Heroku API deployments with Docker                           |
-| --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Option 1 - NextJS frontends and more custom generators practice                        | Option 2 - Heroku API deployments with Docker                                      |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | 🧭&nbsp;&nbsp;[Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md)  | 🧲&nbsp;&nbsp;[Lab 19 - Deploying the API](docs/lab19/LAB.md)                      |
 | ⛱️&nbsp;&nbsp;[Lab 20 - Mock Store](docs/lab20-alt/LAB.md)                             | 🎸&nbsp;&nbsp;[Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)    |
 | 🪁&nbsp;&nbsp;[Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md) | 🎈&nbsp;&nbsp;[Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |
