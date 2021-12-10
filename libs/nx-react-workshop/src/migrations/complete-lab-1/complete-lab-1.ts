@@ -10,7 +10,6 @@ import {
 } from '@nrwl/devkit';
 import { removeGenerator } from '@nrwl/workspace';
 import { execSync } from 'child_process';
-import { nxVersion } from '../version';
 
 export default async function update(tree: Tree) {
   // npx create-nx-workspace bg-hoard --preset=empty --no-nx-cloud
@@ -35,23 +34,6 @@ export default async function update(tree: Tree) {
         skipFormat: true,
         forceRemove: true,
       })
-  );
-  await addDependenciesToPackageJson(
-    tree,
-    {
-      '@material-ui/core': 'latest',
-    },
-    {
-      '@nrwl/react': nxVersion,
-      '@nrwl/nest': nxVersion,
-      '@nrwl/express': nxVersion,
-      '@nrwl/nx-cloud': 'latest',
-      '@nrwl/nx-plugin': 'latest',
-      '@nrwl/storybook': nxVersion,
-      cors: '*',
-      'node-fetch': '^2.x',
-      surge: '*',
-    }
   );
 
   // Lab 13

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { addDependenciesToPackageJson, Tree } from '@nrwl/devkit';
 import { storybookConfigurationGenerator } from '@nrwl/react';
-import { nxVersion } from '../version';
+import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
   // yarn add @nrwl/storybook
@@ -9,7 +9,7 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      '@nrwl/storybook': nxVersion,
+      '@nrwl/storybook': dependencies['@nrwl/storybook'],
     }
   );
   // nx generate @nrwl/react:storybook-configuration store-ui-shared
