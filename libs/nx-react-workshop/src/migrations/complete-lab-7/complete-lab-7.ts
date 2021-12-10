@@ -2,14 +2,14 @@
 import { Tree, addDependenciesToPackageJson } from '@nrwl/devkit';
 import { applicationGenerator } from '@nrwl/express';
 import { Linter } from '@nrwl/linter';
-import { nxVersion } from '../version';
+import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
   await addDependenciesToPackageJson(
     host,
     {},
     {
-      '@nrwl/express': nxVersion,
+      '@nrwl/express': dependencies['@nrwl/express'],
     }
   );
 

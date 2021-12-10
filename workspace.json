@@ -63,7 +63,7 @@
           "options": {
             "commands": [
               "npx nx build nx-react-workshop",
-              "cd dist/libs/nx-react-workshop && yarn publish"
+              "npm publish dist/libs/nx-react-workshop"
             ]
           }
         }

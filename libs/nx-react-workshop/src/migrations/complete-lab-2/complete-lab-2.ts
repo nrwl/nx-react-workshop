@@ -5,7 +5,7 @@ import {
   installPackagesTask,
   Tree,
 } from '@nrwl/devkit';
-import { nxVersion } from '../version';
+import { dependencies } from '../../../package.json';
 import { applicationGenerator } from '@nrwl/react';
 import { Linter } from '@nrwl/linter';
 import fetch from 'node-fetch';
@@ -17,7 +17,7 @@ export default async function update(tree: Tree) {
       '@material-ui/core': 'latest',
     },
     {
-      '@nrwl/react': nxVersion,
+      '@nrwl/react': dependencies['@nrwl/react'],
     }
   );
   await applicationGenerator(tree, {
