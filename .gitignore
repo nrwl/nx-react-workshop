@@ -26,6 +26,7 @@
 
 # misc
 .local.env
+.npmrc
 /.sass-cache
 /connect.lock
 /coverage
