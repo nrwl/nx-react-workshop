@@ -1,0 +1,68 @@
+{
+  "sourceRoot": "libs/nx-react-workshop/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/nx-react-workshop/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/nx-react-workshop"],
+      "options": {
+        "jestConfig": "libs/nx-react-workshop/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nx-react-workshop",
+        "tsConfig": "libs/nx-react-workshop/tsconfig.lib.json",
+        "packageJson": "libs/nx-react-workshop/package.json",
+        "main": "libs/nx-react-workshop/src/index.ts",
+        "assets": [
+          "libs/nx-react-workshop/*.md",
+          {
+            "input": "./libs/nx-react-workshop/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/nx-react-workshop/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/nx-react-workshop",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/nx-react-workshop",
+            "glob": "executors.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/nx-react-workshop",
+            "glob": "migrations.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "npx nx build nx-react-workshop",
+          "npm publish dist/libs/nx-react-workshop"
+        ]
+      }
+    }
+  }
+}

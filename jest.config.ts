@@ -1,5 +1,5 @@
 const { getJestProjects } = require('@nrwl/jest');
 
-module.exports = {
+export default {
   projects: [...getJestProjects(), '<rootDir>/apps/nx-workshop-e2e'],
 };
