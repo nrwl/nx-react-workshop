@@ -41,7 +41,7 @@ In this lab we'll generate our first React application within the new monorepo.
 4. Let's also add Material UI so we can use some of their components: `yarn add @material-ui/core` or `npm i -S @material-ui/core`
 <br />
 
-5. Use the [`@nrwl/react` plugin](https://nx.dev/react/api/react/generators/application) to generate an React app called `store` in your new workspace
+5. Use the [`@nrwl/react:application` plugin](https://nx.dev/packages/react/generators/application#nrwlreactapplication) to generate an React app called `store` in your new workspace
 
    ⚠️**Important:** Make sure you **add React Router** and select **SCSS** as a style when asked!
 
