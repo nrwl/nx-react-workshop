@@ -57,10 +57,9 @@
     Consult the run-commands generator docs [here](https://nx.dev/latest/angular/workspace/run-commands-executor#run-commands)
     </details><br />
 
-6. Use Git to inspect the changes in `workspace.json` and try to deploy the store using Nx! 
-<br />
-
-7. We're now storing the surge token in `workspace.json`. We don't want to check-in this file and risk exposing this secret token. Also, we might want to deploy to different domains depending on the environment. Let's move these out:
+6. Use Git to inspect the changes in `project.json` and try to deploy the store using Nx!
+   <br />
+7. We're now storing the surge token in `project.json`. We don't want to check-in this file and risk exposing this secret token. Also, we might want to deploy to different domains depending on the environment. Let's move these out:
 
     📁 Create a new file `apps/store/.local.env`
 

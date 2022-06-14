@@ -85,7 +85,7 @@
     If curious why, you can [read more here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915).
 <br />
 
-6. Let's fix the above - In `workspace.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
+6.  Let's fix the above - In `project.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
     add this as an option:
 
         ```json
@@ -117,7 +117,7 @@
 
 8. Let's customise the generated "deploy" config a bit
 
-    Go to `workspace.json` and add the commands that we'll need to run:
+    Go to `project.json` and add the commands that we'll need to run:
 
     ```json
     "deploy": {

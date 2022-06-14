@@ -18,9 +18,7 @@ export default async function update(host: Tree) {
   });
   host.write(
     'apps/store/src/app/app.tsx',
-    `import React from 'react';
-
-import styles from './app.module.scss';
+    `import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
 import Card from '@material-ui/core/Card';
@@ -31,22 +29,22 @@ import Typography from '@material-ui/core/Typography';
 import { Header } from '@bg-hoard/store/ui-shared';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-import { Route, useHistory } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
             <Card
               key={x.id}
               className={styles['game-card']}
-              onClick={() => history.push(\`/game/\${x.id}\`)}
+              onClick={() => navigate(\`/game/\${x.id}\`)}
             >
               <CardActionArea>
                 <CardMedia
@@ -83,7 +81,9 @@ export const App = () => {
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}
-      <Route path="/game/:id" component={StoreFeatureGameDetail} />
+      <Routes>
+        <Route path="/game/:id" element={<StoreFeatureGameDetail />} />;
+      </Routes>
       {/* END: routes */}
     </>
   );
@@ -102,8 +102,7 @@ export default App;
   });
   host.write(
     'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
-    `import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+    `import { useParams } from 'react-router-dom';
 import styles from './game-detail.module.css';
 
 import Card from '@material-ui/core/Card';
@@ -111,20 +110,18 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-type TParams = { id: string };
-
 /* eslint-disable-next-line */
-export interface StoreFeatureGameDetailProps
-  extends RouteComponentProps<TParams> {}
+export interface StoreFeatureGameDetailProps {}
 
-export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
+export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
+  const params = useParams();
   return (
-    <div className={styles.container}>
+    <div className={styles['container']}>
       <Card>
         <CardActionArea>
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
-              {props.match.params.id}
+              {params['id']}
             </Typography>
           </CardContent>
         </CardActionArea>

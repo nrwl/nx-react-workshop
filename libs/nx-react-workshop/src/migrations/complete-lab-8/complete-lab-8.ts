@@ -20,12 +20,12 @@ import Typography from '@material-ui/core/Typography';
 
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-import { Route, useHistory } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [state, setState] = useState<{
     data: any[];
     loadingState: 'success' | 'error' | 'loading';
@@ -59,7 +59,7 @@ export const App = () => {
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {state.loadingState === 'loading'
             ? 'Loading...'
@@ -69,7 +69,7 @@ export const App = () => {
                 <Card
                   key={x.id}
                   className={styles['game-card']}
-                  onClick={() => history.push(\`/game/\${x.id}\`)}
+                  onClick={() => navigate(\`/game/\${x.id}\`)}
                 >
                   <CardActionArea>
                     <CardMedia
@@ -101,7 +101,9 @@ export const App = () => {
                 </Card>
               ))}
         </div>
-        <Route path="/game/:id" component={StoreFeatureGameDetail} />
+        <Routes>
+          <Route path="/game/:id" element={<StoreFeatureGameDetail />} />;
+        </Routes>
       </div>
     </>
   );
@@ -113,7 +115,7 @@ export default App;
   host.write(
     'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
     `import { useEffect, useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './game-detail.module.css';
 
 import Button from '@material-ui/core/Button';
@@ -126,13 +128,10 @@ import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-type TParams = { id: string };
-
 /* eslint-disable-next-line */
-export interface StoreFeatureGameDetailProps
-  extends RouteComponentProps<TParams> {}
+export interface StoreFeatureGameDetailProps {}
 
-export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
+export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
   const [state, setState] = useState<{
     data: any;
     loadingState: 'success' | 'error' | 'loading';
@@ -140,13 +139,14 @@ export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
     data: {},
     loadingState: 'success',
   });
+  const params = useParams();
 
   useEffect(() => {
     setState({
       ...state,
       loadingState: 'loading',
     });
-    const gameId = props.match.params.id;
+    const gameId = params['id'];
     fetch(\`/api/games/\${gameId}\`)
       .then((x) => x.json())
       .then((res) => {
@@ -162,7 +162,7 @@ export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
           loadingState: 'error',
         });
       });
-  }, [props.match.params.id]);
+  }, [params['id']]);
 
   return (
     <div className={styles['container']}>

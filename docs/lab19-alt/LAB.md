@@ -24,10 +24,10 @@ be deploying the two frontends independently in our GitHub Actions based Continu
 
 3. For simplicity, we want to run it on Surge, **so let's export it as static assets for now**. Since we added a lot of files, also commit your changes.
 
-   ⚠️&nbsp;&nbsp;Look at the available "targets" for your new Next app in `workspace.json`. Make sure you deploy the "exported" sub-folder.
+   ⚠️&nbsp;&nbsp;Look at the available "targets" for your new Next app in `project.json`. Make sure you deploy the "exported" sub-folder.
 <br />
 
-4. Following the same steps as [Lab 18](../lab18/LAB.md), add a `"deploy"` target to it.
+1. Following the same steps as [Lab 18](../lab18/LAB.md), add a `"deploy"` target to it.
 
    ⚠️️&nbsp;&nbsp;**BONUS POINTS:** Create a custom workspace generator that adds a `"deploy"` target for a frontend project, so that we don't have to manually re-do the steps in [Lab 18](../lab18/LAB.md) each time.
 
@@ -44,7 +44,7 @@ be deploying the two frontends independently in our GitHub Actions based Continu
 6. Commit everything before moving on to the next lab
 <br />
 
-9. **BONUS** - Add proper scopes for your new apps in `nx.json` and run your `update-scope-schema` workspace generator you created a few labs ago.
+9. **BONUS** - Add proper scopes for your new apps in `project.json` and run your `update-scope-schema` workspace generator you created a few labs ago.
 <br />
 
 ---

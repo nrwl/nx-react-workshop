@@ -79,13 +79,13 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
 
   import { formatRating } from '@bg-hoard/store/util-formatters';
 
-  import { Route, useHistory } from 'react-router-dom';
+  import { Routes, Route, useNavigate } from 'react-router-dom';
 
   import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
   import { Game } from '@bg-hoard/util-interface';
 
   export const App = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [state, setState] = useState<{
       data: Game[];
       loadingState: 'success' | 'error' | 'loading';
@@ -119,7 +119,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
     return (
       <>
         <Header />
-        <div className={styles.container}>
+        <div className={styles['container']}>
           <div className={styles['games-layout']}>
             {state.loadingState === 'loading'
               ? 'Loading...'
@@ -129,7 +129,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
                   <Card
                     key={x.id}
                     className={styles['game-card']}
-                    onClick={() => history.push(\`/game/\${x.id}\`)}
+                    onClick={() => navigate(\`/game/\${x.id}\`)}
                   >
                     <CardActionArea>
                       <CardMedia
@@ -161,7 +161,9 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
                   </Card>
                 ))}
           </div>
-          <Route path="/game/:id" component={StoreFeatureGameDetail} />
+          <Routes>
+            <Route path="/game/:id" element={<StoreFeatureGameDetail />} />;
+          </Routes>
         </div>
       </>
     );

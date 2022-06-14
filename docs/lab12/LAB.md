@@ -11,14 +11,17 @@
 
 ## 🏋️‍♀️ Steps :
 
-1. Open `nx.json` and **finish tagging the apps** accordingly:
+1. Open the `project.json` files for each project and **finish tagging the apps** accordingly:
 
    ```
-   "projects": {
-       "store": {
-         "tags": ["scope:store", "type:app"]
-       },
-       .... <-- fill in the rest of the tags
+     // apps/store/project.json
+     {
+       "projectType": "application",
+       "root": "apps/store",
+       "sourceRoot": "apps/store/src",
+       "prefix": "bg-hoard",
+       "targets": { ... },
+       "tags": ["scope:store", "type:app"]
      }
    ```
 <br />   

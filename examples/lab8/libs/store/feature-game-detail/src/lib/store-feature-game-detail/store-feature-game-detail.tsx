@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './game-detail.module.scss';
 
 import Button from '@material-ui/core/Button';
@@ -11,13 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-type TParams = { id: string };
-
 /* eslint-disable-next-line */
-export interface StoreFeatureGameDetailProps
-  extends RouteComponentProps<TParams> {}
+export interface StoreFeatureGameDetailProps {}
 
-export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
+export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
   const [state, setState] = useState<{
     data: any;
     loadingState: 'success' | 'error' | 'loading';
@@ -25,13 +22,14 @@ export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
     data: {},
     loadingState: 'success',
   });
+  const params = useParams();
 
   useEffect(() => {
     setState({
       ...state,
       loadingState: 'loading',
     });
-    const gameId = props.match.params.id;
+    const gameId = params['id'];
     fetch(`/api/games/${gameId}`)
       .then((x) => x.json())
       .then((res) => {
@@ -47,7 +45,7 @@ export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
           loadingState: 'error',
         });
       });
-  }, [props.match.params.id]);
+  }, [params['id']]);
 
   return (
     <div className={styles['container']}>

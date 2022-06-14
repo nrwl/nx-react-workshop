@@ -19,9 +19,7 @@ export default async function update(host: Tree) {
 
   host.write(
     'apps/store/src/app/app.tsx',
-    `import React from 'react';
-
-import styles from './app.module.scss';
+    `import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
 import Card from '@material-ui/core/Card';
@@ -36,7 +34,7 @@ export const App = () => {
   return (
     <>
       <header />
-      <div className={styles.container}>
+      <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
             <Card key={x.id} className={styles['game-card']}>

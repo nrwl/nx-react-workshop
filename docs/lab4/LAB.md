@@ -62,7 +62,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    ```html
    <Header title="Board Game Hoard" />
    <!-- right at the top - above our container -->
-   <div className="{styles.container}"></div>
+   <div className="{styles['container']}"></div>
    ```
 
    Wrap the App component in a fragment (`<>` and `</>`)

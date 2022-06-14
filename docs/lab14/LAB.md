@@ -13,7 +13,7 @@
 1. Generate another generator called `update-scope-schema`
    <br />
 
-2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json file:
+2. As a start let's make it change the `defaultProject` from `store` to `api` in our `nx.json` file:
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>

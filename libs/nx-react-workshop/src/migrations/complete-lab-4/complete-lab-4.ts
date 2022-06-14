@@ -25,9 +25,7 @@ export default async function update(tree: Tree) {
 
   tree.write(
     'libs/store/ui-shared/src/lib/header/header.tsx',
-    `import React from 'react';
-
-  import { makeStyles } from '@material-ui/core/styles';
+    `import { makeStyles } from '@material-ui/core/styles';
   import AppBar from '@material-ui/core/AppBar';
   import Toolbar from '@material-ui/core/Toolbar';
   import Typography from '@material-ui/core/Typography';
@@ -66,10 +64,7 @@ export default async function update(tree: Tree) {
   );
   tree.write(
     'apps/store/src/app/app.tsx',
-    `
-import React from 'react';
-
-import styles from './app.module.scss';
+    `import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
 import Card from '@material-ui/core/Card';
@@ -83,7 +78,7 @@ export const App = () => {
   return (
     <>
       <header />
-      <div className={styles.container}>
+      <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
             <Card key={x.id} className={styles['game-card']}>

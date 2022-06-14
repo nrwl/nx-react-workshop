@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 
 export const App = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles['container']}>
       <div className={styles['games-layout']}>
         {getAllGames().map((x) => (
           <Card key={x.id} className={styles['game-card']}>

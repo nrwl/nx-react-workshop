@@ -22,7 +22,7 @@ For now, our `store` project has no API when it is deployed. Hence, it is only d
     return (
       <>
         <Header title="Board Game Hoard" />
-          <div className={styles.container}>
+          <div className={styles['container']}>
             <div className={styles['games-layout']}>
               {getAllGames().map((x) => (
                 <Link to={`/game/${x.id}`} key={x.id}>

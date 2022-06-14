@@ -40,7 +40,9 @@ We'll look at more advanced usages of the `@nrwl/react` generators and generate 
 
    ```ts
    // replace routes block with
-   <Route path="/game/:id" component={StoreFeatureGameDetail} />;
+   <Routes>
+     <Route path="/game/:id" element={<StoreFeatureGameDetail />} />;
+   </Routes>
    ```
 
     </details><br />

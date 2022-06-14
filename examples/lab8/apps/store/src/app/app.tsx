@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-import { Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
@@ -50,7 +50,7 @@ export const App = () => {
   return (
     <>
       <Header title="Board Game Hoard" />
-      <div className={styles.container}>
+      <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {state.loadingState === 'loading'
             ? 'Loading...'
@@ -90,7 +90,9 @@ export const App = () => {
                 </Link>
               ))}
         </div>
-        <Route path="/game/:id" component={StoreFeatureGameDetail} />
+        <Routes>
+          <Route path="/game/:id" element={<StoreFeatureGameDetail />} />;
+        </Routes>
       </div>
     </>
   );
