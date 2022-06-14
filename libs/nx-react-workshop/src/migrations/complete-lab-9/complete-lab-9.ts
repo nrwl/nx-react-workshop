@@ -176,7 +176,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
     'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
     `
   import { useEffect, useState } from 'react';
-  import { RouteComponentProps } from 'react-router-dom';
+  import { useParams } from 'react-router-dom';
   import styles from './game-detail.module.css';
 
   import Button from '@material-ui/core/Button';
@@ -189,13 +189,10 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
   import { formatRating } from '@bg-hoard/store/util-formatters';
   import { Game } from '@bg-hoard/util-interface';
 
-  type TParams = { id: string };
-
   /* eslint-disable-next-line */
-  export interface StoreFeatureGameDetailProps
-    extends RouteComponentProps<TParams> {}
+  export interface StoreFeatureGameDetailProps {}
 
-  export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
+  export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
     const [state, setState] = useState<{
       data: Partial<Game>;
       loadingState: 'success' | 'error' | 'loading';
@@ -203,13 +200,14 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
       data: {},
       loadingState: 'success',
     });
+    const params = useParams();
 
     useEffect(() => {
       setState({
         ...state,
         loadingState: 'loading',
       });
-      const gameId = props.match.params.id;
+      const gameId = params['id'];
       fetch(\`/api/games/\${gameId}\`)
         .then((x) => x.json())
         .then((res) => {
@@ -225,7 +223,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
             loadingState: 'error',
           });
         });
-    }, [props.match.params.id]);
+    }, [params['id']]);
 
     return (
       <div className={styles['container']}>

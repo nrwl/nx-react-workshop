@@ -26,7 +26,7 @@ export default async function update(tree: Tree) {
     e2eTestRunner: 'cypress',
     skipFormat: true,
     linter: Linter.EsLint,
-    style: 'css',
+    style: 'scss',
     unitTestRunner: 'jest',
     routing: true,
   });
