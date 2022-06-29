@@ -21,7 +21,13 @@ export default async function (host: Tree) {
 ##### Update schema with formatter
 
 ```typescript
-import { Tree, updateJson, formatFiles, readJson } from '@nrwl/devkit';
+import {
+  Tree,
+  updateJson,
+  formatFiles,
+  ProjectConfiguration,
+  getProjects,
+} from '@nrwl/devkit';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   const projects: any[] = Object.values(projectMap);
@@ -45,6 +51,7 @@ export default async function (host: Tree) {
   });
   await formatFiles(host);
 }
+
 ```
 
 ##### Final generator code
