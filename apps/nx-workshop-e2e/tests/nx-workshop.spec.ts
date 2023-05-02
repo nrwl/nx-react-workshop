@@ -2,7 +2,7 @@ import {
   checkFilesExist,
   ensureNxProject,
   runNxCommand,
-} from '@nrwl/nx-plugin/testing';
+} from '@nx/plugin/testing';
 describe('nx-react-workshop e2e', () => {
   describe('migrations', () => {
     it('should run the migrations', async () => {

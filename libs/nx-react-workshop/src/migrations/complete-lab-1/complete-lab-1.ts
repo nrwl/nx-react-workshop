@@ -7,8 +7,8 @@ import {
   addDependenciesToPackageJson,
   installPackagesTask,
   readJson,
-} from '@nrwl/devkit';
-import { removeGenerator } from '@nrwl/workspace';
+} from '@nx/devkit';
+import { removeGenerator } from '@nx/workspace';
 import { execSync } from 'child_process';
 
 export default async function update(tree: Tree) {
@@ -18,9 +18,11 @@ export default async function update(tree: Tree) {
     'store-e2e',
     'store',
     'api',
+    'api-e2e',
     'api-util-interface',
     'util-interface',
     'store-feature-game-detail',
+    'ui-shared',
     'store-ui-shared',
     'store-ui-shared-e2e',
     'store-util-formatters',
@@ -35,6 +37,11 @@ export default async function update(tree: Tree) {
         forceRemove: true,
       })
   );
+  // hack to fix remove generator
+  updateJson(tree, 'tsconfig.base.json', (json) => {
+    json.compilerOptions.paths = {};
+    return json;
+  });
 
   // Lab 13
   tree.delete('tools/generators/util-lib');

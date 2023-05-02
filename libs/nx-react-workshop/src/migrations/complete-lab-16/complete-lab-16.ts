@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, Tree } from '@nrwl/devkit';
+import { addDependenciesToPackageJson, Tree } from '@nx/devkit';
 import { execSync } from 'child_process';
 import { dependencies } from '../../../package.json';
 

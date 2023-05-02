@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, addDependenciesToPackageJson } from '@nrwl/devkit';
-import { applicationGenerator } from '@nrwl/express';
-import { Linter } from '@nrwl/linter';
+import { Tree, addDependenciesToPackageJson } from '@nx/devkit';
+import { applicationGenerator } from '@nx/express';
+import { Linter } from '@nx/linter';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
@@ -9,11 +9,11 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      '@nrwl/express': dependencies['@nrwl/express'],
+      '@nx/express': dependencies['@nx/express'],
     }
   );
 
-  // nx generate @nrwl/express:application api --frontendProject=store
+  // nx generate @nx/express:application api --frontendProject=store
   await applicationGenerator(host, {
     name: 'api',
     frontendProject: 'store',

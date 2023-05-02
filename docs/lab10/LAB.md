@@ -22,31 +22,31 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
 ## 🏋️‍♀️ Steps:
 
-1. `yarn add @nrwl/storybook` or `npm i -S @nrwl/storybook`
-<br/>
+1.  `yarn add @nx/storybook` or `npm i -S @nx/storybook`
+    <br/>
 
-2. Use the `@nrwl/react:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
+2.  Use the `@nx/react:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
 
-   ⚠️&nbsp;&nbsp;Answer **YES** to all questions
-<br />   
+    ⚠️&nbsp;&nbsp;Answer **YES** to all questions
+    <br />
 
-3. Serve storybook!
+3.  Serve storybook!
 
-   <details>
-   <summary>🐳 &nbsp;&nbsp;Hint</summary>
+    <details>
+    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
-   `nx storybook store-ui-shared`
+    `nx storybook store-ui-shared`
 
-   </details><br />
+    </details><br />
 
-4. Start typing in different titles and see how they appear in the header
+4.  Start typing in different titles and see how they appear in the header
 
-    <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
-<br/>
+        <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
 
-5. Inspect what changed from the last time you committed, then commit your changes
-<br />
+    <br/>
 
+5.  Inspect what changed from the last time you committed, then commit your changes
+    <br />
 
 ---
 

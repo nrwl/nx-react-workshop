@@ -1,7 +1,7 @@
 ##### Generate a `util-lib` workspace generator:
 
 ```shell script
-nx generate @nrwl/workspace:workspace-generator util-lib
+nx generate @nx/workspace:workspace-generator util-lib
 ```
 
 ##### Running the generator in dry mode
@@ -13,10 +13,10 @@ nx workspace-generator util-lib test --dry-run
 ##### Prefixing the name
 
 ```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
+import { libraryGenerator } from '@nx/workspace/generators';
 
-export default async function(host: Tree, schema: any) {
+export default async function (host: Tree, schema: any) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
   });
@@ -59,13 +59,13 @@ export default async function(host: Tree, schema: any) {
 ##### Choosing the directory
 
 ```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
+import { libraryGenerator } from '@nx/workspace/generators';
 
-export default async function(host: Tree, schema: any) {
+export default async function (host: Tree, schema: any) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
-    directory: schema.directory
+    directory: schema.directory,
   });
   await formatFiles(host);
   return () => {
@@ -77,14 +77,14 @@ export default async function(host: Tree, schema: any) {
 ##### Passing in tags
 
 ```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
+import { libraryGenerator } from '@nx/workspace/generators';
 
-export default async function(host: Tree, schema: any) {
+export default async function (host: Tree, schema: any) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
     directory: schema.directory,
-    tags: `type:util, scope:${schema.directory}`
+    tags: `type:util, scope:${schema.directory}`,
   });
   await formatFiles(host);
   return () => {

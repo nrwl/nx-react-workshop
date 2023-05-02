@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
+import { Tree } from '@nx/devkit';
+import workspaceGenerator from '@nx/workspace/src/generators/workspace-generator/workspace-generator';
 
 export default function update(host: Tree) {
-  // nx generate @nrwl/workspace:workspace-generator util-lib
+  // nx generate @nx/workspace:workspace-generator util-lib
   workspaceGenerator(host, {
     name: 'util-lib',
     skipFormat: true,
@@ -12,8 +12,8 @@ export default function update(host: Tree) {
   host.write(
     'tools/generators/util-lib/index.ts',
     `
-    import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-    import { libraryGenerator } from '@nrwl/workspace/generators';
+    import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
+    import { libraryGenerator } from '@nx/workspace/generators';
 
     export default async function(host: Tree, schema: any) {
       await libraryGenerator(host, {

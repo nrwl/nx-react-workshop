@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace';
+import { Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/workspace';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/workspace:lib util-formatters --directory=store
+  // nx generate @nx/workspace:lib util-formatters --directory=store
   await libraryGenerator(host, {
     name: 'util-formatters',
     directory: 'store',

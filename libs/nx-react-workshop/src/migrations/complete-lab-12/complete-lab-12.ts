@@ -4,7 +4,7 @@ import {
   Tree,
   updateJson,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 
 export default function update(host: Tree) {
   const projectUpdates = {

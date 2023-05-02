@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, Tree } from '@nrwl/devkit';
-import { storybookConfigurationGenerator } from '@nrwl/react';
+import { addDependenciesToPackageJson, Tree } from '@nx/devkit';
+import { storybookConfigurationGenerator } from '@nx/react';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
-  // yarn add @nrwl/storybook
+  // yarn add @nx/storybook
   await addDependenciesToPackageJson(
     host,
     {},
     {
-      '@nrwl/storybook': dependencies['@nrwl/storybook'],
+      '@nx/storybook': dependencies['@nx/storybook'],
     }
   );
-  // nx generate @nrwl/react:storybook-configuration store-ui-shared
+  // nx generate @nx/react:storybook-configuration store-ui-shared
   await storybookConfigurationGenerator(host, {
     name: 'store-ui-shared',
     configureCypress: true,

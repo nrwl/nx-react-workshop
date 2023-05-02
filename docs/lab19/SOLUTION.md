@@ -8,7 +8,7 @@ nx generate run-commands deploy --project=api --cwd="dist/apps/api"
 
 ```
 "deploy": {
-    "executor": "@nrwl/workspace:run-commands",
+    "executor": "@nx/workspace:run-commands",
         "outputs": [],
         "options": {
         "commands": [

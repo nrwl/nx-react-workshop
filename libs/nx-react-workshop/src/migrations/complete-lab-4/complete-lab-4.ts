@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { Linter } from '@nrwl/linter';
-import { componentGenerator, libraryGenerator } from '@nrwl/react';
+import { Tree } from '@nx/devkit';
+import { Linter } from '@nx/linter';
+import { componentGenerator, libraryGenerator } from '@nx/react';
 
 export default async function update(tree: Tree) {
-  // nx generate @nrwl/react:lib ui-shared --directory=store --no-component
+  // nx generate @nx/react:lib ui-shared --directory=store --no-component
   await libraryGenerator(tree, {
     name: 'ui-shared',
     directory: 'store',
@@ -15,7 +15,7 @@ export default async function update(tree: Tree) {
     unitTestRunner: 'jest',
     linter: Linter.EsLint,
   });
-  // nx generate @nrwl/react:component header --export --project=store-ui-shared
+  // nx generate @nx/react:component header --export --project=store-ui-shared
   await componentGenerator(tree, {
     name: 'header',
     project: 'store-ui-shared',

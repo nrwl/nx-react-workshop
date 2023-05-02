@@ -1,4 +1,4 @@
-import { formatFiles, readJsonFile, Tree } from '@nrwl/devkit';
+import { formatFiles, readJsonFile, Tree } from '@nx/devkit';
 import { CompleteLabsGeneratorSchema } from './schema';
 
 export default async function (

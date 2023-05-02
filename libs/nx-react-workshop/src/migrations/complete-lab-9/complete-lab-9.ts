@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { libraryGenerator, moveGenerator } from '@nrwl/workspace';
+import { Tree } from '@nx/devkit';
+import { libraryGenerator, moveGenerator } from '@nx/workspace';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/workspace:lib util-interface --directory=api
+  // nx generate @nx/workspace:lib util-interface --directory=api
   await libraryGenerator(host, {
     name: 'util-interface',
     directory: 'api',
@@ -56,7 +56,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
 `
   );
 
-  // nx generate @nrwl/workspace:move --projectName=api-util-interface util-interface
+  // nx generate @nx/workspace:move --projectName=api-util-interface util-interface
   await moveGenerator(host, {
     projectName: 'api-util-interface',
     destination: 'util-interface',

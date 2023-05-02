@@ -25,13 +25,13 @@ We will create a shared utility lib where we'll add our formatters and see how t
 ## 🏋️‍♀️ Steps:
 
 1. Stop the `nx serve`
-<br/>
+   <br/>
 
-2. Use the `@nrwl/workspace` package to generate another lib in the `libs/store` folder - let's call it `util-formatters`.
-<br/>
+2. Use the `@nx/workspace` package to generate another lib in the `libs/store` folder - let's call it `util-formatters`.
+   <br/>
 
 3. Add the [code for the utility function](../../examples/lab5/libs/store/util-formatters/src/lib/store-util-formatters.ts) to the new library you just created `libs/store/util-formatters/src/lib/store-util-formatters.ts`
-<br/>
+   <br/>
 
 4. Use it in your frontend project to format the rating for each game
 
@@ -51,14 +51,13 @@ We will create a shared utility lib where we'll add our formatters and see how t
     </details><br />
 
 5. Serve the store app - notice how the ratings are formatted.
-<br/>
+   <br/>
 
 6. Launch the dependency graph - notice how the app depends on two libs now.
-<br/>
+   <br/>
 
 7. Inspect what changed from the last time you committed, then commit your changes
-<br/>
-
+   <br/>
 
 ---
 

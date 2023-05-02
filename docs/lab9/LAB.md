@@ -26,15 +26,15 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 ## 🏋️‍♀️ Steps:
 
 1. Stop serving both the API and the frontend
-<br />
+   <br />
 
-2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder.
+2. Generate a new `@nx/workspace` lib called `util-interface` inside the `libs/api` folder.
 
    ⚠️&nbsp;&nbsp;It's **important** that we create it in the `/api` folder for now
-<br />   
+   <br />
 
 3. Create your `Game` interface: see `libs/api/util-interface/src/lib/`[api-util-interface.ts](../../examples/lab9/libs/api/util-interface/src/lib/api-util-interface.ts)
-<br />
+   <br />
 
 4. Import it in the API service: `apps/api/src/app/games.repository.ts`
 
@@ -62,10 +62,10 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    </details><br />
 
 6. Inspect the dependency graph
-<br />
+   <br />
 
 7. Make sure to commit everything before proceeding!
-<br />
+   <br />
 
 ---
 
@@ -87,7 +87,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 ---
 
-8. Use the `@nrwl/workspace:move` generator to move the interface lib created above into the root `/libs` folder
+8.  Use the `@nx/workspace:move` generator to move the interface lib created above into the root `/libs` folder
 
     ⚠️&nbsp;&nbsp;Make sure you use the `--dry-run` flag until you're confident your command is correct
 
@@ -112,52 +112,53 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     </details><br />
 
-9. We can now import it in the frontend components and use it when making the `http` request:
+9.  We can now import it in the frontend components and use it when making the `http` request:
 
-    <details>
-    <summary>🐳 &nbsp;&nbsp;Hint</summary>
+        <details>
+        <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
-    Frontend store shell app: `apps/store/src/app/app.tsx`
+        Frontend store shell app: `apps/store/src/app/app.tsx`
 
-    ```typescript
-    import { Game } from '@bg-hoard/util-interface';
+        ```typescript
+        import { Game } from '@bg-hoard/util-interface';
 
-    const [state, setState] = useState<{
-      data: Game[];
-      loadingState: 'success' | 'error' | 'loading';
-    }>({
-      data: [],
-      loadingState: 'success',
-    });
-    ```
+        const [state, setState] = useState<{
+          data: Game[];
+          loadingState: 'success' | 'error' | 'loading';
+        }>({
+          data: [],
+          loadingState: 'success',
+        });
+        ```
 
-    ***
+        ***
 
-    Routed game detail component: `libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx`
+        Routed game detail component: `libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx`
 
-    ```typescript
-    const [state, setState] = useState<{
-      data: Partial<Game>;
-      loadingState: 'success' | 'error' | 'loading';
-    }>({
-      data: {},
-      loadingState: 'success',
-    });
-    ```
+        ```typescript
+        const [state, setState] = useState<{
+          data: Partial<Game>;
+          loadingState: 'success' | 'error' | 'loading';
+        }>({
+          data: {},
+          loadingState: 'success',
+        });
+        ```
 
-    </details>
+        </details>
 
-    ⚠️&nbsp;&nbsp;Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
-<br />
+        ⚠️&nbsp;&nbsp;Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
+
+    <br />
 
 10. Trigger a build of both the store and the API projects and make sure it passes
-<br />
+    <br />
 
 11. Inspect the dependency graph
-<br />
+    <br />
 
 12. Inspect what changed from the last time you committed, then commit your changes
-<br />
+    <br />
 
 ---
 

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { Linter } from '@nrwl/linter';
-import { componentGenerator, libraryGenerator } from '@nrwl/react';
+import { Tree } from '@nx/devkit';
+import { Linter } from '@nx/linter';
+import { componentGenerator, libraryGenerator } from '@nx/react';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/react:library feature-game-detail --directory=store --appProject=store --no-component
+  // nx generate @nx/react:library feature-game-detail --directory=store --appProject=store --no-component
   await libraryGenerator(host, {
     name: 'feature-game-detail',
     directory: 'store',
@@ -93,13 +93,15 @@ export default App;
 `
   );
 
-  // nx generate @nrwl/react:component game-detail --project=store-feature-game-detail
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
+  // nx generate @nx/react:component game-detail --project=store-feature-game-detail
   await componentGenerator(host, {
     name: 'game-detail',
     project: 'store-feature-game-detail',
     style: 'styled-components',
     export: true,
   });
+  process.env.NX_PROJECT_GLOB_CACHE = 'true';
   host.write(
     'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
     `import { useParams } from 'react-router-dom';

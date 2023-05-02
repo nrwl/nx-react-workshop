@@ -6,7 +6,7 @@ Up until now we've had a single app in our repository, and a few other libs that
 
 But remember how we created that `fake-api` way back in the second lab, that only our `store` app can access?
 
-Our new routed component suddenly needs access to the games as well, so in this lab we'll be adding a completely new app, this time on the backend, as an API. And we'll use the `@nrwl/express` plugin to easily generate everything we need.
+Our new routed component suddenly needs access to the games as well, so in this lab we'll be adding a completely new app, this time on the backend, as an API. And we'll use the `@nx/express` plugin to easily generate everything we need.
 
 All the Express specific code for serving the games is provided in the solution.
 
@@ -29,26 +29,26 @@ All the Express specific code for serving the games is provided in the solution.
 ## 🏋️‍♀️ Steps:
 
 1. Stop any running `nx serve` instance
-<br/>
+   <br/>
 
-2. `yarn add @nrwl/express` or `npm i -S @nrwl/express`
-<br/>
+2. `yarn add @nx/express` or `npm i -S @nx/express`
+   <br/>
 
 3. Generate a new Express app, called `api`
 
    ⚠️&nbsp;&nbsp;Make sure you instruct the generator to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)<br />
 
 4. Copy the code from the `fake api` to the new file `apps/api/src/app/`[games.repository.ts](../../examples/lab7/apps/api/src/app/games.repository.ts)
-<br/>
+   <br/>
 
 5. Update the Express [main.ts](../../examples/lab7/apps/api/src/main.ts) to use the repository data
-<br/>
+   <br/>
 
 6. Let's now inspect the dependency graph!
-<br/>
+   <br/>
 
 7. Inspect what changed from the last time you committed, then commit your changes
-<br/>
+   <br/>
 
 ---
 

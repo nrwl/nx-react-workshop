@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { formatFiles, Tree } from '@nrwl/devkit';
-import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
+import { formatFiles, Tree } from '@nx/devkit';
+import workspaceGenerator from '@nx/workspace/src/generators/workspace-generator/workspace-generator';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/workspace:workspace-generator update-scope-schema
+  // nx generate @nx/workspace:workspace-generator update-scope-schema
   workspaceGenerator(host, {
     name: 'update-scope-schema',
     skipFormat: true,
@@ -12,7 +12,7 @@ export default async function update(host: Tree) {
   host.write(
     'tools/generators/update-scope-schema/index.ts',
     `
-    import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
+    import { formatFiles, Tree, updateJson } from '@nx/devkit';
 
     export default async function(host: Tree) {
       updateJson(host, 'nx.json', (json) => {
@@ -40,8 +40,8 @@ export default async function update(host: Tree) {
       ProjectConfiguration,
       Tree,
       updateJson,
-    } from '@nrwl/devkit';
-    import { getProjects } from '@nrwl/devkit/src/generators/project-configuration';
+    } from '@nx/devkit';
+    import { getProjects } from '@nx/devkit/src/generators/project-configuration';
 
     function getScopes(projectMap: Map<string, ProjectConfiguration>) {
       const projects: any[] = Object.values(projectMap);

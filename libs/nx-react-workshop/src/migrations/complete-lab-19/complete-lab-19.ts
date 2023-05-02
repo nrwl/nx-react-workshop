@@ -5,8 +5,8 @@ import {
   Tree,
   updateJson,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
-import { uniq } from '@nrwl/nx-plugin/testing';
+} from '@nx/devkit';
+import { uniq } from '@nx/plugin/testing';
 import { execSync } from 'child_process';
 
 export default function update(host: Tree) {
@@ -69,7 +69,7 @@ CMD node main.js
     'cache-manager',
   ];
   apiConfig.targets.deploy = {
-    executor: '@nrwl/workspace:run-commands',
+    executor: '@nx/workspace:run-commands',
     outputs: [],
     options: {
       commands: [

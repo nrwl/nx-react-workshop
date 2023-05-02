@@ -1,13 +1,13 @@
 ##### Generate a `update-scope-schema` workspace generator:
 
 ```shell script
-nx generate @nrwl/workspace:workspace-generator update-scope-schema
+nx generate @nx/workspace:workspace-generator update-scope-schema
 ```
 
 ##### Change default project
 
 ```typescript
-import { Tree, formatFiles, updateJson } from '@nrwl/devkit';
+import { Tree, formatFiles, updateJson } from '@nx/devkit';
 
 export default async function (host: Tree) {
   await updateJson(host, 'nx.json', (nxJson) => {
@@ -21,7 +21,7 @@ export default async function (host: Tree) {
 ##### Update schema with formatter
 
 ```typescript
-import { Tree, updateJson, formatFiles, readJson } from '@nrwl/devkit';
+import { Tree, updateJson, formatFiles, readJson } from '@nx/devkit';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   const projects: any[] = Object.values(projectMap);
@@ -55,8 +55,8 @@ import {
   ProjectConfiguration,
   Tree,
   updateJson,
-} from '@nrwl/devkit';
-import { getProjects } from '@nrwl/devkit/src/generators/project-configuration';
+} from '@nx/devkit';
+import { getProjects } from '@nx/devkit/src/generators/project-configuration';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   const projects: any[] = Object.values(projectMap);
