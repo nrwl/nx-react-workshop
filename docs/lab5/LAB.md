@@ -17,17 +17,12 @@ We will create a shared utility lib where we'll add our formatters and see how t
   <img src="../assets/lab5_screenshot.png" width="500" alt="screenshot of lab5 result">
 </details>
 
-<details>
-  <summary>File structure</summary>
-  <img src="../assets/lab5_directory-structure.png" height="700" alt="lab5 file structure">
-</details>
-
 ## 🏋️‍♀️ Steps:
 
 1. Stop the `nx serve`
    <br/>
 
-2. Use the `@nx/workspace` package to generate another lib in the `libs/store` folder - let's call it `util-formatters`.
+2. Use the `@nx/js` package to generate another lib in the `libs/store` folder - let's call it `util-formatters`.
    <br/>
 
 3. Add the [code for the utility function](../../examples/lab5/libs/store/util-formatters/src/lib/store-util-formatters.ts) to the new library you just created `libs/store/util-formatters/src/lib/store-util-formatters.ts`

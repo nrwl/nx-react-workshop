@@ -1,4 +1,4 @@
-# 🧵 Lab 14 - Workspace generators - Modifying files
+# 🧵 Lab 14 - Generators - Modifying files
 
 ###### ⏰ &nbsp;Estimated time: 25-35 minutes
 

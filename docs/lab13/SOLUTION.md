@@ -1,28 +1,35 @@
-##### Generate a `util-lib` workspace generator:
+##### Generate a `internal-plugin` plugin:
 
 ```shell script
-nx generate @nx/workspace:workspace-generator util-lib
+nx generate @nx/plugin:plugin internal-plugin --minimal
+```
+
+#### Generate a `util-lib` generator:
+
+```shell
+nx generate @nx/plugin:generator util-lib --project=internal-plugin
 ```
 
 ##### Running the generator in dry mode
 
 ```shell
-nx workspace-generator util-lib test --dry-run
+nx generate @bg-hoard/internal-plugin:util-lib test --dry-run
 ```
 
 ##### Prefixing the name
 
 ```ts
-import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
-import { libraryGenerator } from '@nx/workspace/generators';
+import { formatFiles, installPackagesTask, Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js/generators';
+import { UtilLibGeneratorSchema } from './schema';
 
-export default async function (host: Tree, schema: any) {
-  await libraryGenerator(host, {
+export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
+  await libraryGenerator(tree, {
     name: `util-${schema.name}`,
   });
-  await formatFiles(host);
+  await formatFiles(tree);
   return () => {
-    installPackagesTask(host);
+    installPackagesTask(tree);
   };
 }
 ```
@@ -56,39 +63,22 @@ export default async function (host: Tree, schema: any) {
 }
 ```
 
-##### Choosing the directory
-
-```ts
-import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
-import { libraryGenerator } from '@nx/workspace/generators';
-
-export default async function (host: Tree, schema: any) {
-  await libraryGenerator(host, {
-    name: `util-${schema.name}`,
-    directory: schema.directory,
-  });
-  await formatFiles(host);
-  return () => {
-    installPackagesTask(host);
-  };
-}
-```
-
 ##### Passing in tags
 
 ```ts
-import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
-import { libraryGenerator } from '@nx/workspace/generators';
+import { formatFiles, installPackagesTask, Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js/generators';
+import { UtilLibGeneratorSchema } from './schema';
 
-export default async function (host: Tree, schema: any) {
-  await libraryGenerator(host, {
+export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
+  await libraryGenerator(tree, {
     name: `util-${schema.name}`,
     directory: schema.directory,
     tags: `type:util, scope:${schema.directory}`,
   });
-  await formatFiles(host);
+  await formatFiles(tree);
   return () => {
-    installPackagesTask(host);
+    installPackagesTask(tree);
   };
 }
 ```
@@ -96,8 +86,34 @@ export default async function (host: Tree, schema: any) {
 ##### Typed Schema
 
 ```typescript
-interface Schema {
+export interface UtilLibGeneratorSchema {
   name: string;
   directory: 'store' | 'api' | 'shared';
 }
+```
+
+##### BONUS: Testing
+
+```typescript
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
+import { Tree, readProjectConfiguration } from '@nx/devkit';
+
+import generator from './generator';
+import { UtilLibGeneratorSchema } from './schema';
+
+describe('util-lib generator', () => {
+  let appTree: Tree;
+  const options: UtilLibGeneratorSchema = { name: 'foo', directory: 'store' };
+
+  beforeEach(() => {
+    appTree = createTreeWithEmptyWorkspace();
+  });
+
+  it('should add util to the name and add appropriate tags', async () => {
+    await generator(appTree, options);
+    const config = readProjectConfiguration(appTree, 'store-util-foo');
+    expect(config).toBeDefined();
+    expect(config.tags).toEqual(['type:util', 'scope:store']);
+  });
+});
 ```

@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Tree } from '@nx/devkit';
-import { libraryGenerator, moveGenerator } from '@nx/workspace';
+import { moveGenerator } from '@nx/workspace';
+import { libraryGenerator } from '@nx/js';
 
 export default async function update(host: Tree) {
-  // nx generate @nx/workspace:lib util-interface --directory=api
+  // nx generate @nx/js:lib util-interface --directory=api
   await libraryGenerator(host, {
     name: 'util-interface',
     directory: 'api',
@@ -20,9 +21,17 @@ export default async function update(host: Tree) {
 }
 `
   );
+
+  // nx generate @nx/workspace:move --projectName=api-util-interface util-interface
+  await moveGenerator(host, {
+    projectName: 'api-util-interface',
+    destination: 'util-interface',
+    updateImportPath: true,
+  });
+
   host.write(
     'apps/api/src/app/games.repository.ts',
-    `import { Game } from '@bg-hoard/api/util-interface';
+    `import { Game } from '@bg-hoard/util-interface';
 const games: Game[] = [
   {
     id: 'settlers-in-the-can',
@@ -56,12 +65,6 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
 `
   );
 
-  // nx generate @nx/workspace:move --projectName=api-util-interface util-interface
-  await moveGenerator(host, {
-    projectName: 'api-util-interface',
-    destination: 'util-interface',
-    updateImportPath: true,
-  });
   host.write(
     'apps/store/src/app/app.tsx',
     `

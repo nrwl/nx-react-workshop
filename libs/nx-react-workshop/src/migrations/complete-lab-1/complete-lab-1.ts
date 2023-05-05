@@ -28,6 +28,9 @@ export default async function update(tree: Tree) {
     'store-util-formatters',
     'api-util-notifications',
     'admin-ui',
+    'admin-ui-e2e',
+    'internal-plugin',
+    'internal-plugin-e2e',
   ].filter((removeProject) => projects.has(removeProject));
   projectsToRemove.forEach(
     async (projectName) =>
@@ -51,10 +54,10 @@ export default async function update(tree: Tree) {
   tree.delete('.github/workflows/ci.yml');
   // Lab 19
   if (tree.exists('.nx-workshop.json')) {
-    const { herokuName } = readJson(tree, '.nx-workshop.json');
-    const herokuApps = await execSync(`heroku apps`).toString();
-    if (herokuApps.includes(herokuName)) {
-      execSync(`heroku apps:destroy ${herokuName} --confirm=${herokuName}`);
+    const { flyName } = readJson(tree, '.nx-workshop.json');
+    const flyApps = await execSync(`fly apps list`).toString();
+    if (flyApps.includes(flyName)) {
+      execSync(`fly apps destroy ${flyName} --yes`);
     }
     tree.delete('.nx-workshop.json');
   }

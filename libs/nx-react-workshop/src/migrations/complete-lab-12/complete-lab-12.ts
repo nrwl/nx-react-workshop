@@ -35,6 +35,7 @@ export default function update(host: Tree) {
       implicitDependencies: ['store-ui-shared'],
     },
   };
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
   Object.keys(projectUpdates).forEach((projectName) => {
     const config = readProjectConfiguration(host, projectName);
     config.tags = projectUpdates[projectName].tags;
@@ -42,10 +43,11 @@ export default function update(host: Tree) {
       projectUpdates[projectName].implicitDependencies || [];
     updateProjectConfiguration(host, projectName, config);
   });
+  process.env.NX_PROJECT_GLOB_CACHE = 'true';
 
   updateJson(host, '.eslintrc.json', (json) => {
     json.overrides[0].rules[
-      '@nrwl/nx/enforce-module-boundaries'
+      '@nx/enforce-module-boundaries'
     ][1].depConstraints = [
       {
         sourceTag: 'scope:store',

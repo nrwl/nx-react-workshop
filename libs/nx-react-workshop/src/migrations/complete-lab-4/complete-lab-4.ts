@@ -77,7 +77,7 @@ import { Header } from '@bg-hoard/store/ui-shared';
 export const App = () => {
   return (
     <>
-      <header />
+      <Header />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (

@@ -2,8 +2,6 @@
 
 ###### ⏰ &nbsp;Estimated time: 15-20 minutes
 
-> Before starting this lab, you can either clone this Git repository you're looking at (`master` branch will be the starting point) or continue in the folder you created. If you clone, you will get access to all the lab branches so you can `git checkout lab-xx` if you fall behind.
-
 In this lab we'll generate our first React application within the new monorepo.
 
 ## 📚 Learning outcomes:
@@ -17,11 +15,6 @@ In this lab we'll generate our first React application within the new monorepo.
   <img src="../assets/lab2_result.png" width="500" alt="screenshot of lab2 result">
 </details>
 
-<details>
-  <summary>File structure</summary>
-  <img src="../assets/lab2_file_structure.png" height="700" alt="lab2 file structure">
-</details>
-
 ## 🏋️‍♀️ Steps:
 
 1. Make sure you can run Nx commands:
@@ -30,7 +23,7 @@ In this lab we'll generate our first React application within the new monorepo.
    - install the CLI globally: `npm i -g @nrwl/cli`
    - if you don't want to install it globally, use `yarn nx` (if you have yarn) or `npx nx` (otherwise) instead of `nx` in all the commands in the upcoming labs
 
-   > Please make sure you are using the latest version of Nx (12.6+)
+   > Please make sure you are using the latest version of Nx (16.1+)
    > <br />
 
 2. Run `nx list` to see which plugins you have installed
@@ -44,7 +37,7 @@ In this lab we'll generate our first React application within the new monorepo.
 
 5. Use the [`@nx/react` plugin](https://nx.dev/react/api/react/generators/application) to generate an React app called `store` in your new workspace
 
-   ⚠️**Important:** Make sure you **add React Router** and select **SCSS** as a style when asked!
+   ⚠️**Important:** Make sure you **add React Router**, select **SCSS** as a style and use the **Webpack** bundler when asked!
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>

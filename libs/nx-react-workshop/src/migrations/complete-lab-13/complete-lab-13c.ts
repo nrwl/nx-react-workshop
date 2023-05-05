@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nx/devkit';
+import { formatFiles, Tree } from '@nx/devkit';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   host.write(
     'libs/api/util-notifications/src/lib/api-util-notifications.ts',
     `
@@ -10,4 +10,5 @@ export default function update(host: Tree) {
     }
 `
   );
+  await formatFiles(host);
 }

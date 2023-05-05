@@ -5,6 +5,7 @@ import { componentGenerator, libraryGenerator } from '@nx/react';
 
 export default async function update(host: Tree) {
   // nx generate @nx/react:library feature-game-detail --directory=store --appProject=store --no-component
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await libraryGenerator(host, {
     name: 'feature-game-detail',
     directory: 'store',
@@ -93,19 +94,11 @@ export default App;
 `
   );
 
-  process.env.NX_PROJECT_GLOB_CACHE = 'false';
-  // nx generate @nx/react:component game-detail --project=store-feature-game-detail
-  await componentGenerator(host, {
-    name: 'game-detail',
-    project: 'store-feature-game-detail',
-    style: 'styled-components',
-    export: true,
-  });
   process.env.NX_PROJECT_GLOB_CACHE = 'true';
   host.write(
-    'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
+    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.tsx',
     `import { useParams } from 'react-router-dom';
-import styles from './game-detail.module.css';
+import styles from './store-feature-game-detail.module.scss';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -136,7 +129,7 @@ export default StoreFeatureGameDetail;
 `
   );
   host.write(
-    'libs/store/feature-game-detail/src/lib/game-detail/game-detail.module.css',
+    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.scss',
     `.game-image {
   width: 300px;
   border-radius: 20px;

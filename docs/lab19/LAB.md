@@ -126,7 +126,7 @@
 
         ```json
         "deploy": {
-            "executor": "@nx/workspace:run-commands",
+            "executor": "nx:run-commands",
                 "outputs": [],
                 "options": {
                 "commands": [ <--- ADD THESE COMMANDS
@@ -158,7 +158,7 @@
 
         ```typescript
         // in apps/api/src/main.ts, capitalize "port"
-        const port = process.env.PORT || 3333;
+        const port = process.env.PORT || 3000;
         ```
 
     <br />

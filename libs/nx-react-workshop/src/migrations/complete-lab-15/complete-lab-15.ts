@@ -41,7 +41,10 @@ jobs:
 `
   );
   updateJson(host, 'nx.json', (json) => {
-    json['implicitDependencies']['.github/workflows/ci.yml'] = '*';
+    json['namedInputs'] = {
+      sharedGlobals: ['{workspaceRoot}/.github/workflows/ci.yml'],
+      default: ['{projectRoot}/**/*', 'sharedGlobals'],
+    };
     return json;
   });
 }

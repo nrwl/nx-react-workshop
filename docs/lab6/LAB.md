@@ -15,11 +15,6 @@ We'll look at more advanced usages of the `@nx/react` generators and generate a 
   <img src="../assets/lab6_screenshot.png" width="500" alt="screenshot of lab6 result">
 </details>
 
-<details>
-  <summary>File structure</summary>
-  <img src="../assets/lab6_directory-structure.png" height="700" alt="lab6 file structure">
-</details>
-
 ## 🏋️‍♀️ Steps:
 
 1. Stop `nx serve`

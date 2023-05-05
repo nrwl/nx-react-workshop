@@ -7,7 +7,7 @@ import {
 } from '@nx/devkit';
 import { applicationGenerator } from '@nx/nest';
 import { runCommandsGenerator } from '@nx/workspace';
-import workspaceGenerator from '@nx/workspace/src/generators/workspace-generator/workspace-generator';
+import { generatorGenerator } from '@nrwl/nx-plugin/generators';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
@@ -31,21 +31,23 @@ export default async function update(host: Tree) {
       'surge dist/apps/admin-ui/exported ${SURGE_DOMAIN_ADMIN_UI} --token ${SURGE_TOKEN}',
   });
 
-  // nx g workspace-generator add-deploy-target
-  workspaceGenerator(host, {
+  // nx g @nx/plugin/generator add-deploy-target
+  generatorGenerator(host, {
+    project: 'internal-plugin',
+    unitTestRunner: 'jest',
     name: 'add-deploy-target',
     skipFormat: true,
   });
 
   host.write(
-    `tools/generators/add-deploy-target/files/.local.env`,
+    `libs/internal-plugin/src/generators/add-deploy-target/files/.local.env`,
     `
 SURGE_DOMAIN_<%= undercaps(project) %>=https://<%= subdomain %>.surge.sh
 `
   );
 
   host.write(
-    `tools/generators/add-deploy-target/index.ts`,
+    `libs/internal-plugin/src/generators/add-deploy-target/index.ts`,
     `
 import {
   Tree,
@@ -95,7 +97,7 @@ export function underscoreWithCaps(value: string): string {
   );
 
   host.write(
-    `tools/generators/add-deploy-target/schema.json`,
+    `libs/internal-plugin/src/generators/add-deploy-target/schema.json`,
     `
 {
   "cli": "nx",

@@ -15,11 +15,6 @@ Let's explore some more Nx plugins by generating and running a storybook configu
   No change in how the app looks!
 </details>
 
-<details>
-  <summary>File structure</summary>
-  <img src="../assets/lab10_directory-structure.png" height="700" alt="lab10 file structure">
-</details>
-
 ## 🏋️‍♀️ Steps:
 
 1.  `yarn add @nx/storybook` or `npm i -S @nx/storybook`

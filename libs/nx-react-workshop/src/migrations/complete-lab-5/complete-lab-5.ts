@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Tree } from '@nx/devkit';
-import { libraryGenerator } from '@nx/workspace';
+import { libraryGenerator } from '@nx/js';
 
 export default async function update(host: Tree) {
-  // nx generate @nx/workspace:lib util-formatters --directory=store
+  // nx generate @nx/js:lib util-formatters --directory=store
   await libraryGenerator(host, {
     name: 'util-formatters',
     directory: 'store',
@@ -33,7 +33,7 @@ import { formatRating } from '@bg-hoard/store/util-formatters';
 export const App = () => {
   return (
     <>
-      <header />
+      <Header />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (

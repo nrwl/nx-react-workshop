@@ -21,11 +21,6 @@ All the Express specific code for serving the games is provided in the solution.
   No change in how the app looks!
 </details>
 
-<details>
-  <summary>File structure</summary>
-  <img src="../assets/lab7_directory-structure.png" height="700" alt="lab7 file structure">
-</details>
-
 ## 🏋️‍♀️ Steps:
 
 1. Stop any running `nx serve` instance

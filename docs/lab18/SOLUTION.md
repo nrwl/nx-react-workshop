@@ -20,10 +20,6 @@ nx build store --configuration production
 
 ```json
 "deploy": {
-  "executor": "@nx/workspace:run-commands",
-  "outputs": [],
-  "options": {
-    "command": "surge dist/apps/store ${SURGE_DOMAIN_STORE} --token ${SURGE_TOKEN}"
-  }
+  "command": "surge dist/apps/store ${SURGE_DOMAIN_STORE} --token ${SURGE_TOKEN}"
 }
 ```

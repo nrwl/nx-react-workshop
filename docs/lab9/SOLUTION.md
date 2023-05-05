@@ -1,7 +1,7 @@
 ##### Generate a new type lib for the API
 
 ```shell
-nx generate @nx/workspace:lib util-interface --directory=api
+nx generate @nx/js:lib util-interface --directory=api
 ```
 
 ##### Use the `move` generator to move a nested lib to root
