@@ -1,0 +1,12 @@
+{
+  "migrations": [
+    {
+      "cli": "nx",
+      "version": "16.1.0-beta.0",
+      "description": "Ignore @nx/react/plugins/storybook in Storybook eslint rules.",
+      "factory": "./src/migrations/update-16-1-0/eslint-ignore-react-plugin",
+      "package": "@nx/storybook",
+      "name": "update-16-1-0"
+    }
+  ]
+}
