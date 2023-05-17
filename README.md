@@ -35,9 +35,8 @@ Nx has support for a lot of platforms, but in this workshop we'll be using mainl
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/en/download/) version 12+ (14 recommended, but other versions might be okay as well)
-  - `node --version`
-- A [Github](http://github.com) account
+- Node.js version 14.0.0 and up
+- `node --version`- A [Github](http://github.com) account
 
 For day 2, option 2 only:
 
