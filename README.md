@@ -39,12 +39,12 @@ Make sure you have the following installed:
   - `node --version`
 - A [Github](http://github.com) account
 
-Optional (these won't be necessary to follow the workshop, but might unlock some bonus/advanced labs for you):
+For day 2, option 2 only:
 
-- [Yarn](https://classic.yarnpkg.com/en/docs/install/) (you can also use `npx` or `pnpx` or global `Nx CLI`)
-  - `yarn --version`
-- A [Heroku](https://heroku.com/) account with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli)
-  - `heroku --version`
+- A Fly.io account
+  - https://fly.io/
+  - with the [CLI installed](https://fly.io/terminal): `fly help`
+  - No need to set up the Credit card, we will use free tier
 - [Docker](https://www.docker.com/get-started)
   - `docker --version`
 
