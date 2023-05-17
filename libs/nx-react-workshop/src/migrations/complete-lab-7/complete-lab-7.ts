@@ -85,4 +85,46 @@ const server = app.listen(port, () => {
 server.on('error', console.error);
 `
   );
+  host.write(
+    'apps/api-e2e/src/api/api.spec.ts',
+    `import axios from 'axios';
+    import { exec } from 'child_process';
+    
+    describe('GET /api/games', () => {
+      it('should return a list of games', async () => {
+        exec('nx serve api');
+        const res = await axios.get(\`/api/games\`);
+    
+        expect(res.status).toBe(200);
+        expect(res.data).toEqual([
+          {
+            description:
+              'Help your bug family claim the best real estate in a spilled can of beans.',
+            id: 'settlers-in-the-can',
+            image: '/assets/beans.png',
+            name: 'Settlers in the Can',
+            price: 35,
+            rating: 0.3587628267267855,
+          },
+          {
+            description: 'A circular game of Chess that you can eat as you play.',
+            id: 'chess-pie',
+            image: '/assets/chess.png',
+            name: 'Chess Pie',
+            price: 15,
+            rating: 0.2276820073595769,
+          },
+          {
+            description: 'A cat grooming contest goes horribly wrong.',
+            id: 'purrfection',
+            image: '/assets/cat.png',
+            name: 'Purrfection',
+            price: 45,
+            rating: 0.6945522801554647,
+          },
+        ]);
+      });
+    });
+    `
+  );
 }

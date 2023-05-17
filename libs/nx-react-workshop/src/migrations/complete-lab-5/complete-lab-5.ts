@@ -76,4 +76,42 @@ export const App = () => {
 export default App;
 `
   );
+  host.write(
+    'apps/store-e2e/cypress.config.ts',
+    `import { defineConfig } from 'cypress';
+import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
+import { execSync } from 'child_process';
+
+export default defineConfig({
+  e2e: {
+    ...nxE2EPreset(__dirname),
+    setupNodeEvents(on, config) {
+      on('task', {
+        showProjects() {
+          return execSync('nx show projects').toString();
+        },
+      });
+    },
+  },
+});`
+  );
+  host.write(
+    'apps/store-e2e/src/e2e/app.cy.ts',
+    `describe('store', () => {
+      beforeEach(() => cy.visit('/'));
+    
+      it('should have 3 games', () => {
+        cy.contains('Settlers in the Can');
+        cy.contains('Chess Pie');
+        cy.contains('Purrfection');
+      });
+      it('should have a header', () => {
+        cy.contains('Board Game Hoard');
+      });
+      it('should have a store-util-formatters library', () => {
+        cy.task('showProjects').should('contain', 'store-util-formatters');
+      });
+    });
+`
+  );
 }

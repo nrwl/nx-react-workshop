@@ -156,6 +156,19 @@ export default async function update(tree: Tree) {
   export default App;
   `
   );
+  tree.write(
+    'apps/store-e2e/src/e2e/app.cy.ts',
+    `describe('store', () => {
+    beforeEach(() => cy.visit('/'));
+  
+    it('should have 3 games', () => {
+      cy.contains('Settlers in the Can');
+      cy.contains('Chess Pie');
+      cy.contains('Purrfection');
+    });
+  });
+  `
+  );
   formatFiles(tree);
   async function download(uri: string, filename: string) {
     await fetch(uri)
