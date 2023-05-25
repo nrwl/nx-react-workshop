@@ -10,6 +10,7 @@ export default async function update(host: Tree) {
     {},
     {
       '@nx/storybook': dependencies['@nx/storybook'],
+      vite: 'latest',
     }
   );
   // nx generate @nx/react:storybook-configuration store-ui-shared
@@ -19,4 +20,18 @@ export default async function update(host: Tree) {
     generateStories: true,
     generateCypressSpecs: true,
   });
+  host.write(
+    'apps/store-ui-shared-e2e/src/e2e/header/header.cy.ts',
+    `
+    describe('store-ui-shared: Header component', () => {
+      beforeEach(() =>
+        cy.visit('/iframe.html?id=header--primary&args=title:BoardGameHoard')
+      );
+
+      it('should show the title', () => {
+        cy.get('h6').contains('Board Game Hoard');
+      });
+    });
+    `
+  );
 }
