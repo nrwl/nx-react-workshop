@@ -274,4 +274,20 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
   export default StoreFeatureGameDetail;
   `
   );
+  host.write(
+    'apps/api-e2e/src/api/graph.spec.ts',
+    `import { execSync } from 'child_process';
+    import { readFileSync } from 'node:fs';
+    
+    describe('Dependencies', () => {
+      it('should have three dependencies on util-interface', async () => {
+        execSync('nx graph --file=graph.json');
+        const graph = JSON.parse(readFileSync('graph.json').toString());
+        expect(graph.graph.dependencies['store'].some(dep => dep.target === 'util-interface')).toBe(true);
+        expect(graph.graph.dependencies['store-feature-game-detail'].some(dep => dep.target === 'util-interface')).toBe(true);
+        expect(graph.graph.dependencies['api'].some(dep => dep.target === 'util-interface')).toBe(true);
+      });
+    });
+    `
+  );
 }

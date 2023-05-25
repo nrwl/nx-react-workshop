@@ -109,40 +109,40 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 9.  We can now import it in the frontend components and use it when making the `http` request:
 
-        <details>
-        <summary>🐳 &nbsp;&nbsp;Hint</summary>
+    <details>
+    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
-        Frontend store shell app: `apps/store/src/app/app.tsx`
+    Frontend store shell app: `apps/store/src/app/app.tsx`
 
-        ```typescript
-        import { Game } from '@bg-hoard/util-interface';
+    ```typescript
+    import { Game } from '@bg-hoard/util-interface';
 
-        const [state, setState] = useState<{
-          data: Game[];
-          loadingState: 'success' | 'error' | 'loading';
-        }>({
-          data: [],
-          loadingState: 'success',
-        });
-        ```
+    const [state, setState] = useState<{
+      data: Game[];
+      loadingState: 'success' | 'error' | 'loading';
+    }>({
+      data: [],
+      loadingState: 'success',
+    });
+    ```
 
-        ***
+    ***
 
-        Routed game detail component: `libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx`
+    Routed game detail component: `libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx`
 
-        ```typescript
-        const [state, setState] = useState<{
-          data: Partial<Game>;
-          loadingState: 'success' | 'error' | 'loading';
-        }>({
-          data: {},
-          loadingState: 'success',
-        });
-        ```
+    ```typescript
+    const [state, setState] = useState<{
+      data: Partial<Game>;
+      loadingState: 'success' | 'error' | 'loading';
+    }>({
+      data: {},
+      loadingState: 'success',
+    });
+    ```
 
-        </details>
+    </details>
 
-        ⚠️&nbsp;&nbsp;Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
+    ⚠️&nbsp;&nbsp;Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
 
     <br />
 

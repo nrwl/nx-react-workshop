@@ -3,7 +3,7 @@ import { Tree } from '@nx/devkit';
 
 export default function update(host: Tree) {
   host.write(
-    'apps/store-ui-shared-e2e/src/integration/header/header.spec.ts',
+    'apps/store-ui-shared-e2e/src/e2e/header/header.cy.ts',
     `
     describe('store-ui-shared: Header component', () => {
       beforeEach(() =>
@@ -11,7 +11,7 @@ export default function update(host: Tree) {
       );
 
       it('should show the title', () => {
-        cy.get('header').contains('Board Game Hoard');
+        cy.get('h6').contains('Board Game Hoard');
       });
     });
     `
