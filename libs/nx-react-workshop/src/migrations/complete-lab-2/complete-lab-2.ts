@@ -4,10 +4,10 @@ import {
   formatFiles,
   installPackagesTask,
   Tree,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { dependencies } from '../../../package.json';
-import { applicationGenerator } from '@nrwl/react';
-import { Linter } from '@nrwl/linter';
+import { applicationGenerator } from '@nx/react';
+import { Linter } from '@nx/linter';
 import fetch from 'node-fetch';
 
 export default async function update(tree: Tree) {
@@ -17,9 +17,10 @@ export default async function update(tree: Tree) {
       '@material-ui/core': 'latest',
     },
     {
-      '@nrwl/react': dependencies['@nrwl/react'],
+      '@nx/react': dependencies['@nx/react'],
     }
   );
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await applicationGenerator(tree, {
     name: 'store',
     babelJest: true,
@@ -30,6 +31,7 @@ export default async function update(tree: Tree) {
     unitTestRunner: 'jest',
     routing: true,
   });
+  process.env.NX_PROJECT_GLOB_CACHE = 'true';
   tree.write(
     'apps/store/src/fake-api.ts',
     `const games = [
@@ -152,6 +154,19 @@ export default async function update(tree: Tree) {
   };
 
   export default App;
+  `
+  );
+  tree.write(
+    'apps/store-e2e/src/e2e/app.cy.ts',
+    `describe('store', () => {
+    beforeEach(() => cy.visit('/'));
+  
+    it('should have 3 games', () => {
+      cy.contains('Settlers in the Can');
+      cy.contains('Chess Pie');
+      cy.contains('Purrfection');
+    });
+  });
   `
   );
   formatFiles(tree);

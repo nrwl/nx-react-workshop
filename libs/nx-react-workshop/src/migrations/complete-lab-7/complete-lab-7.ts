@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, addDependenciesToPackageJson } from '@nrwl/devkit';
-import { applicationGenerator } from '@nrwl/express';
-import { Linter } from '@nrwl/linter';
+import { Tree, addDependenciesToPackageJson } from '@nx/devkit';
+import { applicationGenerator } from '@nx/express';
+import { Linter } from '@nx/linter';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
@@ -9,11 +9,11 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      '@nrwl/express': dependencies['@nrwl/express'],
+      '@nx/express': dependencies['@nx/express'],
     }
   );
 
-  // nx generate @nrwl/express:application api --frontendProject=store
+  // nx generate @nx/express:application api --frontendProject=store
   await applicationGenerator(host, {
     name: 'api',
     frontendProject: 'store',
@@ -65,7 +65,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
 * This is only a minimal backend to get started.
 */
 
-import * as express from 'express';
+import express from 'express';
 import { getAllGames, getGame } from './app/games.repository';
 
 const app = express();
@@ -78,11 +78,50 @@ app.get('/api/games/:id', (req, res) => {
  return res.send(getGame(req.params.id));
 });
 
-const port = process.env.port || 3333;
+const port = process.env.port || 3000;
 const server = app.listen(port, () => {
  console.log(\`Listening at http://localhost:\${port}/api\`);
 });
 server.on('error', console.error);
 `
+  );
+  host.write(
+    'apps/api-e2e/src/api/api.spec.ts',
+    `import axios from 'axios';
+    import { exec } from 'child_process';
+    
+    describe('GET /api/games', () => {
+      it('should return a list of games', async () => {
+        exec('nx serve api');
+        const res = await axios.get(\`/api/games\`);
+    
+        expect(res.status).toBe(200);
+        expect(res.data).toMatchObject([
+          {
+            description:
+              'Help your bug family claim the best real estate in a spilled can of beans.',
+            id: 'settlers-in-the-can',
+            image: '/assets/beans.png',
+            name: 'Settlers in the Can',
+            price: 35,
+          },
+          {
+            description: 'A circular game of Chess that you can eat as you play.',
+            id: 'chess-pie',
+            image: '/assets/chess.png',
+            name: 'Chess Pie',
+            price: 15,
+          },
+          {
+            description: 'A cat grooming contest goes horribly wrong.',
+            id: 'purrfection',
+            image: '/assets/cat.png',
+            name: 'Purrfection',
+            price: 45,
+          },
+        ]);
+      });
+    });
+    `
   );
 }

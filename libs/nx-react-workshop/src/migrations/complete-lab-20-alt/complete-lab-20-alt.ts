@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { formatFiles, Tree } from '@nrwl/devkit';
-import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
+import { formatFiles, Tree } from '@nx/devkit';
+import { insertImport } from '../utils';
 import { tsquery } from '@phenomnomnominal/tsquery';
 
 export default function update(host: Tree) {

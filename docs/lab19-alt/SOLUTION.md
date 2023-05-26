@@ -40,8 +40,8 @@ import {
   formatFiles,
   installPackagesTask,
   generateFiles,
-} from '@nrwl/devkit';
-import { runCommandsGenerator } from '@nrwl/workspace/generators';
+} from '@nx/devkit';
+import { runCommandsGenerator } from '@nx/workspace/generators';
 import { join } from 'path';
 
 interface Schema {

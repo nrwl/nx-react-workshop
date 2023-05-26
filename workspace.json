@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "nx-react-workshop": "libs/nx-react-workshop",
-    "nx-workshop-e2e": "apps/nx-workshop-e2e"
-  }
-}

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace';
+import { Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/workspace:lib util-formatters --directory=store
+  // nx generate @nx/js:lib util-formatters --directory=store
   await libraryGenerator(host, {
     name: 'util-formatters',
     directory: 'store',
@@ -33,7 +33,7 @@ import { formatRating } from '@bg-hoard/store/util-formatters';
 export const App = () => {
   return (
     <>
-      <header />
+      <Header />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
@@ -74,6 +74,44 @@ export const App = () => {
 };
 
 export default App;
+`
+  );
+  host.write(
+    'apps/store-e2e/cypress.config.ts',
+    `import { defineConfig } from 'cypress';
+import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
+import { execSync } from 'child_process';
+
+export default defineConfig({
+  e2e: {
+    ...nxE2EPreset(__dirname),
+    setupNodeEvents(on, config) {
+      on('task', {
+        showProjects() {
+          return execSync('nx show projects').toString();
+        },
+      });
+    },
+  },
+});`
+  );
+  host.write(
+    'apps/store-e2e/src/e2e/app.cy.ts',
+    `describe('store', () => {
+      beforeEach(() => cy.visit('/'));
+    
+      it('should have 3 games', () => {
+        cy.contains('Settlers in the Can');
+        cy.contains('Chess Pie');
+        cy.contains('Purrfection');
+      });
+      it('should have a header', () => {
+        cy.contains('Board Game Hoard');
+      });
+      it('should have a store-util-formatters library', () => {
+        cy.task('showProjects').should('contain', 'store-util-formatters');
+      });
+    });
 `
   );
 }

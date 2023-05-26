@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
+import {
+  Tree,
+  readProjectConfiguration,
+  updateProjectConfiguration,
+} from '@nx/devkit';
 
 export default function update(host: Tree) {
   host.delete('apps/store/src/fake-api.ts');

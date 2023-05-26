@@ -18,11 +18,6 @@ We'll build the app we just created, and look at what executors are and how to c
   <img src="../assets/lab3_screenshot.png" width="500" alt="screenshot of lab3 result">
 </details>
 
-<details>
-  <summary>File structure</summary>
-  <img src="../assets/lab3_directory-structure.png" height="700" alt="lab3 file structure">
-</details>
-
 ## 🏋️‍♀️ Steps:
 
 1. Build the app
@@ -40,7 +35,7 @@ We'll build the app we just created, and look at what executors are and how to c
 
 3. **Open up `apps/store/project.json`** and look at the object under `targets/build`
 
-   - this is the **target**, and it has an **executor** option, that points to `@nrwl/web:build`
+   - this is the **target**, and it has an **executor** option, that points to `@nx/webpack:webpack`
    - Remember how we copied some images into our `/assets` folder earlier? Look through the executor options and try to find how it knows to include them in the final build!
      <br />
 

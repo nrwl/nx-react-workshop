@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { Linter } from '@nrwl/linter';
-import { componentGenerator, libraryGenerator } from '@nrwl/react';
+import { Tree } from '@nx/devkit';
+import { Linter } from '@nx/linter';
+import { componentGenerator, libraryGenerator } from '@nx/react';
 
 export default async function update(tree: Tree) {
-  // nx generate @nrwl/react:lib ui-shared --directory=store --no-component
+  // nx generate @nx/react:lib ui-shared --directory=store --no-component
   await libraryGenerator(tree, {
     name: 'ui-shared',
     directory: 'store',
@@ -15,7 +15,7 @@ export default async function update(tree: Tree) {
     unitTestRunner: 'jest',
     linter: Linter.EsLint,
   });
-  // nx generate @nrwl/react:component header --export --project=store-ui-shared
+  // nx generate @nx/react:component header --export --project=store-ui-shared
   await componentGenerator(tree, {
     name: 'header',
     project: 'store-ui-shared',
@@ -77,7 +77,7 @@ import { Header } from '@bg-hoard/store/ui-shared';
 export const App = () => {
   return (
     <>
-      <header />
+      <Header />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
@@ -119,5 +119,21 @@ export const App = () => {
 
 export default App;
 `
+  );
+  tree.write(
+    'apps/store-e2e/src/e2e/app.cy.ts',
+    `describe('store', () => {
+    beforeEach(() => cy.visit('/'));
+  
+    it('should have 3 games', () => {
+      cy.contains('Settlers in the Can');
+      cy.contains('Chess Pie');
+      cy.contains('Purrfection');
+    });
+    it('should have a header', () => {
+      cy.contains('Board Game Hoard');
+    });
+  });
+  `
   );
 }

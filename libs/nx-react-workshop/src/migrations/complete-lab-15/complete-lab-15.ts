@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, updateJson } from '@nrwl/devkit';
+import { Tree, updateJson } from '@nx/devkit';
 
 export default function update(host: Tree) {
   host.write(
@@ -41,7 +41,10 @@ jobs:
 `
   );
   updateJson(host, 'nx.json', (json) => {
-    json['implicitDependencies']['.github/workflows/ci.yml'] = '*';
+    json['namedInputs'] = {
+      sharedGlobals: ['{workspaceRoot}/.github/workflows/ci.yml'],
+      default: ['{projectRoot}/**/*', 'sharedGlobals'],
+    };
     return json;
   });
 }

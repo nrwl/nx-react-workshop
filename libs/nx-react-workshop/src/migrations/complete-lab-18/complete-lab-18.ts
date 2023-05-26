@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, Tree, updateJson, readJsonFile } from '@nrwl/devkit';
-import { uniq } from '@nrwl/nx-plugin/testing';
-import { runCommandsGenerator } from '@nrwl/workspace';
+import {
+  addDependenciesToPackageJson,
+  Tree,
+  updateJson,
+  readJsonFile,
+} from '@nx/devkit';
+import { uniq } from '@nx/plugin/testing';
+import { runCommandsGenerator } from '@nx/workspace';
 import { execSync } from 'child_process';
 
 export default function update(host: Tree) {

@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
-import { Linter } from '@nrwl/linter';
-import { componentGenerator, libraryGenerator } from '@nrwl/react';
+import { Tree } from '@nx/devkit';
+import { Linter } from '@nx/linter';
+import { componentGenerator, libraryGenerator } from '@nx/react';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/react:library feature-game-detail --directory=store --appProject=store --no-component
+  // nx generate @nx/react:library feature-game-detail --directory=store --appProject=store --no-component
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await libraryGenerator(host, {
     name: 'feature-game-detail',
     directory: 'store',
@@ -93,17 +94,11 @@ export default App;
 `
   );
 
-  // nx generate @nrwl/react:component game-detail --project=store-feature-game-detail
-  await componentGenerator(host, {
-    name: 'game-detail',
-    project: 'store-feature-game-detail',
-    style: 'styled-components',
-    export: true,
-  });
+  process.env.NX_PROJECT_GLOB_CACHE = 'true';
   host.write(
-    'libs/store/feature-game-detail/src/lib/game-detail/game-detail.tsx',
+    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.tsx',
     `import { useParams } from 'react-router-dom';
-import styles from './game-detail.module.css';
+import styles from './store-feature-game-detail.module.scss';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -134,7 +129,11 @@ export default StoreFeatureGameDetail;
 `
   );
   host.write(
-    'libs/store/feature-game-detail/src/lib/game-detail/game-detail.module.css',
+    'libs/store/feature-game-detail/src/index.ts',
+    `export * from './lib/store-feature-game-detail';`
+  );
+  host.write(
+    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.scss',
     `.game-image {
   width: 300px;
   border-radius: 20px;
@@ -160,5 +159,30 @@ export default StoreFeatureGameDetail;
   margin-right: 20px;
 }
 `
+  );
+  host.write(
+    'apps/store-e2e/src/e2e/app.cy.ts',
+    `describe('store', () => {
+      beforeEach(() => cy.visit('/'));
+    
+      it('should have 3 games', () => {
+        cy.contains('Settlers in the Can');
+        cy.contains('Chess Pie');
+        cy.contains('Purrfection');
+      });
+      it('should have a header', () => {
+        cy.contains('Board Game Hoard');
+      });
+      it('should have a store-util-formatters library', () => {
+        cy.task('showProjects').should('contain', 'store-util-formatters');
+      });
+      it('should navigate to game details', () => {
+        cy.contains('Settlers in the Can').click();
+        cy.contains('settlers-in-the-can');
+        cy.location('pathname').should('contain', 'settlers-in-the-can');
+      });
+    });
+      
+  `
   );
 }

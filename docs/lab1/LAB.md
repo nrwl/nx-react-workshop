@@ -6,7 +6,7 @@
 
 - **Understand how to bootstrap a new Nx workspace**
 
-#### 📲 After this workshop, your app should look similar to this:
+#### 📲 After this workshop, your file structure should look similar to this:
 
 <details>
   <summary>File structure</summary>
@@ -21,7 +21,7 @@
 2. The workspace name should be `bg-hoard`
 <br />
 
-3. Make sure you select `Empty` workspace and `No to NxCloud` when asked
+3. Make sure you select an `Integrated` workspace, `apps` layout and `No to NxCloud` when asked
 <br />
 
 ---

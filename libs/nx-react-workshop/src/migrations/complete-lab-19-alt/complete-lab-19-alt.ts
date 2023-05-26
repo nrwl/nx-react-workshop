@@ -4,22 +4,22 @@ import {
   formatFiles,
   installPackagesTask,
   Tree,
-} from '@nrwl/devkit';
-import { applicationGenerator } from '@nrwl/nest';
-import { runCommandsGenerator } from '@nrwl/workspace';
-import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
+} from '@nx/devkit';
+import { applicationGenerator } from '@nx/nest';
+import { runCommandsGenerator } from '@nx/workspace';
+import { generatorGenerator } from '@nrwl/nx-plugin/generators';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
-  // yarn add @nrwl/nest # or "npm i -S @nrwl/nest"
+  // yarn add @nx/nest # or "npm i -S @nx/nest"
   addDependenciesToPackageJson(
     host,
     {},
     {
-      '@nrwl/nest': dependencies['@nrwl/nest'],
+      '@nx/nest': dependencies['@nx/nest'],
     }
   );
-  // nx g @nrwl/nest:app admin-ui
+  // nx g @nx/nest:app admin-ui
   await applicationGenerator(host, {
     name: 'admin-ui',
   });
@@ -31,29 +31,31 @@ export default async function update(host: Tree) {
       'surge dist/apps/admin-ui/exported ${SURGE_DOMAIN_ADMIN_UI} --token ${SURGE_TOKEN}',
   });
 
-  // nx g workspace-generator add-deploy-target
-  workspaceGenerator(host, {
+  // nx g @nx/plugin/generator add-deploy-target
+  generatorGenerator(host, {
+    project: 'internal-plugin',
+    unitTestRunner: 'jest',
     name: 'add-deploy-target',
     skipFormat: true,
   });
 
   host.write(
-    `tools/generators/add-deploy-target/files/.local.env`,
+    `libs/internal-plugin/src/generators/add-deploy-target/files/.local.env`,
     `
 SURGE_DOMAIN_<%= undercaps(project) %>=https://<%= subdomain %>.surge.sh
 `
   );
 
   host.write(
-    `tools/generators/add-deploy-target/index.ts`,
+    `libs/internal-plugin/src/generators/add-deploy-target/index.ts`,
     `
 import {
   Tree,
   formatFiles,
   installPackagesTask,
   generateFiles,
-} from '@nrwl/devkit';
-import { runCommandsGenerator } from '@nrwl/workspace/generators';
+} from '@nx/devkit';
+import { runCommandsGenerator } from '@nx/workspace/generators';
 import { join } from 'path';
 
 interface Schema {
@@ -95,7 +97,7 @@ export function underscoreWithCaps(value: string): string {
   );
 
   host.write(
-    `tools/generators/add-deploy-target/schema.json`,
+    `libs/internal-plugin/src/generators/add-deploy-target/schema.json`,
     `
 {
   "cli": "nx",

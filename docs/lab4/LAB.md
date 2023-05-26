@@ -15,17 +15,12 @@ Let's add a header to our app! Because headers can be shared with other componen
   <img src="../assets/lab4_screenshot.png" width="500" alt="screenshot of lab4 result">
 </details>
 
-<details>
-  <summary>File structure</summary>
-  <img src="../assets/lab4_directory-structure.png" height="700" alt="lab4 file structure">
-</details>
-
 ## 🏋️‍♀️ Steps:
 
 1. Stop the `nx serve`
 <br />
 
-2. Generate a new empty React library called `ui-shared` in the `libs/store` folder
+2. Generate a new empty React library called `ui-shared` in the `libs/store` folder.  When asked, choose the `@nx/rollup` executor to build the library.
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>

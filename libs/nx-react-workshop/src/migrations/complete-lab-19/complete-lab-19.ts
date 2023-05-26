@@ -1,5 +1,6 @@
 import {
   addDependenciesToPackageJson,
+  formatFiles,
   readJsonFile,
   readProjectConfiguration,
   Tree,
@@ -8,55 +9,142 @@ import {
 } from '@nrwl/devkit';
 import { uniq } from '@nrwl/nx-plugin/testing';
 import { execSync } from 'child_process';
+import { replaceInFile } from '../utils';
+import executorGenerator from '@nx/plugin/src/generators/executor/executor';
 
-export default function update(host: Tree) {
-  let herokuToken, herokuName;
+export default async function update(host: Tree) {
+  let flyToken, flyName;
   if (host.exists('.nx-workshop.json')) {
     const workshopConstants = readJsonFile('.nx-workshop.json');
-    herokuToken = workshopConstants.herokuToken;
-    herokuName = workshopConstants.surgeName;
+    flyToken = workshopConstants.flyToken;
+    flyName = workshopConstants.flyName;
   }
-  if (!herokuToken || !herokuName) {
-    const herokuToken = execSync('heroku authorizations:create')
+  if (!flyToken || !flyName) {
+    flyToken = execSync('fly auth token')
       .toString()
       .split('\n')
-      .filter((line) => line.startsWith('ID:'))
-      .map((line) => line.replace('ID:', '').trim())[0];
-    herokuName = uniq(`prophetic-narwhal-`);
+      .map((line) => line.trim())[0];
+    flyName = uniq(`prophetic-narwhal-`);
     if (host.exists('.nx-workshop.json')) {
       updateJson(host, '.nx-workshop.json', (json) => {
-        json.herokuToken = herokuToken;
-        json.herokuName = herokuName;
+        json.flyToken = flyToken;
+        json.flyName = flyName;
         return json;
       });
     } else {
-      host.write(
-        '.nx-workshop.json',
-        JSON.stringify({ herokuName, herokuToken })
-      );
+      host.write('.nx-workshop.json', JSON.stringify({ flyName, flyToken }));
     }
   }
 
-  execSync(`heroku create ${herokuName}`);
-
   host.write(
     'apps/api/.local.env',
-    `
-  HEROKU_API_KEY=${herokuToken}
+    `FLY_API_TOKEN=${flyToken}
   `
   );
   host.write(
-    'apps/api/Dockerfile',
+    'apps/api/src/fly.toml',
     `
-# use a Node v12 based image
-FROM node:12-alpine
-# switch to the /app folder in the image
-WORKDIR /app
-# copy all files from the folder its in into the /app folder we switched to
-COPY ./ ./
-# launch the main.js file
-CMD node main.js
+app = "${flyName}"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[build]
+  builder = "paketobuildpacks/builder:base"
+  buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
+
+[env]
+  PORT = "8080"
+
+[experimental]
+  cmd = ["PORT=8080 node main.js"]
+
+[[services]]
+  http_checks = []
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
 `
+  );
+
+  await executorGenerator(host, {
+    name: `fly-deploy`,
+    includeHasher: false,
+    project: 'internal-plugin',
+    unitTestRunner: 'jest',
+  });
+
+  host.write(
+    'libs/internal-plugin/src/executors/fly-deploy/schema.d.ts',
+    `export interface FlyDeployExecutorSchema {
+  distLocation: string;
+  flyAppName: string;
+}
+  `
+  );
+
+  host.write(
+    'libs/internal-plugin/src/executors/fly-deploy/schema.json',
+    `{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "FlyDeploy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "distLocation": {
+      "type": "string"
+    },
+    "flyAppName": {
+      "type": "string"
+    }
+  },
+  "required": ["distLocation", "flyAppName"]
+}
+  `
+  );
+
+  host.write(
+    'libs/internal-plugin/src/executors/fly-deploy/executor.ts',
+    `import { FlyDeployExecutorSchema } from './schema';
+import { execSync } from 'child_process';
+
+export default async function runExecutor(options: FlyDeployExecutorSchema) {
+  const cwd = options.distLocation;
+
+  const results = execSync(\`fly apps list\`);
+  if (results.toString().includes(options.flyAppName)) {
+    execSync(\`fly deploy\`, { cwd });
+  } else {
+    execSync(\`fly launch --now --name=\${options.flyAppName} --region=lax\`, {
+      cwd,
+    });
+  }
+  return {
+    success: true,
+  };
+}
+  `
   );
 
   const apiConfig = readProjectConfiguration(host, 'api');
@@ -67,52 +155,34 @@ CMD node main.js
     'class-transformer',
     'class-validator',
     'cache-manager',
+    'cache-manager/package.json',
+  ];
+  apiConfig.targets.build.configurations.production.assets = [
+    'apps/api/src/assets',
+    'apps/api/src/fly.toml',
   ];
   apiConfig.targets.deploy = {
-    executor: '@nrwl/workspace:run-commands',
+    executor: '@bg-hoard/internal-plugin:fly-deploy',
     outputs: [],
     options: {
-      commands: [
-        'cp ../../../apps/api/Dockerfile .',
-        'heroku container:login',
-        `heroku container:push web -a ${herokuName}`,
-        `heroku container:release web -a ${herokuName}`,
-      ],
-      cwd: 'dist/apps/api',
-      parallel: false,
+      distLocation: 'dist/apps/api',
+      flyAppName: flyName,
     },
+    dependsOn: [{ target: 'build', projects: 'self', params: 'forward' }],
   };
   updateProjectConfiguration(host, 'api', apiConfig);
 
   addDependenciesToPackageJson(host, { cors: '*' }, {});
-  host.write(
+  replaceInFile(
+    host,
     'apps/api/src/main.ts',
-    `
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
-import * as express from 'express';
-import { getAllGames, getGame } from './app/games.repository';
-import * as cors from 'cors';
-
-const app = express();
-
-app.use(cors());
-app.get('/api/games', (req, res) => {
-  res.send(getAllGames());
-});
-
-app.get('/api/games/:id', (req, res) => {
-  return res.send(getGame(req.params.id));
-});
-
-const port = process.env.PORT || 3333;
-const server = app.listen(port, () => {
-  console.log(\`Listening at http://localhost:\${port}/api\`);
-});
-server.on('error', console.error);
+    `app.setGlobalPrefix(globalPrefix);
+  const port = process.env.PORT || 3000;
+`,
+    `app.setGlobalPrefix(globalPrefix);
+  app.enableCors();
+  const port = process.env.PORT || 3000;
 `
   );
+  await formatFiles(host);
 }

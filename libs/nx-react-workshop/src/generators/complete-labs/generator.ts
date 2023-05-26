@@ -1,10 +1,12 @@
-import { formatFiles, readJsonFile, Tree } from '@nrwl/devkit';
+import { formatFiles, readJsonFile, Tree } from '@nx/devkit';
+import { initGenerator } from '@nx/js';
 import { CompleteLabsGeneratorSchema } from './schema';
 
 export default async function (
   tree: Tree,
   options: CompleteLabsGeneratorSchema
 ) {
+  initGenerator(tree, { skipPackageJson: true });
   const { lab, from, to, option } = options;
   const migrationDefinitions = readJsonFile(
     'node_modules/@nrwl/nx-react-workshop/migrations.json'

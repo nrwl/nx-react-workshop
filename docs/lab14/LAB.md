@@ -1,4 +1,4 @@
-# 🧵 Lab 14 - Workspace generators - Modifying files
+# 🧵 Lab 14 - Generators - Modifying files
 
 ###### ⏰ &nbsp;Estimated time: 25-35 minutes
 
@@ -20,7 +20,7 @@
 
 - Refer to the [docs](https://nx.dev/latest/angular/nx-devkit/index#updatejson)
 - Use this utility:
-  - `import { updateJson } from '@nrwl/devkit';`
+  - `import { updateJson } from '@nx/devkit';`
 - As always, the answer is in the [the solution](SOLUTION.md). Try a few different approaches on your own first.
 </details>
 
@@ -65,7 +65,7 @@ we don't need this property in the generate, you can remove it from the schema.
 
 4. It's good practice to have your generator run your modified files through Prettier after modifying them. You might already have this, but just in case you removed it:
 
-   - Use `import { formatFiles } from '@nrwl/devkit';`
+   - Use `import { formatFiles } from '@nx/devkit';`
    - `await` this at the end of your generator
      <br /> <br />
 

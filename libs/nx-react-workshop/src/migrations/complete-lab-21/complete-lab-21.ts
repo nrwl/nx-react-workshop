@@ -1,4 +1,4 @@
-import { readJsonFile, Tree } from '@nrwl/devkit';
+import { readJsonFile, Tree } from '@nx/devkit';
 
 export default function update(host: Tree) {
   const { herokuName } = readJsonFile('.nx-workshop.json');
