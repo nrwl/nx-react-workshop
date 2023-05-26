@@ -57,6 +57,7 @@ export default async function (tree: Tree) {
   );
   await formatFiles(tree);
 }
+
 ```
 
 ##### Final generator code
