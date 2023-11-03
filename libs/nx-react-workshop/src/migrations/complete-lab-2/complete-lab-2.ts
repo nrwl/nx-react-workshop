@@ -23,7 +23,6 @@ export default async function update(tree: Tree) {
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await applicationGenerator(tree, {
     name: 'store',
-    babelJest: true,
     e2eTestRunner: 'cypress',
     skipFormat: true,
     linter: Linter.EsLint,
@@ -160,7 +159,7 @@ export default async function update(tree: Tree) {
     'apps/store-e2e/src/e2e/app.cy.ts',
     `describe('store', () => {
     beforeEach(() => cy.visit('/'));
-  
+
     it('should have 3 games', () => {
       cy.contains('Settlers in the Can');
       cy.contains('Chess Pie');

@@ -1,5 +1,5 @@
 {
-  "name": "nx-react-workshop",
+  "name": "@nrwl/nx-react-workshop",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -9,23 +9,7 @@
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
-    "affected:apps": "nx affected:apps",
-    "affected:libs": "nx affected:libs",
-    "affected:build": "nx affected:build",
-    "affected:e2e": "nx affected:e2e",
-    "affected:test": "nx affected:test",
-    "affected:lint": "nx affected:lint",
-    "affected:dep-graph": "nx affected:dep-graph",
-    "affected": "nx affected",
-    "format": "nx format:write",
-    "format:write": "nx format:write",
-    "format:check": "nx format:check",
-    "update": "nx migrate latest",
-    "workspace-generator": "nx workspace-generator",
-    "dep-graph": "nx dep-graph",
-    "help": "nx help",
-    "cherry-pick-all": "./tools/cherry-pick-all.sh",
-    "migrate-all": "./tools/migrate-all.sh"
+    "local-release": "ts-node -P ./scripts/tsconfig.release.json ./scripts/local-release"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +19,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@nx/devkit": "17.0.2",
@@ -67,8 +51,8 @@
     "prettier": "2.6.2",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
-    "tslib": "^2.0.0",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "verdaccio": "^5.27.0"
   },
   "packageManager": "yarn@4.0.1"
 }
