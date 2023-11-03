@@ -16,11 +16,12 @@
       }
     },
     "e2e": {
-      "executor": "@nx/plugin:e2e",
+      "executor": "@nx/jest:jest",
       "options": {
-        "target": "nx-react-workshop:build",
-        "jestConfig": "apps/nx-workshop-e2e/jest.config.js"
-      }
+        "jestConfig": "apps/nx-workshop-e2e/jest.config.js",
+        "runInBand": true
+      },
+      "dependsOn": ["nx-react-workshop:build"]
     }
   }
 }

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Tree, addDependenciesToPackageJson } from '@nx/devkit';
 import { applicationGenerator } from '@nx/express';
-import { Linter } from '@nx/linter';
+import { Linter } from '@nx/eslint';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {

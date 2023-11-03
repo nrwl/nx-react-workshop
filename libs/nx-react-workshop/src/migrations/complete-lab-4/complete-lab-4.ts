@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Tree } from '@nx/devkit';
-import { Linter } from '@nx/linter';
+import { Linter } from '@nx/eslint';
 import { componentGenerator, libraryGenerator } from '@nx/react';
 
 export default async function update(tree: Tree) {
