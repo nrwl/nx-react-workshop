@@ -61,8 +61,8 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "npx nx build nx-react-workshop",
-          "npm publish dist/libs/nx-react-workshop"
+          "yarn nx build nx-react-workshop",
+          "yarn publish dist/libs/nx-react-workshop"
         ]
       }
     }
