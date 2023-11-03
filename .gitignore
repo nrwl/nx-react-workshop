@@ -39,3 +39,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Local dev files
+.env
+.bashrc
+.nx
+.nx/cache
