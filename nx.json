@@ -1,30 +1,31 @@
 {
-  "npmScope": "nx-react-workshop",
   "affected": {
     "defaultBase": "main"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "MDY4ZTQ2YzAtNjVmOC00YjY1LTk4ODEtMzU0N2UxZDhhYzRjfHJlYWQtd3JpdGU="
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nx/workspace"
   },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "inputs": ["production", "^production"],
+      "cache": true
     },
     "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "cache": true
     },
     "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
+    },
+    "build-storybook": {
+      "inputs": [
+        "default",
+        "^production",
+        "{projectRoot}/.storybook/**/*",
+        "{projectRoot}/tsconfig.storybook.json"
+      ]
     }
   },
   "namedInputs": {
@@ -35,7 +36,12 @@
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/.eslintrc.json"
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/tsconfig.storybook.json"
     ]
-  }
+  },
+  "nxCloudAccessToken": "MDY4ZTQ2YzAtNjVmOC00YjY1LTk4ODEtMzU0N2UxZDhhYzRjfHJlYWQtd3JpdGU="
 }

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { formatFiles, Tree, updateJson } from '@nx/devkit';
 import { pluginGenerator, generatorGenerator } from '@nx/plugin/generators';
-import { Linter } from '@nx/linter';
+import { Linter } from '@nx/eslint';
 
 export default async function update(host: Tree) {
   // nx generate @nx/plugin:generator util-lib
@@ -108,6 +108,7 @@ describe('util-lib generator', () => {
     expect(config.tags).toEqual(['type:util', 'scope:store']);
   });
 });
-    `);
+    `
+  );
   await formatFiles(host);
 }

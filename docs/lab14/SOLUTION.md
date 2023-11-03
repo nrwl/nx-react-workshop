@@ -57,7 +57,6 @@ export default async function (tree: Tree) {
   );
   await formatFiles(tree);
 }
-
 ```
 
 ##### Final generator code
@@ -154,7 +153,7 @@ import { generatorGenerator, pluginGenerator } from '@nx/plugin/generators';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-import { Linter } from '@nx/linter';
+import { Linter } from '@nx/eslint';
 import generator from './generator';
 
 describe('update-scope-schema generator', () => {

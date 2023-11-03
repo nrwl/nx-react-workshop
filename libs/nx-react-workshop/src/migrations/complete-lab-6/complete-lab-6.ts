@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Tree } from '@nx/devkit';
-import { Linter } from '@nx/linter';
-import { componentGenerator, libraryGenerator } from '@nx/react';
+import { Linter } from '@nx/eslint';
+import { libraryGenerator } from '@nx/react';
 
 export default async function update(host: Tree) {
   // nx generate @nx/react:library feature-game-detail --directory=store --appProject=store --no-component
@@ -164,7 +164,7 @@ export default StoreFeatureGameDetail;
     'apps/store-e2e/src/e2e/app.cy.ts',
     `describe('store', () => {
       beforeEach(() => cy.visit('/'));
-    
+
       it('should have 3 games', () => {
         cy.contains('Settlers in the Can');
         cy.contains('Chess Pie');
@@ -182,7 +182,7 @@ export default StoreFeatureGameDetail;
         cy.location('pathname').should('contain', 'settlers-in-the-can');
       });
     });
-      
+
   `
   );
 }

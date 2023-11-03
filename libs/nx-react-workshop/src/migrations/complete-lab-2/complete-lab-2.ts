@@ -7,7 +7,7 @@ import {
 } from '@nx/devkit';
 import { dependencies } from '../../../package.json';
 import { applicationGenerator } from '@nx/react';
-import { Linter } from '@nx/linter';
+import { Linter } from '@nx/eslint';
 import fetch from 'node-fetch';
 
 export default async function update(tree: Tree) {
