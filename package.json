@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@nx/devkit": "17.0.2",
+    "@nx/eslint": "17.0.2",
     "@nx/eslint-plugin": "17.0.2",
     "@nx/express": "17.0.2",
     "@nx/jest": "17.0.2",
@@ -67,7 +68,7 @@
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
     "tslib": "^2.0.0",
-    "typescript": "5.1.6",
-    "@nx/eslint": "17.0.2"
-  }
+    "typescript": "5.1.6"
+  },
+  "packageManager": "yarn@4.0.1"
 }

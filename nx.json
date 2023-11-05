@@ -43,5 +43,6 @@
       "!{projectRoot}/tsconfig.storybook.json"
     ]
   },
-  "nxCloudAccessToken": "MDY4ZTQ2YzAtNjVmOC00YjY1LTk4ODEtMzU0N2UxZDhhYzRjfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NzdhYTRjNmQtNGYwMC00MGE0LTk2YzEtNWFlNGU1MDk3OTczfHJlYWQtd3JpdGU=",
+  "nxCloudUrl": "https://staging.nx.app"
 }
