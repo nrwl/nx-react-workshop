@@ -1,3 +1,5 @@
 ##### Generate a framework agnostic lib
 
-`nx generate @nx/js:lib util-formatters --directory=store`
+```bash
+nx generate @nx/js:lib store-util-formatters --directory=libs/store/util-formatters
+```
