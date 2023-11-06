@@ -20,31 +20,31 @@ In this lab we'll generate our first React application within the new monorepo.
 1. Make sure you can run Nx commands:
 
    - try out `nx --version` and see if it outputs a version number
-   - install the CLI globally: `npm i -g @nrwl/cli`
-   - if you don't want to install it globally, use `yarn nx` (if you have yarn) or `npx nx` (otherwise) instead of `nx` in all the commands in the upcoming labs
+   - install the CLI globally: `npm i -g nx`
+   - if you don't want to install it globally, use `npx/yarn/pnpm nx` (depending on the installed package manager) instead of `nx` in all the commands in the upcoming labs
 
-   > Please make sure you are using the latest version of Nx (16.1+)
-   > <br />
+     > Please make sure you are using the latest version of Nx (17+)
+     > <br />
 
 2. Run `nx list` to see which plugins you have installed
    <br />
 
-3. Add the React plugin: `yarn add @nx/react` or `npm i -S @nx/react`
+3. Add the React plugin: `npm i -S @nx/react` (or `yarn add @nx/react` or `pnpm add @nx/react`)
    <br />
 
-4. Let's also add Material UI so we can use some of their components: `yarn add @material-ui/core` or `npm i -S @material-ui/core`
+4. Let's also add Material UI so we can use some of their components: `npm i -S @material-ui/core` (or `yarn add @material-ui/core` or `pnpm add @material-ui/core`)
    <br />
 
-5. Use the [`@nx/react` plugin](https://nx.dev/react/api/react/generators/application) to generate an React app called `store` in your new workspace
+5. Use the [`@nx/react` plugin](https://nx.dev/nx-api/react/generators/application) to generate an React app called `store` in your new workspace
 
-   ⚠️**Important:** Make sure you **add React Router**, select **SCSS** as a style and use the **Webpack** bundler when asked!
+   ⚠️**Important:** Make sure you **add React Router**, select **SCSS** as a style, select **cypress** as E2E test runner, and use the **Webpack** bundler when asked!
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
    <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
    </details><br />
 
-6. Create a `fake-api.ts` file in your new app that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api/index.ts))
+6. Create a `fake-api.ts` file in your new app's `src` folder that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api/index.ts))
 
    ⏳**Reminder:** When you are given example files to copy, the folder they're in hints to the _folder_ and _filename_ you can place them in when you do the copying
    <br />
