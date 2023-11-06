@@ -20,7 +20,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 1. Stop the `nx serve`
 <br />
 
-2. Generate a new empty React library called `ui-shared` in the `libs/store` folder.  When asked, choose the `@nx/rollup` executor to build the library.
+2. Generate a new empty React library called `store-ui-shared` in the `libs/store/ui-shared` folder.  When asked, choose `jest` as test runner, the `rollup` as a bundler and `as-provided` naming convention.
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
@@ -30,7 +30,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 
    </details><br />
 
-3. Generate a new React component, called `header`, inside the lib you just created
+3. Generate a new React component, called `header`, inside the `src/lib` folder of the library you just created
 
    ⚠️&nbsp;&nbsp;Play around with the generator options so that the generated component is automatically **exported** from the lib's module
 
@@ -75,7 +75,7 @@ Let's add a header to our app! Because headers can be shared with other componen
     <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    ```bash
-   nx dep-graph
+   nx graph
    ```
 
     </details><br />
