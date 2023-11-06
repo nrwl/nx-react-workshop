@@ -1,7 +1,7 @@
 #### Generate a new lib:
 
 ```bash
-nx generate @nx/react:lib ui-shared --directory=store --no-component
+nx generate @nx/react:lib store-ui-shared --directory=libs/store/ui-shared --no-component
 ```
 
 #### Generate a new component in a project:
