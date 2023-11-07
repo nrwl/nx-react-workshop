@@ -1,6 +1,6 @@
 ##### GitHub CD setup
 
-```
+```yaml
 name: Deploy Website
 
 on:
@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploying apps
     steps:
-      - uses: actions/checkout@v2.3.4
-      - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx build store -- --configuration=production
+      - uses: actions/checkout@v4
+      - uses: bahmutov/npm-install@v1
+      - run: npm run nx build store
       - run: npm run nx build admin-ui -- --configuration=production
       - run: npm run nx deploy store
       - run: npm run nx deploy admin-ui

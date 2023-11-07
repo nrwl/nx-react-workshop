@@ -1,7 +1,7 @@
 ##### Generate a `internal-plugin` plugin:
 
 ```shell script
-nx generate @nx/plugin:plugin internal-plugin --minimal
+nx generate @nx/plugin:plugin internal-plugin --directory=libs/internal-plugin --minimal
 ```
 
 #### Generate a `util-lib` generator:

@@ -51,7 +51,7 @@ Let's add a header to our app! Because headers can be shared with other componen
     <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    ```typescript
-   import { Header } from '@bg-hoard/store/ui-shared';
+   import { Header } from '@bg-hoard/store-ui-shared';
    ```
 
    ```html

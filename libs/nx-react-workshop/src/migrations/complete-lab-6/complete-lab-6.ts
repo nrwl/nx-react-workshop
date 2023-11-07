@@ -23,11 +23,11 @@ export default async function update(host: Tree) {
     `import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 import { Header } from '@bg-hoard/store-ui-shared';
 import { formatRating } from '@bg-hoard/store-util-formatters';
 
@@ -101,10 +101,10 @@ export default App;
     `import { useParams } from 'react-router-dom';
 import styles from './store-feature-game-detail.module.scss';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 /* eslint-disable-next-line */
 export interface StoreFeatureGameDetailProps {}

@@ -49,7 +49,7 @@
 <br />
 
 4. We talked about how importing a **Feature** lib should not be allowed from a
-   **UI** lib. Let's **test our lint rules** by doing just that: - In `libs/store/ui-shared/src/lib/header/header.tsx` - Try to `import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';`
+   **UI** lib. Let's **test our lint rules** by doing just that: - In `libs/store/ui-shared/src/lib/header/header.tsx` - Try to `import { StoreFeatureGameDetail } from '@bg-hoard/store-feature-game-detail';`
 <br />
 
 5. **Run linting** against all the projects again.
@@ -58,7 +58,7 @@
 6. You should see the expected error. Great! You can now **delete the import** above.
 <br />
 
-7. We also talked about the importance of setting boundaries between your workspace scopes. Let's try and **import a `store` lib** from an `api` scope. - In `apps/api/src/main.ts` - Try to `import { formatRating } from '@bg-hoard/store/util-formatters';`
+7. We also talked about the importance of setting boundaries between your workspace scopes. Let's try and **import a `store` lib** from an `api` scope. - In `apps/api/src/main.ts` - Try to `import { formatRating } from '@bg-hoard/store-util-formatters';`
 <br />
 
 8. **Run linting** on all projects - you should see another expected error.

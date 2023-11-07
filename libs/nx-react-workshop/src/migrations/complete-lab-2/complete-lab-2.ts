@@ -14,7 +14,7 @@ export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
     tree,
     {
-      '@material-ui/core': 'latest',
+      '@mui/material': 'latest',
     },
     {
       '@nx/react': dependencies['@nx/react'],
@@ -112,11 +112,11 @@ export default async function update(tree: Tree) {
     `import styles from './app.module.scss';
   import { getAllGames } from '../fake-api';
 
-  import Card from '@material-ui/core/Card';
-  import CardActionArea from '@material-ui/core/CardActionArea';
-  import CardContent from '@material-ui/core/CardContent';
-  import CardMedia from '@material-ui/core/CardMedia';
-  import Typography from '@material-ui/core/Typography';
+  import Card from '@mui/material/Card';
+  import CardActionArea from '@mui/material/CardActionArea';
+  import CardContent from '@mui/material/CardContent';
+  import CardMedia from '@mui/material/CardMedia';
+  import Typography from '@mui/material/Typography';
 
   export const App = () => {
     return (

@@ -16,9 +16,9 @@ export default async function update(host: Tree) {
   // nx generate @nx/react:storybook-configuration store-ui-shared
   await storybookConfigurationGenerator(host, {
     name: 'store-ui-shared',
-    configureCypress: true,
+    configureCypress: false,
     generateStories: true,
-    generateCypressSpecs: true,
+    interactionTests: true,
   });
   host.write(
     'apps/store-ui-shared-e2e/src/e2e/header/header.cy.ts',
