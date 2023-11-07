@@ -21,7 +21,7 @@
 2. The workspace name should be `bg-hoard`
 <br />
 
-3. Make sure you select an `Integrated` workspace, `apps` layout and `No to NxCloud` when asked
+3. Make sure you select `None` as Stack (we will create apps manually), an `Integrated` workspace layout and `No to NxCloud` when asked
 <br />
 
 ---
