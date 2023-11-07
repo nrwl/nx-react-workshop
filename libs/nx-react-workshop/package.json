@@ -12,11 +12,11 @@
     "cors": "*",
     "node-fetch": "^2.x",
     "surge": "*",
-    "@nx/workspace": "16.1.4",
-    "@nx/storybook": "16.1.4",
-    "@nx/plugin": "16.1.4",
-    "@nx/express": "16.1.4",
-    "@nx/react": "16.1.4",
-    "@nx/nest": "16.1.4"
+    "@nx/workspace": "17.0.2",
+    "@nx/storybook": "17.0.2",
+    "@nx/plugin": "17.0.2",
+    "@nx/express": "17.0.2",
+    "@nx/react": "17.0.2",
+    "@nx/nest": "17.0.2"
   }
 }

@@ -5,8 +5,9 @@ import { libraryGenerator } from '@nx/js';
 export default async function update(host: Tree) {
   // nx generate @nx/js:lib util-formatters --directory=store
   await libraryGenerator(host, {
-    name: 'util-formatters',
-    directory: 'store',
+    name: 'store-util-formatters',
+    directory: 'libs/store/util-formatters',
+    projectNameAndRootFormat: 'as-provided',
   });
 
   host.write(
@@ -99,7 +100,7 @@ export default defineConfig({
     'apps/store-e2e/src/e2e/app.cy.ts',
     `describe('store', () => {
       beforeEach(() => cy.visit('/'));
-    
+
       it('should have 3 games', () => {
         cy.contains('Settlers in the Can');
         cy.contains('Chess Pie');

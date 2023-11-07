@@ -9,7 +9,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
-import { formatRating } from '@bg-hoard/store/util-formatters';
+import { formatRating } from '@bg-hoard/store-util-formatters';
 
 /* eslint-disable-next-line */
 export interface StoreFeatureGameDetailProps {}
@@ -88,6 +88,6 @@ export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
       )}
     </div>
   );
-};
+}
 
 export default StoreFeatureGameDetail;

@@ -6,8 +6,9 @@ import { libraryGenerator } from '@nx/js';
 export default async function update(host: Tree) {
   // nx generate @nx/js:lib util-interface --directory=api
   await libraryGenerator(host, {
-    name: 'util-interface',
-    directory: 'api',
+    name: 'api-util-interface',
+    directory: 'libs/api/util-interface',
+    projectNameAndRootFormat: 'as-provided',
   });
   host.write(
     'libs/api/util-interface/src/lib/api-util-interface.ts',
@@ -278,7 +279,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
     'apps/api-e2e/src/api/graph.spec.ts',
     `import { execSync } from 'child_process';
     import { readFileSync } from 'node:fs';
-    
+
     describe('Dependencies', () => {
       it('should have three dependencies on util-interface', async () => {
         execSync('nx graph --file=graph.json');

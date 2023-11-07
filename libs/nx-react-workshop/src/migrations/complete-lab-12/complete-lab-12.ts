@@ -82,7 +82,7 @@ describe('Dependencies', () => {
   it('should fail linting when tag rules are applied', async () => {
     writeFileSync(
       'libs/util-interface/src/index.ts',
-      \`import {} from '@bg-hoard/store/ui-shared';
+      \`import {} from '@bg-hoard/store-ui-shared';
 
 export * from './lib/api-util-interface';
 \`

@@ -24,6 +24,8 @@ export default async function update(tree: Tree) {
   await applicationGenerator(tree, {
     name: 'store',
     e2eTestRunner: 'cypress',
+    directory: 'apps/store',
+    projectNameAndRootFormat: 'as-provided',
     skipFormat: true,
     linter: Linter.EsLint,
     style: 'scss',

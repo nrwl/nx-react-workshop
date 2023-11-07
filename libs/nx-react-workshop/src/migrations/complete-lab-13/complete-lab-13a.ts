@@ -8,6 +8,8 @@ export default async function update(host: Tree) {
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await pluginGenerator(host, {
     name: 'internal-plugin',
+    directory: 'libs/internal-plugin',
+    projectNameAndRootFormat: 'as-provided',
     skipTsConfig: false,
     unitTestRunner: 'jest',
     linter: Linter.EsLint,

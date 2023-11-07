@@ -7,8 +7,9 @@ export default async function update(host: Tree) {
   // nx generate @nx/react:library feature-game-detail --directory=store --appProject=store --no-component
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await libraryGenerator(host, {
-    name: 'feature-game-detail',
-    directory: 'store',
+    name: 'store-feature-game-detail',
+    directory: 'libs/store/feature-game-detail',
+    projectNameAndRootFormat: 'as-provided',
     component: false,
     appProject: 'store',
     style: 'css',
@@ -27,12 +28,12 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Header } from '@bg-hoard/store/ui-shared';
-import { formatRating } from '@bg-hoard/store/util-formatters';
+import { Header } from '@bg-hoard/store-ui-shared';
+import { formatRating } from '@bg-hoard/store-util-formatters';
 
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
+import { StoreFeatureGameDetail } from '@bg-hoard/store-feature-game-detail';
 
 export const App = () => {
   const navigate = useNavigate();

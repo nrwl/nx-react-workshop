@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, updateJson } from '@nx/devkit';
+import { Tree } from '@nx/devkit';
 
 export default function update(host: Tree) {
   host.write(

@@ -6,8 +6,9 @@ import { componentGenerator, libraryGenerator } from '@nx/react';
 export default async function update(tree: Tree) {
   // nx generate @nx/react:lib ui-shared --directory=store --no-component
   await libraryGenerator(tree, {
-    name: 'ui-shared',
-    directory: 'store',
+    name: 'store-ui-shared',
+    directory: 'libs/store/ui-shared',
+    projectNameAndRootFormat: 'as-provided',
     component: false,
     style: 'css',
     skipTsConfig: false,
@@ -15,10 +16,11 @@ export default async function update(tree: Tree) {
     unitTestRunner: 'jest',
     linter: Linter.EsLint,
   });
-  // nx generate @nx/react:component header --export --project=store-ui-shared
+  // nx generate @nx/react:component libs/store/ui-shared/src/lib/header --export
   await componentGenerator(tree, {
     name: 'header',
-    project: 'store-ui-shared',
+    directory: 'libs/store/ui-shared/src/lib/header',
+    nameAndDirectoryFormat: 'as-provided',
     style: 'css',
     export: true,
   });
@@ -72,7 +74,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Header } from '@bg-hoard/store/ui-shared';
+import { Header } from '@bg-hoard/store-ui-shared';
 
 export const App = () => {
   return (
@@ -124,7 +126,7 @@ export default App;
     'apps/store-e2e/src/e2e/app.cy.ts',
     `describe('store', () => {
     beforeEach(() => cy.visit('/'));
-  
+
     it('should have 3 games', () => {
       cy.contains('Settlers in the Can');
       cy.contains('Chess Pie');

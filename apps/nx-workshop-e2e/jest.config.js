@@ -10,6 +10,5 @@ module.exports = {
       },
     ],
   },
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/nx-workshop-e2e',
+  moduleFileExtensions: ['ts', 'js', 'html']
 };
