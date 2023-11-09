@@ -4,24 +4,33 @@ import {
   formatFiles,
   installPackagesTask,
   Tree,
+  updateJson,
 } from '@nx/devkit';
-import { applicationGenerator } from '@nx/nest';
+import { Linter } from '@nx/eslint';
+import { applicationGenerator } from '@nx/next';
 import { runCommandsGenerator } from '@nx/workspace';
-import { generatorGenerator } from '@nrwl/nx-plugin/generators';
+import { generatorGenerator } from '@nx/plugin/generators';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
-  // yarn add @nx/nest # or "npm i -S @nx/nest"
+  // yarn add @nx/next # or "npm i -S @nx/next"
   addDependenciesToPackageJson(
     host,
     {},
     {
-      '@nx/nest': dependencies['@nx/nest'],
+      '@nx/next': dependencies['@nx/next'],
     }
   );
-  // nx g @nx/nest:app admin-ui
+  // nx g @nx/next:app admin-ui
   await applicationGenerator(host, {
     name: 'admin-ui',
+    style: 'scss',
+    directory: 'apps/admin-ui',
+    e2eTestRunner: 'cypress',
+    projectNameAndRootFormat: 'as-provided',
+    skipFormat: true,
+    linter: Linter.EsLint,
+    unitTestRunner: 'jest',
   });
   // nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui/exported \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
   runCommandsGenerator(host, {
@@ -33,7 +42,8 @@ export default async function update(host: Tree) {
 
   // nx g @nx/plugin/generator add-deploy-target
   generatorGenerator(host, {
-    project: 'internal-plugin',
+    directory: 'libs/internal-plugin/src/generators/add-deploy-target',
+    nameAndDirectoryFormat: 'as-provided',
     unitTestRunner: 'jest',
     name: 'add-deploy-target',
     skipFormat: true,
@@ -45,6 +55,12 @@ export default async function update(host: Tree) {
 SURGE_DOMAIN_<%= undercaps(project) %>=https://<%= subdomain %>.surge.sh
 `
   );
+
+  // add js package for dependency checks
+  updateJson(host, 'libs/internal-plugin/package.json', (json) => {
+    json.dependencies['@nx/workspace'] = json.dependencies['@nx/devkit'];
+    return json;
+  });
 
   host.write(
     `libs/internal-plugin/src/generators/add-deploy-target/index.ts`,

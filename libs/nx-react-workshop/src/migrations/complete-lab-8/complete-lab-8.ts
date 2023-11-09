@@ -1,6 +1,4 @@
-import {
-  Tree,
-} from '@nx/devkit';
+import { Tree } from '@nx/devkit';
 
 export default function update(host: Tree) {
   host.delete('apps/store/src/fake-api.ts');
@@ -59,7 +57,7 @@ export const App = () => {
 
   return (
     <>
-      <Header />
+      <Header title="Board Game Hoard" />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {state.loadingState === 'loading'

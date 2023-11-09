@@ -7,7 +7,7 @@ nx generate @nx/plugin:plugin internal-plugin --directory=libs/internal-plugin -
 #### Generate a `util-lib` generator:
 
 ```shell
-nx generate @nx/plugin:generator util-lib --project=internal-plugin
+nx generate @nx/plugin:generator util-lib --directory libs/internal-plugin/src/generators/util-lib
 ```
 
 ##### Running the generator in dry mode

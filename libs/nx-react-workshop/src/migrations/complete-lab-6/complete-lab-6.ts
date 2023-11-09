@@ -39,7 +39,7 @@ export const App = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Header />
+      <Header title="Board Game Hoard" />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (

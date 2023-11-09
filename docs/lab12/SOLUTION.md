@@ -7,7 +7,6 @@
 - store-feature-game-detail: `"tags": ["scope:store", "type:feature"]`
 - api: `"tags": ["scope:api", "type:app"]`
 - util-interface: `"tags": ["scope:shared", "type:util"]`
-- store-ui-shared-e2e: `"tags": ["scope:store", "type:e2e"]`
 
 ##### nx-enforce-module-boundaries rules:
 

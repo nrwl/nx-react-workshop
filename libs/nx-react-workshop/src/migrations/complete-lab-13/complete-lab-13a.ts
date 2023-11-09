@@ -21,8 +21,15 @@ export default async function update(host: Tree) {
 
   await generatorGenerator(host, {
     name: 'util-lib',
-    project: 'internal-plugin',
+    nameAndDirectoryFormat: 'as-provided',
+    directory: 'libs/internal-plugin/src/generators/util-lib',
     unitTestRunner: 'jest',
+  });
+
+  // add js package for dependency checks
+  updateJson(host, 'libs/internal-plugin/package.json', (json) => {
+    json.dependencies['@nx/js'] = json.dependencies['@nx/devkit'];
+    return json;
   });
 
   host.write(

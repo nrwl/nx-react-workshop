@@ -4,11 +4,6 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test",
-    "lint": "nx workspace-lint && nx lint",
-    "e2e": "nx e2e",
     "local-release": "ts-node -P ./scripts/tsconfig.release.json ./scripts/local-release"
   },
   "private": true,
@@ -29,6 +24,7 @@
     "@nx/jest": "17.0.2",
     "@nx/js": "17.0.2",
     "@nx/nest": "17.0.2",
+    "@nx/next": "17.0.2",
     "@nx/node": "17.0.2",
     "@nx/plugin": "17.0.2",
     "@nx/react": "17.0.2",

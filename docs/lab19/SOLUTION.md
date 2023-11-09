@@ -1,24 +1,40 @@
 ##### Creating an API builder
 
 ```shell
-nx generate run-commands deploy --project=api --cwd="dist/apps/api"
+npx nx g @nx/plugin:executor --name=fly-deploy --project=internal-plugin
 ```
 
-##### The full deploy config for the API
+##### BONUS: Executor test
 
-```
-"deploy": {
-    "executor": "nx:run-commands",
-        "outputs": [],
-        "options": {
-        "commands": [
-            "cp ../../../apps/api/Dockerfile .",
-            "heroku container:login",
-            "heroku container:push web -a <the name of your Heroku App>",
-            "heroku container:release web -a <the name of your Heroku App>"
-        ],
-        "cwd": "dist/apps/api",
-        "parallel": false
-    }
-},
+```typescript
+import { FlyDeployExecutorSchema } from './schema';
+import executor from './executor';
+jest.mock('child_process', () => ({
+  execSync: jest.fn(),
+}));
+import { execSync } from 'child_process';
+
+describe('FlyDeploy Executor', () => {
+  beforeEach(() => {
+    (execSync as any) = jest.fn();
+  });
+
+  it('runs the correct fly cli commands', async () => {
+    const options: FlyDeployExecutorSchema = {
+      distLocation: 'dist/apps/foo',
+      flyAppName: 'foo',
+    };
+    const output = await executor(options);
+    expect(output.success).toBe(true);
+    expect(execSync).toHaveBeenCalledWith(`fly apps list`, {
+      cwd: 'dist/apps/foo',
+    });
+    expect(execSync).toHaveBeenCalledWith(
+      `fly launch --now --name=foo --region=lax`,
+      {
+        cwd: 'dist/apps/foo',
+      }
+    );
+  });
+});
 ```

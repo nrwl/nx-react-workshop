@@ -1,7 +1,7 @@
 ##### Generate a `update-scope-schema` generator:
 
 ```shell script
-nx generate @nx/plugin:generator update-scope-schema --project=internal-plugin
+nx generate @nx/plugin:generator update-scope-schema --directory libs/internal-plugin/src/generators/update-scope-schema
 ```
 
 ##### Change default project
@@ -138,7 +138,7 @@ function addScopeIfMissing(host: Tree) {
 {
   "scripts": {
     "postinstall": "husky install",
-    "pre-commit": "npx nx workspace-generator update-scope-schema"
+    "pre-commit": "npx nx g @bg-hoard/internal-plugin:update-scope-schema"
   }
 }
 ```
@@ -196,6 +196,7 @@ describe('update-scope-schema generator', () => {
 async function addUtilLibProject(tree: Tree) {
   await pluginGenerator(tree, {
     name: 'internal-plugin',
+    directory: 'libs/internal-plugin'
     skipTsConfig: false,
     unitTestRunner: 'jest',
     linter: Linter.EsLint,
@@ -206,7 +207,7 @@ async function addUtilLibProject(tree: Tree) {
   });
   await generatorGenerator(tree, {
     name: 'util-lib',
-    project: 'internal-plugin',
+    directory: 'libs/internal-plugin/src/generators/util-lib',
     unitTestRunner: 'jest',
   });
   const filesToCopy = [

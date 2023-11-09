@@ -1,8 +1,8 @@
 ##### Generate a React app
 
 ```shell
-yarn add @nrwl/next # or "npm i -S @nrwl/next"
-nx g @nrwl/next:app admin-ui
+yarn add @nx/next # or "npm i -S @nx/next"
+nx g @nx/next:app admin-ui
 nx serve admin-ui
 ```
 
@@ -21,7 +21,7 @@ nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/ad
 ##### Bonus
 
 ```shell
-nx g workspace-generator add-deploy-target
+nx generate @nx/plugin:generator add-deploy-target --directory libs/internal-plugin/src/generators/add-deploy-target
 ```
 
 ![Folder structure](./solution-structure.png)

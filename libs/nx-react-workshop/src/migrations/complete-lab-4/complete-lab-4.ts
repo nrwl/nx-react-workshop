@@ -27,34 +27,20 @@ export default async function update(tree: Tree) {
 
   tree.write(
     'libs/store/ui-shared/src/lib/header/header.tsx',
-    `import { makeStyles } from '@mui/material/styles';
-  import AppBar from '@mui/material/AppBar';
+    `import AppBar from '@mui/material/AppBar';
   import Toolbar from '@mui/material/Toolbar';
   import Typography from '@mui/material/Typography';
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  }));
+  export interface HeaderProps {
+    title: string;
+  }
 
-  /* eslint-disable-next-line */
-  export interface HeaderProps {}
-
-  export const Header = (props: HeaderProps) => {
-    const classes = useStyles();
-
+  export const Header = ({ title }: HeaderProps) => {
     return (
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Board Game Hoard
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -79,7 +65,7 @@ import { Header } from '@bg-hoard/store-ui-shared';
 export const App = () => {
   return (
     <>
-      <Header />
+      <Header title="Board Game Hoard" />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (

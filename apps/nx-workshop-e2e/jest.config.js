@@ -10,5 +10,5 @@ module.exports = {
       },
     ],
   },
-  moduleFileExtensions: ['ts', 'js', 'html']
+  moduleFileExtensions: ['ts', 'js', 'html'],
 };

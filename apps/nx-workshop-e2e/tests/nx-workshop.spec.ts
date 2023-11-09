@@ -4,20 +4,23 @@ import { ensureDirSync, removeSync, existsSync } from 'fs-extra';
 import { dirname, join } from 'path';
 
 describe('nx-react-workshop e2e', () => {
-  xdescribe('migrations for alternative option', () => {
+  describe('migrations for alternative option', () => {
     it('should run the migrations', () => {
       createNewWorkspace();
 
       expect(() => checkFilesExist(`node_modules/.bin/nx`)).not.toThrow();
     }, 120000);
 
-    for (let i = 1; i < 8; i++) {
+    for (let i = 1; i < 23; i++) {
       it(`should complete lab ${i}`, () => {
         runNxCommand(
-          `generate @nrwl/nx-react-workshop:complete-labs --lab=${i > 18 && i < 22 ? i + '-alt' : i}`
+          `generate @nrwl/nx-react-workshop:complete-labs --lab=${i} --option=option1`
         );
-        runNxCommand('migrate --run-migrations=migrations.json');
-        runNxCommand('run-many --target=e2e --parallel=false');
+        runNxCommand('migrate --run-migrations=migrations.json --verbose');
+        runNxCommand(
+          'run-many --target=e2e --parallel=false --exclude=internal-plugin-e2e'
+        );
+        runNxCommand('run-many --target=lint --parallel=false');
       });
     }
   });
@@ -29,13 +32,16 @@ describe('nx-react-workshop e2e', () => {
       expect(() => checkFilesExist(`node_modules/.bin/nx`)).not.toThrow();
     }, 120000);
 
-    for (let i = 1; i < 11; i++) {
+    for (let i = 1; i < 23; i++) {
       it(`should complete lab ${i}`, () => {
         runNxCommand(
-          `generate @nrwl/nx-react-workshop:complete-labs --lab=${i}`
+          `generate @nrwl/nx-react-workshop:complete-labs --lab=${i} --option=option2`
         );
-        runNxCommand('migrate --run-migrations=migrations.json --verbose');
-        runNxCommand('run-many --target=e2e --parallel=false');
+        runNxCommand('migrate --run-migrations=migrations.json');
+        runNxCommand(
+          'run-many --target=e2e --parallel=false --exclude=internal-plugin-e2e'
+        );
+        runNxCommand('run-many --target=lint --parallel=false');
       });
     }
   });
@@ -63,7 +69,9 @@ function createNewWorkspace() {
   // patch package.json
   const path = join(tmpProjPath(), 'package.json');
   const json = readJsonFile(path);
-  json.devDependencies['@nrwl/nx-react-workshop'] = `file:${workspaceRoot}/dist/libs/nx-react-workshop`;
+  json.devDependencies[
+    '@nrwl/nx-react-workshop'
+  ] = `file:${workspaceRoot}/dist/libs/nx-react-workshop`;
   writeJsonFile(path, json);
   // install dependencies
   execSync('npm install', {
@@ -97,11 +105,12 @@ function runNxCommand(command): string {
   try {
     return _runNxCommand(command)
       .toString()
-      .replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '');
-  }
-  catch (e) {
+      .replace(
+        /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
+        ''
+      );
+  } catch (e) {
     console.log(e.stdout.toString(), e.stderr.toString());
     throw e;
   }
 }
-

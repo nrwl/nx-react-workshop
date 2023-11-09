@@ -11,33 +11,30 @@
 
 ## 🏋️‍♀️ Steps :
 
-1.  Make sure you are on the `master` branch
+1.  Make sure you are on the `main` branch
     <br />
 
 2.  We'll use a CLI tool called [Surge](https://surge.sh/) to statically deploy the frontend:
 
-        ```bash
-        yarn add surge
-        # or
-        npm i -S surge
-        ```
+    ```bash
+    npm i -S surge
+    ```
 
     <br />
 
-
 3.  Get the surge token (you'll need to create an account with an email and password):
 
-        ```
-        npx surge token
-        ```
+    ```
+    npx surge token
+    ```
 
-        ☝️ Copy the token you get
+    ☝️ Copy the token you get
 
     <br />
 
 4.  Let's use the Surge CLI to deploy our project:
 
-        ```bash
+    ```bash
 
     # make sure the project is built first - and we have something in dist
 
@@ -45,15 +42,17 @@
 
     # use surge to deploy whatever assets are in dist/apps/store
 
-    npx surge dist/apps/store https://<chose-some-unique-url-123>.surge.sh --token <your-surge-token>
+    surge dist/apps/store https://<chose-some-unique-url-123>.surge.sh --token <your-surge-token>
 
     ```
 
-     ⚠️&nbsp;&nbsp;Make sure you chose a **unique value** for your domain above, otherwise
-     it will fail as you won't have permission to deploy to an existing one.
+    ⚠️&nbsp;&nbsp;Make sure you chose a **unique value** for your domain above, otherwise
+    it will fail as you won't have permission to deploy to an existing one.
 
-     ⚠️&nbsp;&nbsp;You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server yet to get the games from.
+    ⚠️&nbsp;&nbsp;You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server yet to get the games from.
     <br />
+
+    ```
 
     ```
 
@@ -65,7 +64,7 @@
     <details>
     <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
-    Consult the run-commands generator docs [here](https://nx.dev/latest/angular/workspace/run-commands-executor#run-commands)
+    Consult the run-commands generator docs [here](https://nx.dev/nx-api/workspace/generators/run-commands)
     </details><br />
 
 6.  Use Git to inspect the changes in `project.json` and try to deploy the store using Nx!
@@ -92,15 +91,15 @@
      </details><br />
 
 8.  Now invoke the deploy target again, and check if it all still works.
-         ⚠️&nbsp;&nbsp;Note for Windows users: the command might fail, as we're trying to access env variables the Linux-way.
-         To make it pass, you can generate a separate `windows-deploy` executor (make sure you keep the existing `deploy` target intact - it will be used by GitHub Actions):
+    ⚠️&nbsp;&nbsp;Note for Windows users: the command might fail, as we're trying to access env variables the Linux-way.
+    To make it pass, you can generate a separate `windows-deploy` executor (make sure you keep the existing `deploy` target intact - it will be used by GitHub Actions):
 
         ```bash
         nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN_STORE% --token %SURGE_TOKEN%"
         nx windows-deploy store
         ```
-    <br />
 
+    <br />
 
 ---
 

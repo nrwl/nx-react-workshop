@@ -15,6 +15,8 @@ export default async function update(tree: Tree) {
     tree,
     {
       '@mui/material': 'latest',
+      '@emotion/react': 'latest',
+      '@emotion/styled': 'latest',
     },
     {
       '@nx/react': dependencies['@nx/react'],

@@ -38,7 +38,11 @@ jobs:
 
 ##### Marking all projects as affected
 
-```json
-"implicitDependencies": {
-  ".github/workflows/ci.yml": "*",
+```jsonc
+{
+  "namedInputs": {
+    // ...
+    "sharedGlobals": [, /*..*/ "{workspaceRoot}/.github/workflows/ci.yml"]
+  }
+}
 ```
