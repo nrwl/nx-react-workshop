@@ -6,8 +6,9 @@ import { componentGenerator, libraryGenerator } from '@nx/react';
 export default async function update(tree: Tree) {
   // nx generate @nx/react:lib ui-shared --directory=store --no-component
   await libraryGenerator(tree, {
-    name: 'ui-shared',
-    directory: 'store',
+    name: 'store-ui-shared',
+    directory: 'libs/store/ui-shared',
+    projectNameAndRootFormat: 'as-provided',
     component: false,
     style: 'css',
     skipTsConfig: false,
@@ -15,44 +16,31 @@ export default async function update(tree: Tree) {
     unitTestRunner: 'jest',
     linter: Linter.EsLint,
   });
-  // nx generate @nx/react:component header --export --project=store-ui-shared
+  // nx generate @nx/react:component libs/store/ui-shared/src/lib/header --export
   await componentGenerator(tree, {
     name: 'header',
-    project: 'store-ui-shared',
+    directory: 'libs/store/ui-shared/src/lib/header',
+    nameAndDirectoryFormat: 'as-provided',
     style: 'css',
     export: true,
   });
 
   tree.write(
     'libs/store/ui-shared/src/lib/header/header.tsx',
-    `import { makeStyles } from '@material-ui/core/styles';
-  import AppBar from '@material-ui/core/AppBar';
-  import Toolbar from '@material-ui/core/Toolbar';
-  import Typography from '@material-ui/core/Typography';
+    `import AppBar from '@mui/material/AppBar';
+  import Toolbar from '@mui/material/Toolbar';
+  import Typography from '@mui/material/Typography';
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  }));
+  export interface HeaderProps {
+    title: string;
+  }
 
-  /* eslint-disable-next-line */
-  export interface HeaderProps {}
-
-  export const Header = (props: HeaderProps) => {
-    const classes = useStyles();
-
+  export const Header = ({ title }: HeaderProps) => {
     return (
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Board Game Hoard
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -67,17 +55,17 @@ export default async function update(tree: Tree) {
     `import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import { Header } from '@bg-hoard/store/ui-shared';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Header } from '@bg-hoard/store-ui-shared';
 
 export const App = () => {
   return (
     <>
-      <Header />
+      <Header title="Board Game Hoard" />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
@@ -124,7 +112,7 @@ export default App;
     'apps/store-e2e/src/e2e/app.cy.ts',
     `describe('store', () => {
     beforeEach(() => cy.visit('/'));
-  
+
     it('should have 3 games', () => {
       cy.contains('Settlers in the Can');
       cy.contains('Chess Pie');

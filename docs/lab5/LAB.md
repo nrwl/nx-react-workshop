@@ -36,7 +36,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
    `app.tsx`:
 
    ```ts
-   import { formatRating } from '@bg-hoard/store/util-formatters';
+   import { formatRating } from '@bg-hoard/store-util-formatters';
    ```
 
    ```html

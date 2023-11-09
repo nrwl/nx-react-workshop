@@ -6,8 +6,8 @@ import {
   Tree,
   updateJson,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
-import { uniq } from '@nrwl/nx-plugin/testing';
+} from '@nx/devkit';
+import { uniq } from '@nx/plugin/testing';
 import { execSync } from 'child_process';
 import { replaceInFile } from '../utils';
 import executorGenerator from '@nx/plugin/src/generators/executor/executor';

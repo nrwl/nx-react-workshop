@@ -4,7 +4,6 @@ import {
   Tree,
   updateJson,
   getProjects,
-  addDependenciesToPackageJson,
   installPackagesTask,
   readJson,
 } from '@nx/devkit';

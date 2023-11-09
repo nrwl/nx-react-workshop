@@ -32,7 +32,7 @@ In this lab we'll generate our first React application within the new monorepo.
 3. Add the React plugin: `npm i -S @nx/react` (or `yarn add @nx/react` or `pnpm add @nx/react`)
    <br />
 
-4. Let's also add Material UI so we can use some of their components: `npm i -S @material-ui/core` (or `yarn add @material-ui/core` or `pnpm add @material-ui/core`)
+4. Let's also add Material UI so we can use some of their components: `npm i -S @mui/material @emotion/react @emotion/styled` (or `yarn add ...` or `pnpm add ...`)
    <br />
 
 5. Use the [`@nx/react` plugin](https://nx.dev/nx-api/react/generators/application) to generate an React app called `store` in your new workspace

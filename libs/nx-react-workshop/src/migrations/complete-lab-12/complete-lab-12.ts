@@ -30,10 +30,6 @@ export default function update(host: Tree) {
     'util-interface': {
       tags: ['scope:shared', 'type:util'],
     },
-    'store-ui-shared-e2e': {
-      tags: ['scope:store', 'type:e2e'],
-      implicitDependencies: ['store-ui-shared'],
-    },
   };
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
   Object.keys(projectUpdates).forEach((projectName) => {
@@ -82,7 +78,7 @@ describe('Dependencies', () => {
   it('should fail linting when tag rules are applied', async () => {
     writeFileSync(
       'libs/util-interface/src/index.ts',
-      \`import {} from '@bg-hoard/store/ui-shared';
+      \`import {} from '@bg-hoard/store-ui-shared';
 
 export * from './lib/api-util-interface';
 \`

@@ -16,6 +16,8 @@ export default async function update(host: Tree) {
   // nx generate @nx/express:application api --frontendProject=store
   await applicationGenerator(host, {
     name: 'api',
+    directory: 'apps/api',
+    projectNameAndRootFormat: 'as-provided',
     frontendProject: 'store',
     skipFormat: true,
     skipPackageJson: false,
@@ -89,12 +91,12 @@ server.on('error', console.error);
     'apps/api-e2e/src/api/api.spec.ts',
     `import axios from 'axios';
     import { exec } from 'child_process';
-    
+
     describe('GET /api/games', () => {
       it('should return a list of games', async () => {
         exec('nx serve api');
         const res = await axios.get(\`/api/games\`);
-    
+
         expect(res.status).toBe(200);
         expect(res.data).toMatchObject([
           {

@@ -7,8 +7,9 @@ export default async function update(host: Tree) {
   // nx generate @nx/react:library feature-game-detail --directory=store --appProject=store --no-component
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await libraryGenerator(host, {
-    name: 'feature-game-detail',
-    directory: 'store',
+    name: 'store-feature-game-detail',
+    directory: 'libs/store/feature-game-detail',
+    projectNameAndRootFormat: 'as-provided',
     component: false,
     appProject: 'store',
     style: 'css',
@@ -22,23 +23,23 @@ export default async function update(host: Tree) {
     `import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import { Header } from '@bg-hoard/store/ui-shared';
-import { formatRating } from '@bg-hoard/store/util-formatters';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Header } from '@bg-hoard/store-ui-shared';
+import { formatRating } from '@bg-hoard/store-util-formatters';
 
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
+import { StoreFeatureGameDetail } from '@bg-hoard/store-feature-game-detail';
 
 export const App = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Header />
+      <Header title="Board Game Hoard" />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
@@ -100,10 +101,10 @@ export default App;
     `import { useParams } from 'react-router-dom';
 import styles from './store-feature-game-detail.module.scss';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 /* eslint-disable-next-line */
 export interface StoreFeatureGameDetailProps {}

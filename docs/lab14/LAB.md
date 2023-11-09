@@ -18,11 +18,11 @@
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
-- Refer to the [docs](https://nx.dev/latest/angular/nx-devkit/index#updatejson)
-- Use this utility:
-  - `import { updateJson } from '@nx/devkit';`
-- As always, the answer is in the [the solution](SOLUTION.md). Try a few different approaches on your own first.
-</details>
+   - Refer to the [docs](https://nx.dev/nx-api/devkit/documents/updateJson)
+   - Use this utility:
+     - `import { updateJson } from '@nx/devkit';`
+   - As always, the answer is in the [the solution](SOLUTION.md). Try a few different approaches on your own first.
+   </details>
 
 ⚠️&nbsp;&nbsp;When you run the above, it might complain that you haven't supplied a `name`. Since
 we don't need this property in the generate, you can remove it from the schema.
@@ -33,7 +33,7 @@ we don't need this property in the generate, you can remove it from the schema.
 - When large teams work in the same workspace, they will occasionally be adding new projects and hence, **new scope tags**
 - We want to make sure that scope tags specified in our `util-lib` generator are up to date and take into account all these new scopes that teams have been adding
 - We want to check if there is a new scope tag in any of our `project.json` files and update our generator schema
-- We can use the [`getProjects`](https://nx.dev/l/a/nx-devkit/index#getprojects) util to read all the projects at once.
+- We can use the [`getProjects`](https://nx.dev/nx-api/devkit/documents/getProjects) util to read all the projects at once.
 - **BONUS:** Modify your generator so it fetches list of scopes from all the `project.json` files and updates the schema in util-lib with any new ones
 
   ⚠️ You can use the function provided in the Hint to extract the `scopes`
@@ -99,7 +99,7 @@ we don't need this property in the generate, you can remove it from the schema.
    <summary>🐳 Hint</summary>
 
    ```shell
-   nx generate app vide-games --tags=scope:vide-games
+   nx generate app video-games --tags=scope:video-games
    ```
 
    </details>
@@ -115,6 +115,8 @@ we don't need this property in the generate, you can remove it from the schema.
    generator automatically before each commit. This will ensure developers never forget to add
    their scope files.
    <br /> <br />
+
+10. **BONUS BONUS BONUS** - create a test to automate verification of this generator in `libs/internal-plugin/src/generators/update-scope-schema/generator.spec.ts`. This will be particularly difficult, as you'll need to create a project with the actual source code of your `util-lib` generator as part of the setup for this test. (Check [the solution](SOLUTION.md) if you get stuck!)
 
 ---
 

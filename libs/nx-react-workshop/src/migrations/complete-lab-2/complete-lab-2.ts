@@ -14,7 +14,9 @@ export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
     tree,
     {
-      '@material-ui/core': 'latest',
+      '@mui/material': 'latest',
+      '@emotion/react': 'latest',
+      '@emotion/styled': 'latest',
     },
     {
       '@nx/react': dependencies['@nx/react'],
@@ -23,8 +25,9 @@ export default async function update(tree: Tree) {
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await applicationGenerator(tree, {
     name: 'store',
-    babelJest: true,
     e2eTestRunner: 'cypress',
+    directory: 'apps/store',
+    projectNameAndRootFormat: 'as-provided',
     skipFormat: true,
     linter: Linter.EsLint,
     style: 'scss',
@@ -111,11 +114,11 @@ export default async function update(tree: Tree) {
     `import styles from './app.module.scss';
   import { getAllGames } from '../fake-api';
 
-  import Card from '@material-ui/core/Card';
-  import CardActionArea from '@material-ui/core/CardActionArea';
-  import CardContent from '@material-ui/core/CardContent';
-  import CardMedia from '@material-ui/core/CardMedia';
-  import Typography from '@material-ui/core/Typography';
+  import Card from '@mui/material/Card';
+  import CardActionArea from '@mui/material/CardActionArea';
+  import CardContent from '@mui/material/CardContent';
+  import CardMedia from '@mui/material/CardMedia';
+  import Typography from '@mui/material/Typography';
 
   export const App = () => {
     return (
@@ -160,7 +163,7 @@ export default async function update(tree: Tree) {
     'apps/store-e2e/src/e2e/app.cy.ts',
     `describe('store', () => {
     beforeEach(() => cy.visit('/'));
-  
+
     it('should have 3 games', () => {
       cy.contains('Settlers in the Can');
       cy.contains('Chess Pie');

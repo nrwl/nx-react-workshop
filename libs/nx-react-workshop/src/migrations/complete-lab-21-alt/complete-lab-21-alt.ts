@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploying apps
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v4
       - uses: bahmutov/npm-install@v1.4.5
       - run: npm run nx build store -- --configuration=production
       - run: npm run nx build admin-ui -- --configuration=production

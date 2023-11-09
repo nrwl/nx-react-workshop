@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './game-detail.module.scss';
 
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
-import { formatRating } from '@bg-hoard/store/util-formatters';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardHeader from '@mui/material/CardHeader';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import CardMedia from '@mui/material/CardMedia';
+import { formatRating } from '@bg-hoard/store-util-formatters';
 
 /* eslint-disable-next-line */
 export interface StoreFeatureGameDetailProps {}
@@ -88,6 +88,6 @@ export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
       )}
     </div>
   );
-};
+}
 
 export default StoreFeatureGameDetail;

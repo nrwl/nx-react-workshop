@@ -1,4 +1,4 @@
-import { Tree } from '@nrwl/devkit';
+import { Tree } from '@nx/devkit';
 import * as ts from 'typescript';
 import { insertImport as astInsertImport } from '@nx/js';
 

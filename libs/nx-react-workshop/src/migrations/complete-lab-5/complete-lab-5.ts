@@ -5,8 +5,9 @@ import { libraryGenerator } from '@nx/js';
 export default async function update(host: Tree) {
   // nx generate @nx/js:lib util-formatters --directory=store
   await libraryGenerator(host, {
-    name: 'util-formatters',
-    directory: 'store',
+    name: 'store-util-formatters',
+    directory: 'libs/store/util-formatters',
+    projectNameAndRootFormat: 'as-provided',
   });
 
   host.write(
@@ -22,18 +23,18 @@ export default async function update(host: Tree) {
     `import styles from './app.module.scss';
 import { getAllGames } from '../fake-api';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import { Header } from '@bg-hoard/store/ui-shared';
-import { formatRating } from '@bg-hoard/store/util-formatters';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Header } from '@bg-hoard/store-ui-shared';
+import { formatRating } from '@bg-hoard/store-util-formatters';
 
 export const App = () => {
   return (
     <>
-      <Header />
+      <Header title="Board Game Hoard" />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
           {getAllGames().map((x) => (
@@ -99,7 +100,7 @@ export default defineConfig({
     'apps/store-e2e/src/e2e/app.cy.ts',
     `describe('store', () => {
       beforeEach(() => cy.visit('/'));
-    
+
       it('should have 3 games', () => {
         cy.contains('Settlers in the Can');
         cy.contains('Chess Pie');

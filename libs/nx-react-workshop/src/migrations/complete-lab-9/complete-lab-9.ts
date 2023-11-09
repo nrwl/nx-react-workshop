@@ -6,8 +6,9 @@ import { libraryGenerator } from '@nx/js';
 export default async function update(host: Tree) {
   // nx generate @nx/js:lib util-interface --directory=api
   await libraryGenerator(host, {
-    name: 'util-interface',
-    directory: 'api',
+    name: 'api-util-interface',
+    directory: 'libs/api/util-interface',
+    projectNameAndRootFormat: 'as-provided',
   });
   host.write(
     'libs/api/util-interface/src/lib/api-util-interface.ts',
@@ -72,19 +73,19 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
 
   import styles from './app.module.scss';
 
-  import { Header } from '@bg-hoard/store/ui-shared';
+  import { Header } from '@bg-hoard/store-ui-shared';
 
-  import Card from '@material-ui/core/Card';
-  import CardActionArea from '@material-ui/core/CardActionArea';
-  import CardContent from '@material-ui/core/CardContent';
-  import CardMedia from '@material-ui/core/CardMedia';
-  import Typography from '@material-ui/core/Typography';
+  import Card from '@mui/material/Card';
+  import CardActionArea from '@mui/material/CardActionArea';
+  import CardContent from '@mui/material/CardContent';
+  import CardMedia from '@mui/material/CardMedia';
+  import Typography from '@mui/material/Typography';
 
-  import { formatRating } from '@bg-hoard/store/util-formatters';
+  import { formatRating } from '@bg-hoard/store-util-formatters';
 
   import { Routes, Route, useNavigate } from 'react-router-dom';
 
-  import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
+  import { StoreFeatureGameDetail } from '@bg-hoard/store-feature-game-detail';
   import { Game } from '@bg-hoard/util-interface';
 
   export const App = () => {
@@ -121,7 +122,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
 
     return (
       <>
-        <Header />
+        <Header title="Board Game Hoard" />
         <div className={styles['container']}>
           <div className={styles['games-layout']}>
             {state.loadingState === 'loading'
@@ -182,14 +183,14 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
   import { useParams } from 'react-router-dom';
   import styles from './game-detail.module.css';
 
-  import Button from '@material-ui/core/Button';
-  import Card from '@material-ui/core/Card';
-  import CardActions from '@material-ui/core/CardActions';
-  import CardHeader from '@material-ui/core/CardHeader';
-  import CardContent from '@material-ui/core/CardContent';
-  import Typography from '@material-ui/core/Typography';
-  import CardMedia from '@material-ui/core/CardMedia';
-  import { formatRating } from '@bg-hoard/store/util-formatters';
+  import Button from '@mui/material/Button';
+  import Card from '@mui/material/Card';
+  import CardActions from '@mui/material/CardActions';
+  import CardHeader from '@mui/material/CardHeader';
+  import CardContent from '@mui/material/CardContent';
+  import Typography from '@mui/material/Typography';
+  import CardMedia from '@mui/material/CardMedia';
+  import { formatRating } from '@bg-hoard/store-util-formatters';
   import { Game } from '@bg-hoard/util-interface';
 
   /* eslint-disable-next-line */
@@ -278,7 +279,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
     'apps/api-e2e/src/api/graph.spec.ts',
     `import { execSync } from 'child_process';
     import { readFileSync } from 'node:fs';
-    
+
     describe('Dependencies', () => {
       it('should have three dependencies on util-interface', async () => {
         execSync('nx graph --file=graph.json');
