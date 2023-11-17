@@ -39,7 +39,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
    ```typescript
-   import { Game } from '@bg-hoard/api/util-interface';
+   import { Game } from '@bg-hoard/api-util-interface';
    const games: Game[] = [...];
    ```
 
@@ -115,7 +115,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
     Frontend store shell app: `apps/store/src/app/app.tsx`
 
     ```typescript
-    import { Game } from '@bg-hoard/util-interface';
+    import { Game } from '@bg-hoard/api-util-interface';
 
     const [state, setState] = useState<{
       data: Game[];

@@ -14,9 +14,9 @@ In the previous labs we set up automatic deployments. But everytime we push to m
 
 1.  Update your `deploy.yml` file so that it builds only the affected apps, and it deploys only the affected apps
 
-        ⚠️&nbsp;&nbsp;You can compare against the previous commit for now: `--base=HEAD~1`
+⚠️&nbsp;&nbsp;You can compare against the previous commit for now: `--base=HEAD~1`
 
-    <br />
+<br />
 
 2.  If you haven't already, ensure you run your "affected" commands in parallel
     <br />
@@ -61,32 +61,29 @@ In the previous labs we set up automatic deployments. But everytime we push to m
 
 5.  Right after the `npm-install` step, let's trigger the action to get the last successful commit:
 
-        ```yml
-        - uses: bahmutov/npm-install@v1
-        - uses: nrwl/nx-set-shas@v4
-          with:
-            main-branch-name: 'main' # remember to set this correctly
-        ```
+```yml
+- uses: bahmutov/npm-install@v1
+- uses: nrwl/nx-set-shas@v4
+  with:
+    main-branch-name: 'main' # remember to set this correctly
+```
 
-    <br />
+<br />
 
 6.  You can now use the output from the above action in your affected commands:
 
-        ```bash
-        --base=${{ env.NX_BASE }}
-        ```
+```bash
+--base=${{ env.NX_BASE }}
+```
 
-    <br />
 
 7.  By default, the `actions/checkout` action only fetches the last commit (for efficiency). But since we now might want to compare against a larger range of commits, we need to tell it to fetch more:
 
-        ```yaml
-        - uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
-        ```
-
-    <br />
+```yaml
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+```
 
 8.  Commit everything and push. Let it build. It should compare against the immediately previous commit (because your workflow ran against it, and it passed)
     <br />

@@ -42,20 +42,21 @@ In this lab we'll be setting up GitHub actions to build and deploy our projects 
 
 3.  Our "deploy" targets are using some secret ENV variables though. We'll need to make these available on GitHub: 1. Go to your GitHub workshop repo 2. Click on **"Settings"** at the top 3. Then **"Secrets"** on the left menu bar 4. Add values for all the variables we've been keeping in `.local.env` files
 
-        ![GitHub secrets](./github_secrets.png)
 
-    <br />
+<img src="./github_secrets.png" height="300" alt="GitHub secrets">
+
+<br />
 
 4.  Then back in our `deploy.yml` file, let's expose these secrets to the processes (use `ci.yml` as an example of where to put these):
 
-        ```yml
-        env:
-          SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
-          SURGE_DOMAIN_ADMIN_UI: ${{ secrets.SURGE_DOMAIN_ADMIN_UI }}
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        ```
+```yml
+env:
+  SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
+  SURGE_DOMAIN_ADMIN_UI: ${{ secrets.SURGE_DOMAIN_ADMIN_UI }}
+  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+```
 
-    <br />
+<br />
 
 5.  Since we'll be re-deploying, we want to test if we're looking at a new version of our code: - Make a change to your AdminUI (maybe change the text in the header) - Make a change to your Store (maybe change the title in the header)
     <br />
