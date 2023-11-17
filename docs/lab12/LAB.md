@@ -71,11 +71,9 @@
 
 10. **Run linting** again and check if all the errors went away.
 
-        💡&nbsp;&nbsp;Pass the suggested `--only-failed` option, so it doesn't relint everything.
+💡&nbsp;&nbsp;Pass the suggested `--only-failed` option, so it doesn't relint everything.
 
-    <br />
-
-11. **Commit everything** before moving on to the next lab
+11.  **Commit everything** before moving on to the next lab
     <br />
 
 ---

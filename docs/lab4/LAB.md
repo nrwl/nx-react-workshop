@@ -47,22 +47,21 @@ Let's add a header to our app! Because headers can be shared with other componen
 
     - Add your new component to `apps/store/src/app/app.tsx`
 
-        <details>
-        <summary>🐳 &nbsp;&nbsp;Hint</summary>
+    <details><summary>🐳 &nbsp;&nbsp;Hint</summary>
 
     ```typescript
     import { Header } from '@bg-hoard/store-ui-shared';
     ```
 
     ```html
-    <header title="Board Game Hoard" />
+    <Header title="Board Game Hoard" />
     <!-- right at the top - above our container -->
     <div className="{styles['container']}"></div>
     ```
 
     Wrap the App component in a fragment (`<>` and `</>`)
 
-        </details>
+    </details>
 
     ⚠️&nbsp;&nbsp;You might need to restart the TS compiler in your editor (`CTRL+SHIFT+P` in VSCode and search for `Restart Typescript`)
     <br />
@@ -70,7 +69,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 6.  Serve the project and test the changes
     <br />
 
-7.  Run the command to inspect the dependency graph - What do you see? (Remember to "Select all" in the top left corner)
+7.  Run the command to inspect the dependency graph - What do you see? (Remember to "Show all projects" in left sidebar)
      <details>
      <summary>🐳 &nbsp;&nbsp;Hint</summary>
 

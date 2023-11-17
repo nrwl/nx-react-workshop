@@ -44,20 +44,20 @@
    3. Then **"Secrets"** on the left menu bar
    4. Add values for all the variables we've been keeping in `.local.env` files
 
-   ![GitHub secrets](./github_secrets.png)
-   <br />
+<img src="./github_secrets.png" height="300" alt="GitHub secrets">
+<br />
 
 4. Then back in our `deploy.yml` file, let's expose these secrets to the processes (use `ci.yml` as an example of where to put these):
 
-   ```yml
-   env:
-     SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
-     SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-     FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-     NX_API_URL: https://<your-app-name>.fly.dev
-   ```
+```yml
+env:
+  SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
+  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  NX_API_URL: https://<your-app-name>.fly.dev
+```
 
-   <br />
+<br />
 
 5. Since we'll be re-deploying, we want to test if we're looking at a new version of our code:
 

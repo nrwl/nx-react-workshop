@@ -33,7 +33,7 @@ All the Express specific code for serving the games is provided in the solution.
 
    ⚠️&nbsp;&nbsp;Make sure you instruct the generator to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)<br />
 
-4. Copy the code from the `fake api` to the new file `apps/api/src/app/`[games.repository.ts](../../examples/lab7/apps/api/src/app/games.repository.ts)
+4. Copy the code from the `fake api` to a new file called `apps/api/src/app/`[games.repository.ts](../../examples/lab7/apps/api/src/app/games.repository.ts)
    <br/>
 
 5. Update the Express [main.ts](../../examples/lab7/apps/api/src/main.ts) to use the repository data

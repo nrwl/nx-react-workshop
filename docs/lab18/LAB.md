@@ -52,9 +52,7 @@
     ⚠️&nbsp;&nbsp;You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server yet to get the games from.
     <br />
 
-    ```
 
-    ```
 
 5.  Let's now abstract away the above command into an Nx target. Generate a new **"deploy"** target using the `@nx/workspace:run-commands` generator:
 
@@ -94,12 +92,12 @@
     ⚠️&nbsp;&nbsp;Note for Windows users: the command might fail, as we're trying to access env variables the Linux-way.
     To make it pass, you can generate a separate `windows-deploy` executor (make sure you keep the existing `deploy` target intact - it will be used by GitHub Actions):
 
-        ```bash
-        nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN_STORE% --token %SURGE_TOKEN%"
-        nx windows-deploy store
-        ```
+```bash
+nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN_STORE% --token %SURGE_TOKEN%"
+nx windows-deploy store
+```
 
-    <br />
+<br />
 
 ---
 

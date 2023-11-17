@@ -21,9 +21,11 @@ The storybook generator we invoked earlier also generated some tests. Let's try 
     <details>
     <summary>🐳 Hint</summary>
    ```ts
+
    args: {
      title: 'Welcome to Board Game Hoard';
    }
+
    ```
    </details>
 
@@ -34,7 +36,9 @@ The storybook generator we invoked earlier also generated some tests. Let's try 
     <details>
     <summary>🐳 Hint</summary>
    ```ts
+
    expect(canvas.getByText(/Welcome to Board Game Hoard/gi)).toBeTruthy();
+   
    ```
    </details>
 

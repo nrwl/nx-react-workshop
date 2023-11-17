@@ -32,7 +32,7 @@ export default async function update(host: Tree) {
 
   host.write(
     'apps/api/src/app/games.repository.ts',
-    `import { Game } from '@bg-hoard/util-interface';
+    `import { Game } from '@bg-hoard/api-util-interface';
 const games: Game[] = [
   {
     id: 'settlers-in-the-can',
@@ -86,7 +86,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
   import { Routes, Route, useNavigate } from 'react-router-dom';
 
   import { StoreFeatureGameDetail } from '@bg-hoard/store-feature-game-detail';
-  import { Game } from '@bg-hoard/util-interface';
+  import { Game } from '@bg-hoard/api-util-interface';
 
   export const App = () => {
     const navigate = useNavigate();
@@ -191,7 +191,7 @@ export const getGame = (id: string) => games.find((game) => game.id === id);
   import Typography from '@mui/material/Typography';
   import CardMedia from '@mui/material/CardMedia';
   import { formatRating } from '@bg-hoard/store-util-formatters';
-  import { Game } from '@bg-hoard/util-interface';
+  import { Game } from '@bg-hoard/api-util-interface';
 
   /* eslint-disable-next-line */
   export interface StoreFeatureGameDetailProps {}

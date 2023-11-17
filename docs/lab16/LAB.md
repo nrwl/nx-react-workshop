@@ -81,23 +81,24 @@
 
 10. Let's try a different command - in the same folder you are in, try to run:
 
-        ```
-        nx run-many --target=lint --all
-        ```
+```
+nx run-many --target=lint --all
+```
 
-        🕑 It should start the linting work, and take a few seconds...
+🕑 It should start the linting work, and take a few seconds...
 
-    <br />
 
-11. Now let's go back to our main workshop repository and run:
+<br />
 
-        ```
-        nx run-many --target=lint --all
-        ```
+11.  Now let's go back to our main workshop repository and run:
 
-        ⚡ It should pull again from the NxCloud cache...This is even works across laptops! CI will use it as well!
+```
+nx run-many --target=lint --all
+```
 
-    <br />
+⚡ It should pull again from the NxCloud cache...This is even works across laptops! CI will use it as well!
+
+<br />
 
 ---
 
