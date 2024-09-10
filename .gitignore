@@ -46,3 +46,4 @@ Thumbs.db
 .bashrc
 .nx
 .nx/cache
+.nx/workspace-data
