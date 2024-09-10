@@ -3,6 +3,8 @@ import { ExecSyncOptionsWithStringEncoding, execSync } from 'child_process';
 import { ensureDirSync, removeSync, existsSync } from 'fs-extra';
 import { dirname, join } from 'path';
 
+const LAB_INDICES = Array.from({ length: 22 }, (_, i) => [i + 1]);
+
 describe('nx-react-workshop e2e', () => {
   describe('migrations for alternative option', () => {
     it('should run the migrations', () => {
@@ -11,18 +13,16 @@ describe('nx-react-workshop e2e', () => {
       expect(() => checkFilesExist(`node_modules/.bin/nx`)).not.toThrow();
     }, 120000);
 
-    for (let i = 1; i < 23; i++) {
-      it(`should complete lab ${i}`, () => {
-        runNxCommand(
-          `generate @nrwl/nx-react-workshop:complete-labs --lab=${i} --option=option1`
-        );
-        runNxCommand('migrate --run-migrations=migrations.json --verbose');
-        runNxCommand(
-          'run-many --target=e2e --parallel=false --exclude=internal-plugin-e2e'
-        );
-        runNxCommand('run-many --target=lint --parallel=false');
-      });
-    }
+    it.each(LAB_INDICES)(`should complete lab %i`, (i) => {
+      runNxCommand(
+        `generate @nrwl/nx-react-workshop:complete-labs --lab=${i} --option=option1`
+      );
+      runNxCommand('migrate --run-migrations=migrations.json --verbose');
+      runNxCommand(
+        'run-many --target=e2e --parallel=false --exclude=internal-plugin-e2e'
+      );
+      runNxCommand('run-many --target=lint --parallel=false');
+    });
   });
 
   describe('migrations for deployment path', () => {
@@ -32,18 +32,16 @@ describe('nx-react-workshop e2e', () => {
       expect(() => checkFilesExist(`node_modules/.bin/nx`)).not.toThrow();
     }, 120000);
 
-    for (let i = 1; i < 23; i++) {
-      it(`should complete lab ${i}`, () => {
-        runNxCommand(
-          `generate @nrwl/nx-react-workshop:complete-labs --lab=${i} --option=option2`
-        );
-        runNxCommand('migrate --run-migrations=migrations.json');
-        runNxCommand(
-          'run-many --target=e2e --parallel=false --exclude=internal-plugin-e2e'
-        );
-        runNxCommand('run-many --target=lint --parallel=false');
-      });
-    }
+    it.each(LAB_INDICES)(`should complete lab %i`, (i) => {
+      runNxCommand(
+        `generate @nrwl/nx-react-workshop:complete-labs --lab=${i} --option=option2`
+      );
+      runNxCommand('migrate --run-migrations=migrations.json');
+      runNxCommand(
+        'run-many --target=e2e --parallel=false --exclude=internal-plugin-e2e'
+      );
+      runNxCommand('run-many --target=lint --parallel=false');
+    });
   });
 });
 
@@ -59,9 +57,7 @@ function createNewWorkspace() {
   removeSync(tmpProjPath());
   // create new workspace
   execSync(
-    `node ${require.resolve(
-      'nx'
-    )} new ${scope} --nx-workspace-root=${localTmpDir} --no-interactive --skip-install --collection=@nx/workspace --npmScope=${scope} --preset=apps --packageManager=npm`,
+    `npx create-nx-workspace ${scope} --no-interactive --skip-install --preset=apps --packageManager=npm --ci=skip`,
     {
       cwd: localTmpDir,
     }
@@ -83,7 +79,7 @@ function createNewWorkspace() {
 function checkFilesExist(...expectedPaths) {
   expectedPaths.forEach((path) => {
     const filePath = join(tmpProjPath(), path);
-    if (!execSync(filePath)) {
+    if (!existsSync(filePath)) {
       throw new Error(`'${filePath}' does not exist`);
     }
   });

@@ -15,7 +15,7 @@ export default async function update(host: Tree) {
   );
   // nx generate @nx/react:storybook-configuration store-ui-shared
   await storybookConfigurationGenerator(host, {
-    name: 'store-ui-shared',
+    project: 'store-ui-shared',
     configureCypress: false,
     generateStories: true,
     interactionTests: true,
