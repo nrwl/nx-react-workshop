@@ -31,11 +31,10 @@ describe('nx-react-workshop', () => {
     });
 
     // A noop to verify generator works and setup project in an "initial state"
-    execSync(`nx generate @nrwl/nx-react-workshop:complete-labs --lab=0`, {
-      cwd: projectDirectory,
-      stdio: 'inherit',
-      env: process.env,
-    });
+    runNxCommand(
+      `generate @nrwl/nx-react-workshop:complete-labs --lab=0`,
+      projectDirectory
+    );
 
     // Make a copy of the initial project state so we can compare against it later
     emptyProjectDirectory = join(process.cwd(), 'tmp', 'empty-project');

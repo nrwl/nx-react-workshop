@@ -3,11 +3,6 @@
   "name": "nx-react-workshop",
   "version": "0.0.1",
   "generators": {
-    "nx-react-workshop": {
-      "factory": "./src/generators/nx-react-workshop/generator",
-      "schema": "./src/generators/nx-react-workshop/schema.json",
-      "description": "nx-react-workshop generator"
-    },
     "complete-labs": {
       "factory": "./src/generators/complete-labs/generator",
       "schema": "./src/generators/complete-labs/schema.json",
