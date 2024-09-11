@@ -21,6 +21,11 @@
     "@nx/eslint:lint": {
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
       "cache": true
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/libs/{projectName}"
+      }
     }
   },
   "namedInputs": {
@@ -37,6 +42,16 @@
       "!{projectRoot}/.storybook/**/*",
       "!{projectRoot}/tsconfig.storybook.json"
     ]
+  },
+  "release": {
+    "projects": ["nx-react-workshop"],
+    "version": {
+      "preVersionCommand": "nx build nx-react-workshop",
+      "generatorOptions": {
+        "packageRoot": "dist/libs/{projectName}",
+        "currentVersionResolver": "registry"
+      }
+    }
   },
   "nxCloudAccessToken": "NzdhYTRjNmQtNGYwMC00MGE0LTk2YzEtNWFlNGU1MDk3OTczfHJlYWQtd3JpdGU=",
   "nxCloudUrl": "https://staging.nx.app",
