@@ -6,17 +6,13 @@
   "tags": [],
   "targets": {
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": ["libs/nx-react-workshop/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/nx-react-workshop"],
       "options": {
-        "jestConfig": "libs/nx-react-workshop/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/nx-react-workshop/jest.config.ts"
       }
     },
     "build": {

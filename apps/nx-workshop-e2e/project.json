@@ -19,7 +19,8 @@
       "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "apps/nx-workshop-e2e/jest.config.js",
-        "runInBand": true
+        "runInBand": true,
+        "passWithNoTests": false
       },
       "dependsOn": ["nx-react-workshop:build"]
     }

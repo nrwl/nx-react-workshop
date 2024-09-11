@@ -5,3 +5,5 @@
 
 /.nx/cache
 examples
+
+/.nx/workspace-data
