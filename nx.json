@@ -46,7 +46,7 @@
   "release": {
     "projects": ["nx-react-workshop"],
     "version": {
-      "preVersionCommand": "nx build nx-react-workshop",
+      "preVersionCommand": "npx nx build nx-react-workshop",
       "generatorOptions": {
         "packageRoot": "dist/libs/{projectName}",
         "currentVersionResolver": "registry"
