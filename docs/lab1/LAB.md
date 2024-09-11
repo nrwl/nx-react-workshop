@@ -10,19 +10,19 @@
 
 <details>
   <summary>File structure</summary>
-  <img src="../assets/lab1_directory-structure.png" height="700" alt="lab7 file structure">
+  <img src="../assets/lab1_directory-structure.png" height="300" alt="lab7 file structure">
 </details>
 
 ## 🏋️‍♀️ Steps:
 
 1. Generate an empty Nx workspace for a fictional company called "The Board Game Hoard"
-   <br />
 
 2. The workspace name should be `bg-hoard`
-   <br />
 
-3. Make sure you select `None` as Stack (we will create apps manually), an `Integrated` workspace layout and `No to NxCloud` when asked
-   <br />
+3. When prompted, select:
+   - `None` as Stack (we will create apps manually)
+   - An `Integrated` workspace layout
+   - And `skip` configuring a `CI Provider` and `Remote Caching` for now (we'll set those up in a later lab)
 
 ---
 
