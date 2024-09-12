@@ -54,14 +54,8 @@
         "updateBuildableProjectDepsInPackageJson": true
       }
     },
-    "publish": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "yarn nx build nx-react-workshop",
-          "yarn publish dist/libs/nx-react-workshop"
-        ]
-      }
+    "release-dev": {
+      "command": "nx release version prerelease && nx release publish"
     }
   }
 }

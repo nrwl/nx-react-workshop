@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "nx": "nx",
-    "local-release": "ts-node -P ./scripts/tsconfig.release.json ./scripts/local-release"
+    "nx": "nx"
   },
   "private": true,
   "dependencies": {
