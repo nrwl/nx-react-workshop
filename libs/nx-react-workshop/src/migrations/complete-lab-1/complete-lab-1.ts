@@ -45,10 +45,21 @@ export default async function update(tree: Tree) {
     return json;
   });
 
+  // Lab 2
+  [
+    '.eslintignore',
+    '.eslintrc.json',
+    'jest.config.ts',
+    'jest.preset.js',
+  ].forEach((file) => tree.delete(file));
+
   // Lab 13
   tree.delete('tools/generators/util-lib');
+
   // Lab 14
   tree.delete('tools/generators/update-scope-schema');
+  tree.delete('.husky');
+
   // Lab 15
   tree.delete('.github/workflows/ci.yml');
   // Lab 19
@@ -64,11 +75,57 @@ export default async function update(tree: Tree) {
   tree.delete('tools/generators/add-deploy-target');
   // Lab 21
   tree.delete('.github/workflows/deploy.yml');
-  // Set npmScope to bg-hoard
+
+  // Reset nx.json to default
   updateJson(tree, 'nx.json', (json) => {
-    json.npmScope = 'bg-hoard';
-    return json;
+    const newJson = {
+      $schema: './node_modules/nx/schemas/nx-schema.json',
+      namedInputs: {
+        default: ['{projectRoot}/**/*', 'sharedGlobals'],
+        production: ['default'],
+        sharedGlobals: [],
+      },
+    };
+
+    // Keep nxCloudAccessToken if they connected their repo to Nx Cloud
+    if (json.nxCloudAccessToken) {
+      newJson['nxCloudAccessToken'] = json.nxCloudAccessToken;
+    }
+
+    return newJson;
   });
+
+  // Reset package.json to default
+  updateJson(
+    tree,
+    'package.json',
+    ({ name, version, license, dependencies, devDependencies }) => {
+      const packagesToKeep = [
+        '@nx/js',
+        '@nx/workspace',
+        'nx',
+        '@nrwl/nx-react-workshop',
+      ];
+
+      const filterDependencies = (d: Record<string, string> = {}) =>
+        Object.fromEntries(
+          Object.entries(d).filter(([packageName]) =>
+            packagesToKeep.includes(packageName)
+          )
+        );
+
+      return {
+        name,
+        version,
+        license,
+        scripts: {},
+        private: true,
+        dependencies: filterDependencies(dependencies),
+        devDependencies: filterDependencies(devDependencies),
+      };
+    }
+  );
+
   await formatFiles(tree);
   return () => {
     installPackagesTask(tree);
