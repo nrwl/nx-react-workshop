@@ -9,7 +9,7 @@ export default async () => {
   // local registry target to run
   const localRegistryTarget = '@nrwl/nx-react-workshop:local-registry';
   // storage folder for the local registry
-  const storage = './dist/local-registry/storage';
+  const storage = './tmp/local-registry/storage';
 
   global.stopLocalRegistry = await startLocalRegistry({
     localRegistryTarget,
