@@ -11,39 +11,13 @@ import { removeGenerator } from '@nx/workspace';
 import { execSync } from 'child_process';
 
 export default async function update(tree: Tree) {
-  // npx create-nx-workspace bg-hoard --preset=empty --no-nx-cloud
-  const projects = getProjects(tree);
-  const projectsToRemove = [
-    'store-e2e',
-    'store',
-    'api',
-    'api-e2e',
-    'api-util-interface',
-    'util-interface',
-    'store-feature-game-detail',
-    'ui-shared',
-    'store-ui-shared',
-    'store-ui-shared-e2e',
-    'store-util-formatters',
-    'api-util-notifications',
-    'admin-ui',
-    'admin-ui-e2e',
-    'internal-plugin',
-    'internal-plugin-e2e',
-  ].filter((removeProject) => projects.has(removeProject));
-  projectsToRemove.forEach(
-    async (projectName) =>
-      await removeGenerator(tree, {
-        projectName,
-        skipFormat: true,
-        forceRemove: true,
-      })
-  );
-  // hack to fix remove generator
-  updateJson(tree, 'tsconfig.base.json', (json) => {
-    json.compilerOptions.paths = {};
-    return json;
-  });
+  for (const [projectName] of getProjects(tree)) {
+    await removeGenerator(tree, {
+      projectName,
+      skipFormat: true,
+      forceRemove: true,
+    });
+  }
 
   // Lab 2
   [
@@ -53,11 +27,7 @@ export default async function update(tree: Tree) {
     'jest.preset.js',
   ].forEach((file) => tree.delete(file));
 
-  // Lab 13
-  tree.delete('tools/generators/util-lib');
-
   // Lab 14
-  tree.delete('tools/generators/update-scope-schema');
   tree.delete('.husky');
 
   // Lab 15
@@ -65,14 +35,12 @@ export default async function update(tree: Tree) {
   // Lab 19
   if (tree.exists('.nx-workshop.json')) {
     const { flyName } = readJson(tree, '.nx-workshop.json');
-    const flyApps = await execSync(`fly apps list`).toString();
+    const flyApps = execSync(`fly apps list`).toString();
     if (flyApps.includes(flyName)) {
       execSync(`fly apps destroy ${flyName} --yes`);
     }
     tree.delete('.nx-workshop.json');
   }
-  // Lab 19-alt
-  tree.delete('tools/generators/add-deploy-target');
   // Lab 21
   tree.delete('.github/workflows/deploy.yml');
 
@@ -88,6 +56,7 @@ export default async function update(tree: Tree) {
     };
 
     // Keep nxCloudAccessToken if they connected their repo to Nx Cloud
+    // TODO: migrate to PATs and keep ID here instead?
     if (json.nxCloudAccessToken) {
       newJson['nxCloudAccessToken'] = json.nxCloudAccessToken;
     }
@@ -127,7 +96,4 @@ export default async function update(tree: Tree) {
   );
 
   await formatFiles(tree);
-  return () => {
-    installPackagesTask(tree);
-  };
 }

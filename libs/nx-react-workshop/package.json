@@ -17,6 +17,7 @@
     "@nx/express": "19.7.2",
     "@nx/react": "19.7.2",
     "@nx/nest": "19.7.2",
-    "@nx/next": "19.7.2"
+    "@nx/next": "19.7.2",
+    "typescript": "5.5.4"
   }
 }

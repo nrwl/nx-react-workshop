@@ -23,28 +23,38 @@ In this lab we'll generate our first React application within the new monorepo.
    - install the CLI globally: `npm i -g nx`
    - if you don't want to install it globally, use `npx/yarn/pnpm nx` (depending on the installed package manager) instead of `nx` in all the commands in the upcoming labs
 
-     > Please make sure you are using the latest version of Nx (17+)
+     > Please make sure you are using the latest version of Nx (19+)
      > <br />
 
 2. Run `nx list` to see which plugins you have installed
    <br />
 
-3. Add the React plugin: `npm i -S @nx/react` (or `yarn add @nx/react` or `pnpm add @nx/react`)
+3. Add the React plugin: `nx add @nx/react`
    <br />
 
-4. Let's also add Material UI so we can use some of their components: `npm i -S @mui/material @emotion/react @emotion/styled` (or `yarn add ...` or `pnpm add ...`)
+4. Let's also add Material UI so we can use some of their components: 
+   ```sh
+   npm i -S @mui/material @emotion/react @emotion/styled
+   # (or `yarn add ...` or `pnpm add ...`)
+   ```
    <br />
 
-5. Use the [`@nx/react` plugin](https://nx.dev/nx-api/react/generators/application) to generate an React app called `store` in your new workspace
+5. Use the [`@nx/react` plugin](https://nx.dev/nx-api/react/generators/application) to generate an React app called `store` in the `apps` directory of your new workspace by passing the `--directory=apps/store` option.
 
-   ⚠️**Important:** Make sure you **add React Router**, select **SCSS** as a style, select **cypress** as E2E test runner, and use the **Webpack** bundler when asked!
+   ⚠️**Important** Make sure to select the following when prompted:
+
+   - **SCSS** as a stylesheet format
+   - add **React Router**
+   - **cypress** as the E2E test runner
+   - **Webpack** for bundling
+   - use the project name and location **[As Provided](https://nx.dev/deprecated/as-provided-vs-derived)**
 
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
    <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
    </details><br />
 
-6. Create a `fake-api.ts` file in your new app's `src` folder that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api/index.ts))
+6. Create a `fake-api/index.ts` file in your new app's `src` folder that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api.ts))
 
    ⏳**Reminder:** When you are given example files to copy, the folder they're in hints to the _folder_ and _filename_ you can place them in when you do the copying
    <br />

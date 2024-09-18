@@ -41,7 +41,13 @@ When updating:
 1. Use the migration generator to jump to the lab before the being updating
 
    ```sh
-   nx generate @nrwl/nx-react-workshop:complete-labs --from=1 --to=<the-prior-lab-number>
+   # Reset the repo (currently required as a separate step due to issue with getProjects)
+   # See comment in nx-workspace-e2e/tests/nx-workshop.spec.ts for more details
+   nx generate @nrwl/nx-react-workshop:complete-labs 1
+   nx migrate --run-migrations=migrations.json --verbose
+
+   # Run migrations to the prior lab
+   nx generate @nrwl/nx-react-workshop:complete-labs --from=2 --to=<the-prior-lab-number>
    nx migrate --run-migrations=migrations.json --verbose
    ```
 
@@ -59,8 +65,12 @@ When updating:
    # git commit
    git add . && git commit -m 'manually run through completion steps'
 
-   # reset repo state and migrate to end of lab:
-   nx generate @nrwl/nx-react-workshop:complete-labs --from=1 --to=<the-lab-being-updated>
+   # reset repo state
+   nx generate @nrwl/nx-react-workshop:complete-labs 1
+   nx migrate --run-migrations=migrations.json --verbose
+
+   # migrate to end of lab
+   nx generate @nrwl/nx-react-workshop:complete-labs --from=2 --to=<the-lab-being-updated>
    nx migrate --run-migrations=migrations.json --verbose
 
    # Verify there are no differences
