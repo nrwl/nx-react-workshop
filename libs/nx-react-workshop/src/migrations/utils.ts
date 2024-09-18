@@ -1,7 +1,6 @@
-import { generateFiles, OverwriteStrategy, Tree } from '@nx/devkit';
+import { Tree } from '@nx/devkit';
 import * as ts from 'typescript';
 import { insertImport as astInsertImport } from '@nx/js';
-import { join } from 'path';
 
 export function replaceInFile(
   host: Tree,
