@@ -41,7 +41,13 @@ When updating:
 1. Use the migration generator to jump to the lab before the being updating
 
    ```sh
-   nx generate @nrwl/nx-react-workshop:complete-labs --from=1 --to=<the-prior-lab-number>
+   # Reset the repo (currently required as a separate step due to issue with getProjects)
+   # See comment in nx-workspace-e2e/tests/nx-workshop.spec.ts for more details
+   nx generate @nrwl/nx-react-workshop:complete-labs 1
+   nx migrate --run-migrations=migrations.json --verbose
+
+   # Run migrations to the prior lab
+   nx generate @nrwl/nx-react-workshop:complete-labs --from=2 --to=<the-prior-lab-number>
    nx migrate --run-migrations=migrations.json --verbose
    ```
 
@@ -59,10 +65,62 @@ When updating:
    # git commit
    git add . && git commit -m 'manually run through completion steps'
 
-   # reset repo state and migrate to end of lab:
-   nx generate @nrwl/nx-react-workshop:complete-labs --from=1 --to=<the-lab-being-updated>
+   # reset repo state
+   nx generate @nrwl/nx-react-workshop:complete-labs 1
+   nx migrate --run-migrations=migrations.json --verbose
+
+   # migrate to end of lab
+   nx generate @nrwl/nx-react-workshop:complete-labs --from=2 --to=<the-lab-being-updated>
    nx migrate --run-migrations=migrations.json --verbose
 
    # Verify there are no differences
    git status # should show no changes
    ```
+
+<details>
+<summary>A helper utility script</summary>
+
+```bash
+#! /usr/bin/env bash
+
+set -euxo pipefail
+
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <lab number>"
+  exit 1
+fi
+
+LAB_NUMBER="$1"
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+if [ ! -z "$(git status --porcelain)" ]; then
+  echo "Local changes detected. Please commit or stash them before running this script."
+  exit 1
+fi
+
+step () {
+  echo -e "\n\n${YELLOW}>>>> $1${NC}\n\n"
+}
+
+step "Updating to latest lab utility:"
+npm i @nrwl/nx-react-workshop@latest
+git add package*.json && git commit -m "chore: update to latest lab utility" || true
+
+
+step "Resetting workspace to initial state:"
+nx g complete-labs 1
+nx migrate --run-migrations=migrations.json --verbose
+nx reset
+sleep 1 # give the daemon a chance to restart
+nx show projects # should be empty
+
+step "Migrating to lab $LAB_NUMBER:"
+nx g complete-labs --from=2 --to=$LAB_NUMBER
+nx migrate --run-migrations=migrations.json --verbose
+
+step "Checking git status, this should be clean:"
+git status
+
+```
+</details>

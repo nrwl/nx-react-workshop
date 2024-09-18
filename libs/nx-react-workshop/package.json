@@ -7,16 +7,16 @@
     "migrations": "./migrations.json"
   },
   "dependencies": {
-    "nx-cloud": "19.1.0",
-    "cors": "*",
-    "node-fetch": "^2.x",
+    "@nx/devkit": "19.7.4",
     "surge": "*",
-    "@nx/workspace": "19.7.2",
-    "@nx/storybook": "19.7.2",
-    "@nx/plugin": "19.7.2",
-    "@nx/express": "19.7.2",
-    "@nx/react": "19.7.2",
-    "@nx/nest": "19.7.2",
-    "@nx/next": "19.7.2"
+    "@nx/workspace": "19.7.4",
+    "@nx/storybook": "19.7.4",
+    "@nx/plugin": "19.7.4",
+    "@nx/express": "19.7.4",
+    "@nx/react": "19.7.4",
+    "@nx/nest": "19.7.4",
+    "@nx/next": "19.7.4",
+    "@nx/webpack": "19.7.4",
+    "typescript": "5.5.4"
   }
 }

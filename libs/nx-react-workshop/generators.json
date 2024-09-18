@@ -7,6 +7,11 @@
       "factory": "./src/generators/complete-labs/generator",
       "schema": "./src/generators/complete-labs/schema.json",
       "description": "Completes the chosen labs"
+    },
+    "lab-examples": {
+      "factory": "./src/generators/lab-examples/generator",
+      "schema": "./src/generators/lab-examples/schema.json",
+      "description": "Copies the example files for a lab into the workspace"
     }
   }
 }

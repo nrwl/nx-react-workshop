@@ -49,6 +49,11 @@
             "input": "./libs/nx-react-workshop",
             "glob": "migrations.json",
             "output": "."
+          },
+          {
+            "input": "./examples",
+            "glob": "**/*",
+            "output": "./examples"
           }
         ],
         "updateBuildableProjectDepsInPackageJson": true
