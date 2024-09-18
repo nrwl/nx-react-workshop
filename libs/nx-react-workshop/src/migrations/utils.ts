@@ -1,6 +1,7 @@
-import { Tree } from '@nx/devkit';
+import { generateFiles, OverwriteStrategy, Tree } from '@nx/devkit';
 import * as ts from 'typescript';
 import { insertImport as astInsertImport } from '@nx/js';
+import { join } from 'path';
 
 export function replaceInFile(
   host: Tree,
@@ -34,5 +35,15 @@ export function stripConsoleColors(log: string): string {
     // eslint-disable-next-line no-control-regex
     /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
     ''
+  );
+}
+
+export function generateLabExamples(tree: Tree, labNumber: number) {
+  generateFiles(
+    tree,
+    join(__dirname, `../../examples/lab${labNumber}`),
+    './',
+    {},
+    { overwriteStrategy: OverwriteStrategy.Overwrite }
   );
 }
