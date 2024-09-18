@@ -32,11 +32,13 @@ In this lab we'll generate our first React application within the new monorepo.
 3. Add the React plugin: `nx add @nx/react`
    <br />
 
-4. Let's also add Material UI so we can use some of their components: 
+4. Let's also add Material UI so we can use some of their components:
+
    ```sh
    npm i -S @mui/material @emotion/react @emotion/styled
    # (or `yarn add ...` or `pnpm add ...`)
    ```
+
    <br />
 
 5. Use the [`@nx/react` plugin](https://nx.dev/nx-api/react/generators/application) to generate an React app called `store` in the `apps` directory of your new workspace by passing the `--directory=apps/store` option.
@@ -54,27 +56,24 @@ In this lab we'll generate our first React application within the new monorepo.
    <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
    </details><br />
 
-6. Create a `fake-api/index.ts` file in your new app's `src` folder that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api.ts))
+6. Add some basic styling to your new app and display the games from a fake API by copying the files from [examples/lab2](../../examples/lab2) into your workspace. To save time, we've supplied a generator that does this for you:
 
-   ⏳**Reminder:** When you are given example files to copy, the folder they're in hints to the _folder_ and _filename_ you can place them in when you do the copying
+   ```sh
+   nx generate lab-examples --lab=2
+   ```
+    <details>
+      <summary>Example Outout</summary>
+      <img src="../assets/lab2_example_generator.png" width="500" alt="screenshot of lab2 example generator">
+    </details><br />
+
+7. Serve the app: `nx serve store`
    <br />
 
-7. Add some basic styling to your new component and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.tsx](../../examples/lab2/apps/store/src/app/app.tsx) / [.scss](../../examples/lab2/apps/store/src/app/app.module.scss) - and replace the full contents of the files)
+8. See your app live at [http://localhost:4200/](http://localhost:4200/)
    <br />
 
-8. You can get the example game images from [here](../../examples/lab2/apps/store/src/assets)
-
-   ⚠️&nbsp;&nbsp;Make sure you put them in the correct folder
+9. Inspect what changed from the last time you committed, then commit your changes
    <br />
-
-9. Serve the app: `nx serve store`
-   <br />
-
-10. See your app live at [http://localhost:4200/](http://localhost:4200/)
-    <br />
-
-11. Inspect what changed from the last time you committed, then commit your changes
-    <br />
 
 ---
 

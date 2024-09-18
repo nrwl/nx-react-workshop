@@ -37,13 +37,3 @@ export function stripConsoleColors(log: string): string {
     ''
   );
 }
-
-export function generateLabExamples(tree: Tree, labNumber: number) {
-  generateFiles(
-    tree,
-    join(__dirname, `../../examples/lab${labNumber}`),
-    './',
-    {},
-    { overwriteStrategy: OverwriteStrategy.Overwrite }
-  );
-}

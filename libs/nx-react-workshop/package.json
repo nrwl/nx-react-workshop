@@ -7,9 +7,7 @@
     "migrations": "./migrations.json"
   },
   "dependencies": {
-    "nx-cloud": "19.1.0",
-    "cors": "*",
-    "node-fetch": "^2.x",
+    "@nx/devkit": "19.7.4",
     "surge": "*",
     "@nx/workspace": "19.7.4",
     "@nx/storybook": "19.7.4",
