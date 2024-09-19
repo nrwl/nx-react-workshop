@@ -1,6 +1,8 @@
 ##### 1. To build the app:
 
-`nx build store`
+```sh
+nx build store
+```
 
 ##### 4. To configure webpack to extract licenses only during production builds:
 
@@ -21,7 +23,7 @@ module.exports = {
 };
 ```
 
-##### 7. To add a development configuration to the build target:
+##### 6. To add a development configuration to the build target:
 
 In `apps/store/project.json`:
 
@@ -42,4 +44,6 @@ In `apps/store/project.json`:
 
 ##### 7. To build the app using the development configuration:
 
-`nx build store --configuration=development`
+```sh
+nx build store --configuration=development
+```
