@@ -56,8 +56,6 @@ function addExtractLicensesProperty(webpackConfig: string) {
 }
 
 export default async function update(tree: Tree) {
-  // no file changes
-
   const webpackConfig = tree.read('apps/store/webpack.config.js', 'utf-8');
   tree.write(
     'apps/store/webpack.config.js',
