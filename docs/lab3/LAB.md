@@ -27,7 +27,7 @@ We'll build the app we just created, and look at what executors are and how to c
    <img src="../assets/lab3_cmds.png" alt="Nx executor command structure">
    </details><br />
 
-2. There should be a `dist` folder in the root of the workspace- let's open it up!
+2. There should be a `dist` folder in the root of the workspace -- let's open it up!
 
    - This is the whole app's output! If we wanted to, we could push this to a server, and it would all work.
    - Notice how all files have hashes in their suffix.
