@@ -27,18 +27,20 @@ We'll build the app we just created, and look at what executors are and how to c
    <img src="../assets/lab3_cmds.png" alt="Nx executor command structure">
    </details><br />
 
-2. There should be a `dist` folder in the root of the workspace -- let's open it up!
+2. There should be a `dist` folder in the root of the workspace -- lets open it up!
 
    - This is the whole app's output! If we wanted to, we could push this to a server, and it would all work.
    - Notice how all files have hashes in their suffix.
    - Open one of the files, for example, `main.{hash}.js`, and look at its contents. Notice how it's minified.
-     <br />
+
+    <br />
 
 3. Open the **Project Details** for the `store` app and expand the `build` section listed under "Targets."
 
    - This is a **target** that uses the [`nx:run-commands`](https://nx.dev/nx-api/nx/executors/run-commands#nxruncommands) **executor** to call `webpack-cli` to build the app.
    - Since the build target uses the [`webpack-cli`](https://webpack.js.org/api/cli/), webpack can be configured using the `webpack.config.js` file in the project root.
 
+   <br />
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
    The easiest way to open the Project Details is by using the <a href="https://nx.dev/getting-started/editor-setup">Nx Console from within VS Code or a JetBrains IDE</a>. Once installed, the Project Details Views can be accessed <a href="https://nx.dev/recipes/nx-console/console-project-details"> in multiple ways</a> without leaving the editor.
@@ -51,8 +53,9 @@ We'll build the app we just created, and look at what executors are and how to c
 
    - Explore the `webpack.config.js` file for the `store` app.
    - Remember how we copied some images into our `/assets` folder earlier? Look through the webpack config and try to find how it knows to include them in the final build!
-     <br />
    - Configure webpack to `extractLicenses` into a `3rdpartylicenses.txt` file during the build, but only when the node environment is `production`.
+
+   <br />
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
@@ -64,12 +67,15 @@ We'll build the app we just created, and look at what executors are and how to c
 
    - Notice how we now have a `3rdpartylicenses.txt` file in the `dist` folder.
 
+   <br />
+
 6. Add a `development` configuration to the `build` target that changes the `node-env` argument to `development`.
 
    - Nx detects the presence of tooling configuration, in this case `webpack.config.js`, and automatically [infers targets](https://nx.dev/concepts/inferred-tasks) needed to run that tool with a set of common defaults (`build`, `preview`, `serve` in this case).
    - These targets can be modified by adding additional configuration to the `targets` key in the `project.json`.
    - Targets can have multiple configurations that allow for the execution of the same tool with different options.
 
+   <br />
    <details>
    <summary>🐳 &nbsp;&nbsp;Hint</summary>
 
